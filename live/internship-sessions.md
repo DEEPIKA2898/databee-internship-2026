@@ -38,9 +38,10 @@ Key discussion points:
 
 **Agenda:**
 1. Week check-in — what did you work on? Anything to share?
-2. Architectural discussion
+2. Platform — use and registration
 3. Use cases defined per stream
-4. Platform — use and registration
+4. Architectural discussion
+
 
 
 **Notes:**
