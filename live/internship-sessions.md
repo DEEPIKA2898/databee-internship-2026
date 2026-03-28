@@ -38,8 +38,10 @@ Key discussion points:
 
 **Agenda:**
 1. Week check-in — what did you work on? Anything to share?
-2. Use cases defined per stream
-3. Architectural discussion
+2. Architectural discussion
+3. Use cases defined per stream
+4. Platform — use and registration
+
 
 **Notes:**
 
@@ -48,57 +50,7 @@ Key discussion points:
 *(To be filled during session — what each intern worked on this week, blockers, wins)*
 
 ---
-
-### 2. Use Cases Defined per Stream
-
-Each intern now has a defined use case that will be their north star through the internship. These are end-to-end projects that build progressively each month.
-
-**Sanjeev - DE**
-
-**Use Case: Smart Retail Analytics & AI-Powered Recommendation Engine**
-
-A retail company operates both online and offline stores. They receive raw data from multiple sources — transactional databases, REST APIs, and flat files — and need an end-to-end data platform to power business reporting, customer intelligence, and an AI-assisted product recommendation system.
-
-**Data Sources:**
-- Customer & Orders DB → PostgreSQL (OLTP) — ingested via Python + SQLAlchemy
-- Product catalog → REST API (paginated JSON) — ingested via Python Requests
-- Store inventory & suppliers → CSV files (daily drops) — processed via Pandas / PySpark
-- User clickstream / behavior → JSON logs — processed via PySpark
-
-**Pipeline Stages:**
-
-- **Stage 1 — Extract (Bronze):** Ingest from all sources into cloud storage (S3/Azure Blob), partitioned by ingestion date. Raw data stored as-is.
-- **Stage 2 — Silver (Cleaning & Enrichment):** Remove nulls, duplicates, invalid records. Standardize timestamps and currency. Join orders → customers → products. Deduplicate using SQL Window Functions (ROW_NUMBER). Use CTEs for readable transformation logic.
-- **Stage 3 — Data Modeling:** Design a Star Schema (fact_orders + dim_customer, dim_product, dim_date, dim_store). Load into a cloud warehouse (Snowflake / BigQuery / Redshift).
-- **Stage 4 — Gold Layer with dbt:** Build dbt models for business metrics — revenue by product, customer lifetime value, customer segments (High/Mid/Low), store performance, inventory health. Add dbt tests (not_null, unique, custom SQL).
-- **Stage 5 — Scale with PySpark:** Re-implement Silver → Gold transformations in PySpark. Handle millions of rows with partitioning, caching. Compare Pandas vs PySpark for scale.
-- **Stage 6 — Orchestration with Airflow:** Daily DAG at 10 AM — extract → silver → gold → dbt run → notify. Add retry logic, failure alerts, backfill support, data quality sensor tasks.
-- **Stage 7 — AI Layer (RAG + Vector DB):** Embed product descriptions → store in Pinecone or pgvector. Build a RAG pipeline for semantic product search and personalized recommendations using purchase history.
-- **Stage 8 — CI/CD & Production Hardening:** GitHub Actions pipeline (lint → test → staging → prod). Environment-based dbt profiles. Bash scripts for health checks and backfills. Full documentation and architecture diagram.
-
-**Monthly Milestone Map:**
-| Month | Deliverable |
-|---|---|
-| Mar–Apr | Ingestion scripts working, raw data in cloud, Git repo set up |
-| Apr–May | Silver layer clean, Star Schema designed and loaded into warehouse |
-| May–Jun | dbt models running, Gold layer complete, dashboard ready |
-| Jun–Jul | Airflow DAG orchestrating full pipeline, PySpark re-implementation |
-| Jul–Aug | RAG layer live, CI/CD set up, capstone demo + certification |
-
-**Approach 1 — Cloud Native:** Python → S3/Azure Blob → Snowflake/BigQuery → dbt → Airflow → pgvector/Pinecone → GitHub Actions
-
-**Approach 2 — PySpark Stack:** Python + PySpark → Parquet/HDFS → PostgreSQL or Databricks → dbt → Airflow (local) → pgvector → GitHub Actions
-
-
-**Vinod - DA**
-
-
-**Vivek - ML**
-
-
----
-
-### 3. Architectural Discussion
+### 2. Architectural Discussion
 
 #### 1. Data Lifecycle
 The journey every piece of data takes through a modern data platform:
@@ -138,6 +90,87 @@ How data is physically stored on disk — this matters for performance:
 | ORC | Columnar | Optimized for Hive/Hadoop | Legacy Hadoop stacks |
 
 Key takeaway: **use Parquet or Delta for anything going into a pipeline**. CSV/JSON only at the ingestion boundary.
+---
+
+### 3. Use Cases Defined per Stream
+
+Each intern now has a defined use case that will be their north star through the internship. These are end-to-end projects that build progressively each month.
+
+**Sanjeev - DE**
+
+**Use Case: Smart Retail Analytics & AI-Powered Recommendation Engine**
+
+A retail company operates both online and offline stores. They receive raw data from multiple sources — transactional databases, REST APIs, and flat files — and need an end-to-end data platform to power business reporting, customer intelligence, and an AI-assisted product recommendation system.
+
+**Data Sources:**
+- Customer & Orders DB → PostgreSQL (OLTP) — ingested via Python + SQLAlchemy
+- Product catalog → REST API (paginated JSON) — ingested via Python Requests
+- Store inventory & suppliers → CSV files (daily drops) — processed via Pandas / PySpark
+- User clickstream / behavior → JSON logs — processed via PySpark
+
+**Pipeline Stages:**
+
+- **Stage 1 — Extract (Bronze):** Ingest from all sources into cloud storage (S3/Azure Blob), partitioned by ingestion date. Raw data stored as-is.
+- **Stage 2 — Silver (Cleaning & Enrichment):** Remove nulls, duplicates, invalid records. Standardize timestamps and currency. Join orders → customers → products. Deduplicate using SQL Window Functions (ROW_NUMBER). Use CTEs for readable transformation logic.
+- **Stage 3 — Data Modeling:** Design a Star Schema (fact_orders + dim_customer, dim_product, dim_date, dim_store). Load into a cloud warehouse (Snowflake / BigQuery / Redshift).
+- **Stage 4 — Gold Layer with dbt:** Build dbt models for business metrics — revenue by product, customer lifetime value, customer segments (High/Mid/Low), store performance, inventory health. Add dbt tests (not_null, unique, custom SQL).
+- **Stage 5 — Scale with PySpark:** Re-implement Silver → Gold transformations in PySpark. Handle millions of rows with partitioning, caching. Compare Pandas vs PySpark for scale.
+- **Stage 6 — Orchestration with Airflow:** Daily DAG at 10 AM — extract → silver → gold → dbt run → notify. Add retry logic, failure alerts, backfill support, data quality sensor tasks.
+- **Stage 7 — AI Layer (RAG + Vector DB):** Embed product descriptions → store in Pinecone or pgvector. Build a RAG pipeline for semantic product search and personalized recommendations using purchase history.
+- **Stage 8 — CI/CD & Production Hardening:** GitHub Actions pipeline (lint → test → staging → prod). Environment-based dbt profiles. Bash scripts for health checks and backfills. Full documentation and architecture diagram.
+
+
+**Approach 1 — Cloud Native:** Python → S3/Azure Blob → Snowflake/BigQuery → dbt → Airflow → pgvector/Pinecone → GitHub Actions
+
+**Approach 2 — PySpark Stack:** Python + PySpark → Parquet/HDFS → PostgreSQL or Databricks → dbt → Airflow (local) → pgvector → GitHub Actions
+
+
+**Vinod - DA**
+
+SQL Internship - Setup and Week 1 Tasks
+
+1. SQL Setup Steps
+   - Install Microsoft SQL Server 2019 Developer Edition.
+   - Install SQL Server Management Studio (SSMS).
+   - Download the AdventureWorks sample database backup file (.bak).
+   - Open SSMS and connect to the SQL Server instance.
+   - Right click on Databases and select Restore Database.
+   - Choose Device and select the downloaded .bak file.
+   - Complete the restore process and create the database.
+   - Run a sample query to confirm the setup is working.
+
+2. Week 1 SQL Practice Questions
+   - Get all records where FirstName starts with A and ends with n
+   - Find people whose LastName length is more than 6 characters
+   - Get records where FirstName contains ar but not at the start
+   - Fetch records where FirstName is exactly 5 characters long
+   - Find people where FirstName is equal to LastName
+   - Get records where FirstName has no vowels
+   - Find people whose LastName starts with same letter as FirstName
+   - Get records where FirstName starts with M and LastName ends with r
+   - Find people where FirstName starts with J or LastName starts with S but BusinessEntityID is less than 100
+   - Get records where FirstName contains a and does not contain e
+   - Find people where FirstName starts with A or B and LastName contains son
+   - Find names where second letter is a
+   - Find names where third letter is r
+   - Get names where FirstName starts and ends with same letter
+   - Find names that contain exactly one a
+   - Get names that contain at least two a characters
+   - Find records where FirstName is in John, David, Mary and BusinessEntityID is between 50 and 200
+   - Get records where FirstName is not in James, Robert and LastName starts with B
+   - Find people where BusinessEntityID is between 10 and 100 and FirstName starts with a vowel
+   - Get records where ID is between 1 and 300 but exclude even numbers
+   - Find people where FirstName starts with S and LastName ends with n or contains ar
+   - Get records where FirstName starts with a vowel and LastName does not start with a vowel
+   - Find people where FirstName length is greater than 5 and LastName length is less than 5
+   - Get records where FirstName contains a and LastName contains e and BusinessEntityID is less than 150
+   - Find people where FirstName starts with A or LastName ends with e and FirstName does not contain z and BusinessEntityID is between 10 and 200
+   - Find people where FirstName has exactly two vowels and LastName starts with same letter as FirstName and ID is not between 50 and 100
+   - Find people where FirstName contains ar only once and LastName length is greater than FirstName length
+
+
+**Vivek - ML**
+TBU
 
 ---
 
