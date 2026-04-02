@@ -18,6 +18,10 @@ action/       — Intern work artifacts: completed tasks, submissions, assignmen
 - After each session, read the transcript and summarize the discussion into **live/internship-sessions.md** under the correct session heading.
 - The live document is the source of truth for what was covered, tasks assigned, and decisions made.
 
+## Session Ordering
+
+Sessions in `live/internship-sessions.md` are ordered **latest first** — the most recent session goes at the top, older sessions below. Always insert new sessions above existing ones, not at the bottom.
+
 ## Session Notes Workflow
 
 When given a meeting transcript to process:
