@@ -34,7 +34,7 @@ Key discussion points:
 
 ## Session 2 — March 28, 2026
 
-**Attendees:** Suhash Raja, Filip Cedermark, Deepika Elangovan, Neha Doda, Kousalya (organizer), Sanjeev Kumar (mentor), Vivek (mentor), Vinod (mentor), 
+**Attendees:** Suhash Raja, Filip Cedermark, Deepika Elangovan, Neha Doda, Kousalya (organizer), Sanjeev Kumar (mentor), Vivek Prasad (mentor), Vinod (mentor), Asindu Gayangana, Nikolaos Biniaris, Elliot Eriksson
 
 **Agenda:**
 1. Week check-in — what did you work on? Anything to share?
@@ -48,10 +48,33 @@ Key discussion points:
 
 ### 1. Week Check-in
 
-*(To be filled during session — what each intern worked on this week, blockers, wins)*
+Interns shared what they worked on since Session 1:
+
+- **Suhash + group** — Reviewed the shared presentation slides; had a midweek check-in among themselves to compare tools and skills.
+- **Filip Cedermark** — Refreshed SQL fundamentals on HackerRank (basic and advanced queries). Also attended a Snowflake AI/agentic event (got in last-minute via a colleague's spare spot).
+- **Deepika Elangovan** — Recapped SQL basics; had not used SQL since joining Accenture, so focused on getting back up to speed with small queries.
+- **Asindu Gayangana** — Worked on SQL and PySpark; focused on window functions and complex joins. Subscribed to a Spark Playground for hands-on practice.
+- **Nikolaos Biniaris** — Practised SQL heavily (window functions, joins). Asked a good question: *how much do we need to manage clustering ourselves in Snowflake vs Databricks?* Sanjeev explained predictive optimization — both platforms can auto-manage clustering, but Databricks gives manual control if needed.
+- **Elliot Eriksson** — Limited prior experience with data lifecycle; had done minor data cleaning projects (null/duplicate removal) including a cancer-identification ML project.
+
+Sanjeev's advice to the group: attend platform meetups (Databricks, AWS, Microsoft, Snowflake) beyond big paid events — look up smaller user groups and meetups on meetup.com.
 
 ---
-### 2. Architectural Discussion
+
+### 2. Platform — Use and Registration
+
+Sanjeev walked through how to choose a platform to implement the use cases:
+
+- All major cloud platforms offer free/trial accounts: **Azure (ADF)**, **AWS (Glue)**, **Databricks (Lakeflow Designer / Serverless SQL — now unlimited free tier)**, **Snowflake**.
+- Recommended approach — start easy, then go deeper:
+  - **Phase 1:** Drag-and-drop tools (ADF, Glue, Lakeflow Designer) — implement the use case with minimal code to understand the concepts.
+  - **Phase 2:** Re-implement the same use case in **pure PySpark** — this is the target skill for data engineers.
+- Failures/errors encountered along the way will surface important Spark internals worth discussing in sessions.
+- **Task:** Each intern to pick a platform, spin up a trial account, and report back next session which platform they chose.
+
+---
+
+### 3. Architectural Discussion
 
 #### 1. Data Lifecycle
 The journey every piece of data takes through a modern data platform:
@@ -93,7 +116,7 @@ How data is physically stored on disk — this matters for performance:
 Key takeaway: **use Parquet or Delta for anything going into a pipeline**. CSV/JSON only at the ingestion boundary.
 ---
 
-### 3. Use Cases Defined per Stream
+### 4. Use Cases Defined per Stream
 
 Each intern now has a defined use case that will be their north star through the internship. These are end-to-end projects that build progressively each month.
 
@@ -172,6 +195,19 @@ SQL Internship - Setup and Week 1 Tasks
 
 **Vivek - ML**
 TBU
+
+---
+
+### Action Items for Next Session
+
+| # | Task | Who |
+|---|------|-----|
+| 1 | Read about distributed systems, distributed engines, and file formats. Prepare an architecture diagram of how Spark works (driver, workers, partitioning, fault tolerance) — explain it to the group. | All interns |
+| 2 | Sign up for a trial platform of your choice (Azure/AWS/Databricks/Snowflake). Report back which platform you chose. | All interns |
+| 3 | Start on Stage 1 of your assigned use case using the chosen platform. | DE / DevOps interns |
+| 4 | Sanjeev to refine the use case document and share the repo with the group. | Sanjeev |
+| 5 | Sanjeev to update DevOps and ML use case sections. | Sanjeev |
+| 6 | Continue midweek check-in among yourselves. Drop blockers/questions in Slack. | All interns |
 
 ---
 
