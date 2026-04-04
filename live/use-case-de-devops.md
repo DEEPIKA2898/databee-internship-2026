@@ -4,9 +4,9 @@
 
 ---
 
-## Smart Retail Analytics & AI-Powered Recommendation Engine
+## Smart Retail Analytics Platform
 
-A retail company operates both online and offline stores. They receive raw data from multiple sources — transactional databases, REST APIs, and flat files — and need an end-to-end data platform to power business reporting, customer intelligence, and an AI-assisted product recommendation system.
+A retail company operates both online and offline stores. They receive raw data from multiple sources — transactional databases, REST APIs, flat files, and real-time clickstream logs — and need an end-to-end data platform to power business reporting and customer intelligence.
 
 ---
 
@@ -14,71 +14,124 @@ A retail company operates both online and offline stores. They receive raw data 
 
 | Source | Type | Ingestion Method |
 |---|---|---|
-| Customer & Orders DB | PostgreSQL (OLTP) | Python + SQLAlchemy |
+| Customer & Orders DB | PostgreSQL (OLTP) | CDC via Debezium |
 | Product catalog | REST API (paginated JSON) | Python Requests |
-| Store inventory & suppliers | CSV files (daily drops) | Pandas / PySpark |
-| User clickstream / behavior | JSON logs | PySpark |
+| Store inventory & suppliers | CSV files (daily drops) | PySpark / Pandas |
+| User clickstream / behavior | JSON event stream | Kafka → Structured Streaming |
 
 ---
 
 ## Pipeline Stages
 
-### Stage 1 — Extract (Bronze)
-Ingest from all sources into cloud storage (S3 / Azure Blob), partitioned by ingestion date. Raw data stored as-is.
+### Stage 1 — Batch Ingestion (Bronze)
 
-### Stage 2 — Silver (Cleaning & Enrichment)
+Ingest from batch sources (API, CSV, initial DB full load) into cloud storage (S3 / Azure Blob / GCS), partitioned by ingestion date. Raw data stored as-is in a lakehouse table format (Delta Lake, Iceberg, or Hudi).
+
+**Skills:** Python, REST APIs, file handling, cloud storage basics, lakehouse table format fundamentals (ACID transactions, time travel, schema enforcement).
+
+---
+
+### Stage 2 — CDC & Incremental Ingestion (Bronze)
+
+Set up Change Data Capture on the PostgreSQL source to capture inserts, updates, and deletes incrementally rather than full extracts.
+
+**Skills:** Debezium, MERGE/upsert into lakehouse tables, understanding of CDC log structure, idempotent writes.
+
+---
+
+### Stage 3 — Streaming Ingestion (Bronze)
+
+Ingest clickstream events from Kafka using Spark Structured Streaming. Write to Bronze as a continuously updating table with trigger-based micro-batches.
+
+**Skills:** Kafka basics (topics, partitions, offsets), Structured Streaming, checkpointing, watermarking for late data.
+
+---
+
+### Stage 4 — Silver (Cleaning, Enrichment & SCD)
+
 - Remove nulls, duplicates, invalid records.
-- Standardize timestamps and currency.
-- Join orders → customers → products.
+- Standardize timestamps, currency, and encoding.
 - Deduplicate using SQL Window Functions (`ROW_NUMBER`).
 - Use CTEs for readable transformation logic.
+- Join orders → customers → products.
+- Implement SCD Type 2 on `dim_customer` and `dim_product` to track historical changes (effective dates, `is_current` flag).
+- Enforce schema expectations — reject or quarantine records that violate contracts.
 
-### Stage 3 — Data Modeling
-- Design a Star Schema: `fact_orders` + `dim_customer`, `dim_product`, `dim_date`, `dim_store`.
-- Load into a cloud warehouse (Snowflake / BigQuery / Redshift).
+**Skills:** SQL (window functions, CTEs, MERGE), data quality expectations (Great Expectations or equivalent), schema evolution handling.
 
-### Stage 4 — Gold Layer with dbt
-- Build dbt models for business metrics: revenue by product, customer lifetime value, customer segments (High/Mid/Low), store performance, inventory health.
-- Add dbt tests: `not_null`, `unique`, custom SQL.
+---
 
-### Stage 5 — Scale with PySpark
-- Re-implement Silver → Gold transformations in PySpark.
-- Handle millions of rows with partitioning and caching.
-- Compare Pandas vs PySpark for scale.
+### Stage 5 — Gold: Star Schema Modeling with dbt
 
-### Stage 6 — Orchestration with Airflow
-- Daily DAG at 10 AM: extract → silver → gold → dbt run → notify.
-- Add retry logic, failure alerts, backfill support, data quality sensor tasks.
+Design and build a Star Schema using dbt models:
 
-### Stage 7 — AI Layer (RAG + Vector DB)
-- Embed product descriptions → store in Pinecone or pgvector.
-- Build a RAG pipeline for semantic product search and personalized recommendations using purchase history.
+- **Facts:** `fact_orders`, `fact_clickstream_sessions`
+- **Dimensions:** `dim_customer`, `dim_product`, `dim_date`, `dim_store`
+- **Business metrics models:** revenue by product, customer lifetime value, customer segments (High/Mid/Low), store performance, inventory health.
+
+Add dbt tests: `not_null`, `unique`, `accepted_values`, `relationships`, and custom SQL tests for business logic validation. Add dbt contracts for column-level type and not-null enforcement on Gold models.
+
+**Skills:** Dimensional modeling (Kimball), dbt (models, tests, contracts, documentation, `ref()`), Jinja templating basics.
+
+---
+
+### Stage 6 — Scale with PySpark
+
+Re-implement Silver → Gold transformations in PySpark to handle production-scale data.
+
+- Partition strategies (date-based, product-category).
+- Caching and persistence for iterative jobs.
+- Table optimization: MERGE, OPTIMIZE, Z-ORDER or equivalent compaction/clustering features of your chosen table format.
+- Compare Pandas vs PySpark at 10 MB, 1 GB, and 10 GB+ to understand where distributed compute becomes necessary.
+
+**Skills:** PySpark (DataFrames, SQL, UDFs), partitioning, broadcast joins, table format optimization, Spark UI for debugging (stages, tasks, shuffle, spill).
+
+---
+
+### Stage 7 — Orchestration
+
+Build a daily pipeline orchestrated by Airflow (or equivalent scheduler):
+
+- **Schedule:** Daily at 10 AM — extract → silver → gold → dbt run → notify.
+- Retry logic with exponential backoff on transient failures.
+- Failure alerts (email / Slack).
+- Backfill support for reprocessing historical dates.
+- Data quality sensor tasks — gate Gold layer on Silver quality checks passing.
+- Dependency management — streaming Bronze runs independently; batch pipeline triggers downstream.
+
+**Skills:** Airflow (DAGs, sensors, operators, XCom) or equivalent orchestrator (Prefect, Dagster, Mage), cron expressions, idempotent task design.
+
+---
 
 ### Stage 8 — CI/CD & Production Hardening
-- GitHub Actions pipeline: lint → test → staging → prod.
-- Environment-based dbt profiles.
-- Bash scripts for health checks and backfills.
-- Full documentation and architecture diagram.
+
+#### Version Control & Branching
+- Git branching strategy: `feature/*` → `dev` → `staging` → `main`.
+- PR reviews for all pipeline code changes.
+- dbt slim CI: only build/test modified models on PRs.
+
+#### CI Pipeline (GitHub Actions)
+- Lint (`flake8`/`ruff` for Python, `sqlfluff` for SQL).
+- Unit tests for Python ETL functions (`pytest`).
+- Integration tests: run pipeline on a small test dataset, assert row counts and schema.
+- dbt build on staging profile.
+
+#### CD Pipeline
+- Environment-based dbt profiles (dev / staging / prod).
+- Infrastructure as Code (Terraform / Pulumi) for provisioning compute and storage resources.
+- Secret management (environment variables, vault, or platform-native secret scopes — never hardcoded).
+
+#### Monitoring & Observability
+- Pipeline run dashboards: success/failure rates, durations, data freshness.
+- Alerting on data freshness SLA breaches and quality drift.
+- Logging standards for all pipeline stages.
+
+**Skills:** Git workflows, GitHub Actions, pytest, Terraform, secret management, monitoring basics.
 
 ---
 
-## Implementation Approaches
+## Implementation Notes
 
-**Approach 1 — Cloud Native**
-```
-Python → S3/Azure Blob → Snowflake/BigQuery → dbt → Airflow → pgvector/Pinecone → GitHub Actions
-```
-
-**Approach 2 — PySpark Stack**
-```
-Python + PySpark → Parquet/HDFS → PostgreSQL or Databricks → dbt → Airflow (local) → pgvector → GitHub Actions
-```
-
----
-
-## Notes
-
-- Start with Approach 1 (drag-and-drop tools like ADF / Glue / Lakeflow Designer) to understand concepts with minimal code.
-- Move to Approach 2 (pure PySpark) once fundamentals are solid — this is the target skill for data engineers.
 - Start small (10 MB datasets), then scale to 10 GB+ to understand where distributed systems shine.
-- Use ChatGPT or HackerRank to generate sample data for the use case.
+- Use sample data generators (Faker, or similar libraries) to create realistic datasets for each stage.
+- Each stage should be completed and reviewed before moving to the next — resist the urge to skip ahead.
