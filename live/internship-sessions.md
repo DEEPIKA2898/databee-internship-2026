@@ -4,7 +4,7 @@
 
 ---
 
-## Session 3 — April 5, 2026
+## Session 3 — April 4, 2026
 
 **Attendees:**
 
@@ -14,6 +14,7 @@
 3. Spark architecture presentations — interns present their architecture diagram (driver, workers, partitioning, fault tolerance)
 4. Use case Stage 1 progress — what did you build? What failed? Let's discuss.
 5. Architectural discussion — deep dive on distributed engines & file formats
+6. DS/ML use case walkthrough — conceptual topics doc created by Vivek (see `live/use-case-ds-ml.md`)
 
 **Notes:**
 
