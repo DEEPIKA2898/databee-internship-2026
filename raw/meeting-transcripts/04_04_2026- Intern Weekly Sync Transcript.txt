@@ -1,0 +1,401 @@
+04.04.2026- Intern Weekly Sync
+Sat, Apr 4, 2026
+
+0:00 - Unidentified Speaker
+Hello, good morning team.
+
+0:02 - Unidentified Speaker
+Hello, can you hear me?
+
+0:17 - sanjeev kumar
+Yep. OK, yeah.
+
+0:22 - sanjeev kumar
+Uh. Can you make sure it is being recorded?
+
+0:27 - Kousalya
+Yes. Yes, I think it is being recorded.
+
+0:33 - Kousalya
+OK, OK.
+
+0:33 - sanjeev kumar
+OK, so how everyone has been doing?
+
+0:39 - Kousalya
+Good, good, I think, at least.
+
+0:43 - Filip Cedermark
+I think.
+
+0:47 - sanjeev kumar
+Are you guys liking the sudden change in weather in Stockholm?
+
+0:51 - Filip Cedermark
+No.
+
+0:53 - sanjeev kumar
+I was expecting to be a good Easter holidays. But anyway, too much to ask for.
+
+1:00 - Filip Cedermark
+Yeah.
+
+1:01 - sanjeev kumar
+Okay, actually, first of all, thanks a lot, everyone for joining today. Actually, but later late in the week, we realized that it's Easter weekend. And I just checked with the with the Raj quite late on this part like whether to that we should have checked with interns whether they would be able to make it but thanks a lot for for making it today. Okay, so nice. Let me share my screen. And let's go over the agenda.
+
+1:45 - sanjeev kumar
+Okay, so a couple of things. So Let me go here first. Okay, so today's agenda. So we will do the web checking like always, right? What did you work on? Any blockers, wins, platform checking. So last time we discussed that you would choose a platform and then you will create a trial account to see and try to set things up, right? Because we would work on the use cases.
+
+2:16 - sanjeev kumar
+We also discussed last time some, something related to data engineering, like a worker, what are distributed systems? How does Spark architecture look? What are drivers, workers, partitioning, fault tolerance and whatnot, right? How does distributed systems work? Let's see, like, if if any one of you or some of you got a chance to actually work on that, or were you able to create some artifact? Completely fine, if you were not able to do it. Use case stage one progress, like, let's say, check what you have been doing. I think this can be covered here. But yeah. And then architectural discussion, we will go ahead with the with the distribution distributed engines and other topics that we have, right, like maybe, depending on how much you have worked, we can choose a different topic or maybe continue with the old one, right. And then one update that Vivek has updated the DSML use case now and you should be able to find it under live and all the use cases are now extracted and put under live documents, right? So until this internship or until you are done with these use cases, these will be available here. Okay, but before I go, were you able to set this repo in your local?
+
+3:38 - sanjeev kumar
+Okay, great. Anyone who could not or need any help or maybe you need more time to set this up.
+
+3:51 - sanjeev kumar
+Okay, so I'll take the silence as you all went well, but also feel free to drop a message that you need help later on if you want. Okay, so I'll quickly go over the structure of this one. It's quite simple. This is where anything, any, yeah, any raw documents will be placed under raw. For me, the most important folder is meeting transcripts because this is what I use to actually create the agenda and see what we talked about and everything about what we did in the last session, right? And you can also chat with it, right? If you just set up, I don't know, if you want to use chat GPT or whatnot, but yeah, if you can configure this with cloud or chat and whatnot, right? You can also interact with these and get insights, what did we discuss and whatnot, make your own notes. But for me, this is very important in the raw notes, but yeah, there are other separate folders, like for example, whatever we do, for example, if you do midweek check-ins and you think, and you want to transcribe it to see what you discussed, maybe you did DE check-ins only, right? So you can come and take ownership of this and just place your transcripts here. It will also be helpful for me to see what exactly you guys are working on. And also maybe as a tracker, right? Like how, what kind of progress are we making? Who is at which place, right? In their internship journey. So this is the structure of this and other is like just other, like you can put anything here.
+
+5:33 - sanjeev kumar
+And you can also use this cloud.mb to understand what I'm explaining. It gives you a good structure. If you set it up in your local, this is the structure it will follow. If you want to make any changes, yeah. You're not sharing your screen.
+
+5:51 - Suhash
+Oh. Yeah, it got disconnected just a few seconds ago. Oh, it got disconnected.
+
+5:57 - sanjeev kumar
+Yeah, yeah.
+
+6:05 - sanjeev kumar
+I'm not sure where did I drop, but just to give a quick recap. Yeah. No, you just dropped it.
+
+6:12 - Suhash
+Just now, Sanjay, you can go to Cloud.
+
+6:16 - sanjeev kumar
+Yeah. So cloud.md gives you a good architecture, right? Like, sorry, good information on what exactly this repo contains. If you want to, you are free to play with it and suggest changes no problem at all treat this as your own repo if you think it's it's quite primitive and you you would want it to do more because you know right how cloud would work cloud would take take this cloud.md in its memory and and just start working based on this right so if you feel there is some change required please do not do a direct change in the main branch just create your own right if you also want like fork it, just fork it, and then create those PRs in your own, and then pull requests will come to me, and then I'll merge it. So since this is a very important file, for this alone, I would request you to create pull requests. But yeah, anyway, maybe we can treat this way of work also as a DevOps ingenious work, right? All of you will get a hands-on, like how exactly you should work so ideally the best would be whenever you do you create a whatever you want to work on in this repo right maybe you want to check in your work right create your own branch right we will follow there is something called git flow way of work you can just follow that right maybe let's let's use this simple strategy like feature branch release branch and whatnot right if you want you can we will talk about it later when we go to devops Let's follow this simple strategy to deliver our work too, right? So create a branch, create a pull request, right? All those things we should do so that we can also learn on that part. Then after this raw, live, this is the place where all the live documents will live, which all of us will work on, right? Like we will update something you have You should have write and Read permissions on them. You can come and suggest edits to it, right? You can do that. You can say like, okay, this seems wrong, right? Or all these use cases that we are going to work on, all are documented here and placed here, right? So these are like live documents. They will live until the internship is over or you are done with the case, right? Topics.md, here, I have started adding the topics that make sense to me. And when we progress, we will keep adding more topics. So for example, I realize the CDC and SCD type is an important topic that as a data engineer, as a data analyst, you should know. So I will keep on enriching this list. And you are also free to suggest changes to it. If you Read up on something and you find like, OK, seems like sanjeev did not talk about, say, table formats. He's talking about file formats. But what is table format? I'm hearing about that a lot. Just suggest one.
+
+9:22 - sanjeev kumar
+And I would also like to treat this as would expect all of you to be more proactive. Suggest. It shows interest in the internship. It shows that you are eager to learn, and you are understanding things. It's for your benefit and our understanding also, whether we are able to keep your interest high in this internship. Great. Then comes the action. Action folder is where your artifacts, whatever you produce, you produce a code repo, I don't know, some kind of presentation that you created. What I would expect that if you're doing a DA work, you just create a folder with your name and then just put all, just treat this as a project This is a Monorepo concept, right? Inside that Monorepo, in DA, you create your own directory. And inside that, if you create 10 projects, then create 10 directories. You own everything in that, right? You can also do it. Oh, did it drop again? OK.
+
+10:28 - sanjeev kumar
+Some issue. OK. Yeah. So yeah, so I would expect whatever you want to showcase, see everything is optional in this internship, right? There is like, we are not going to tell you like you have to do it, but it will be nice. Like you work on something and you want to share that knowledge with the team. It will be great just to check it in here so that others can also take a look later on, right? After your presentation. And we also have this as a track record, like what did you work on? Great. Git repo. Any questions here before we proceed to the agenda?
+
+11:07 - Suhash
+It's good. Great.
+
+11:12 - sanjeev kumar
+Okay, then, yeah, then let's go to the live and internship. Okay. Would you like to like, let's have a quick round to see what we what did we work on? Let's let's try to be a bit quick so that because we have a lot of people here in the call and we have just one hour yeah. Suhash we can start with you if you want.
+
+11:40 - Suhash
+Yeah so I have started with the internship thing like started working from yesterday so I'm just following the week ones SQL and I'm instead of doing it on like SQL server, like I'm trying to do it on Databricks since my focus is on data engineering. So I started learning DDL and taking notes of it for now. So yeah. Great, great.
+
+12:13 - sanjeev kumar
+And did you attend the last session? Yes, I did.
+
+12:18 - Suhash
+Oh, you were there.
+
+12:20 - sanjeev kumar
+So were you able to like, which platform did you choose? You mentioned Databricks.
+
+12:24 - Suhash
+Yes, yes, like I haven't updated the, I haven't downloaded the repo and did anything yet. So I will do it today. Yeah, not a problem.
+
+12:36 - sanjeev kumar
+You can take your time. But yeah, I just want to know like which platform, so Databricks is the platform that you're going for and you might have tried it.
+
+12:44 - Suhash
+Yes, yes, I am using that free enterprise edition. Yeah, yeah. Makes sense.
+
+12:52 - sanjeev kumar
+Just to let you know, this is for all the DE and DevOps interns, right? So this is the use case that we discussed. You are free to pick them and start working on them, right? If you want to do, and Suhash, you are free to do any way you want. If you want to first focus on the SQL part, please do that. No problem at all, right? But as for me, these are like really important like batch ingestion just do hands-on right just reading about things might give you a good theoretical knowledge but when you face an interview end of five months they would expect you to code right they would ask you questions and they would expect you to answer on something that you have actually faced right because whenever I do the interviews I specifically look for that right like it's pretty obvious right So I would like you to try and fail, I don't know, try to solve that problem, get frustrated, search for it, ask for it, and check with your friends. That is very important, that journey, right? You cannot be, in my opinion, you cannot be a great data engineer in just five months, right? But if you do those hands-on, you fail, right? That really scales things up and it will really portray that you have you have really worked not just a regular day. Right. So I would also recommend to start working on these things and see what and these are like I work with customers on daily basis. These are not just theoretical topics, right? Okay. And these are not like very complex also start with simple things and then we will make it complex. Okay. Good Let's move on to Filip.
+
+14:47 - sanjeev kumar
+Yes.
+
+14:49 - Filip Cedermark
+I'll try to be a bit quick because like you mentioned, it is Easter today and I'm actually gonna have to be leaving a bit early. So we're gonna be celebrating like pretty much all day. But I've been this week, I've been getting set up in Databricks as well. That's kind of where I want to focus on to get a bit better. A lot of things are familiar, but there have been a bunch of things where like setting up and specifically like creating like file structure and everything like that has been maybe a bit harder than it should have. But I've been getting started pretty easily. I've asked Chachapiti to generate some sample data that I can to work on later in the pipeline. And I've pretty much, I've landed it inside Databricks and I'm gonna be focusing on, I was gonna be focusing on like the silver layer, I guess you could say, but looking at this, like the stages, maybe I could look at like stage two. Oh.
+
+16:01 - sanjeev kumar
+That mentioned like CDC and things.
+
+16:04 - Filip Cedermark
+to be interesting because I haven't worked too much with that either. So that could be interesting to look at as well. Great, great.
+
+16:12 - sanjeev kumar
+That's a very important topic and a lot of customers will ask you about that. Okay, thanks for that. There is this, so great that you asked Chad to create a fake data for you, but you can just ask like use Faker library and set up a code for me there, right? If you set it up in your Databricks library, you just click it and tell it like what kind of you want, what kind of columns you want, and then it will automatically create it. So it will become a reusable Python code for you, right? So you don't have to like, ask JATCPT, download it, and then put it. And here you can also control the amount of data, scale of data. So today, start with 10 MB, 20 MB files, just say to the faker that, okay, I want to create, I don't know, 1 GB of data, do that, right? And then it will scale, right? So I would recommend you to do that. But for starters, it is fine to just download whatever ChatGPT creates. Great. Next, we have Asindu.
+
+17:11 - sanjeev kumar
+Hi, Sanjay. I developed a pipeline.
+
+17:16 - Asindu Gayangana
+It's not a kind of pipeline. I get a sample data set from Kaggle, which has around 5 million records. Then I used a database to develop this pipeline. It is not completed yet, but I set a call order to extract data to the bronze layer, then set a CDF in the bronze table of dimension tables, in the dimension tables to capture the CDC.
+
+17:50 - sanjeev kumar
+Now, how are you generating the CDC data?
+
+17:57 - sanjeev kumar
+Does your sample data itself has CDC?
+
+18:01 - Asindu Gayangana
+No, I changed the data in the bronze table. Okay. I extract the data through the autoloader into the bronze layer. Then I set the CDF, change data feed, then I change manually using a SQL query in the bronze table. Then extract only the changed data using the latest version after coding the described history label, then extract the maximum version. So then how I capture the changed data.
+
+18:44 - Unidentified Speaker
+Great. Yeah.
+
+18:48 - sanjeev kumar
+Sorry, one more thing. So when I would love if you can talk about the CDA CDF, CDC, I think you have good understanding about it. It will be great if you tell us like what do you, what does it mean, right? Like how much ever degree you are, to whichever degree you are comfortable, the rest I can fill in, right? And you can also use the, I don't know if you guys are joining the midweek things between the interns. I would love like if you can just say, okay, I worked on the CDF, CDC part, do you have questions? I can talk about it, right? Or please feel free to ask that question. If you would like to work with CDC, right? And here we saw that Asindu has worked on it. Just ask these questions and have that two-way data flow among yourselves.
+
+19:37 - sanjeev kumar
+Yeah, please go ahead, Asindu, sorry. Okay, thanks, Sanjay.
+
+19:42 - Asindu Gayangana
+I only loaded the data into the CLA table and also maintained the keys in the dimension tables. But I didn't load fact table into the silver. So I need to join in. So I need to join the query, join the tables, actually. So in the meanwhile, I'm looking for architecture in this space. So how is it working? In that part, I covered how worker nodes are working and how the partitions are happening and what are the ideal size for each partition. And also looking for the on heap memory, including execution memory and storage memory. So I'm looking for those things as well, and also the optimization of how the shuffle works, how many shuffles we should set those kind of things. But I couldn't able to identify how off heap memory works. I couldn't understand about that because I'm not too much, I don't have too many knowledge about Spark.
+
+20:50 - sanjeev kumar
+Not a problem. So that's what we are here for, right? And also that's great, right? So I would, it will be great, like not this time. I think you still, you're still setting up and starting things up. Maybe by next week, it will be great if one of you would share your screen and show exactly what did you build, right? Let's share the code. I would also, it will be great if you can package your code and put it under, I don't know, data engineering and DevOps and put it here under your name, right? So that others can take a look, right? So it will be nice. And it could become, it could be your place to keep the code version, right? Like as you progress.
+
+21:33 - sanjeev kumar
+Great. That's a great update, Asindu. Let's move on to the next. And yeah, so these meetings will not only be like check-in and check-in meetings. So as you progress more in your use case, like for example, Asindu, you talked about off-heat memory, right? We will take these topics and discuss them in detail. But yeah, please make some progress in the beginning as we specialize more right since we have ML and data analyst also in this call I don't want to get too much into those specialized topics right now we will do that slowly right but yeah that's good that's a good progress. Let's move on to Elliot.
+
+22:21 - Elliot Eriksson
+Yeah so I spent most of the week just looking at like SPARC and price I was trying to get to know what it is, because I had never encountered it before. So I just drew some stuff, what it was, and how I could applicate it on what I'm doing here. Okay.
+
+22:41 - sanjeev kumar
+Yeah. Okay. And while, so are you like reading about the, are you trying to build your theoretical understanding of Spark and distributed system at the moment? Yeah, exactly.
+
+22:52 - Elliot Eriksson
+So I just Read up on it was how it's used and why it's used and like like I said how I can use it.
+
+23:00 - sanjeev kumar
+Good start yeah let's let's do that because that's very important right and were you able to choose a platform or maybe create a trial account?
+
+23:10 - Elliot Eriksson
+I wasn't sure with the use case since I didn't know what I was supposed to do yeah I wasn't sure what I should choose.
+
+23:19 - sanjeev kumar
+Yeah sorry for the delay it was like really week and then it took me time to actually do some progress here but now yeah you can take a look here right simple like start with a simple bronze ingestion I like I don't know API call CSV and whatnot right and take a use of help of AI to set this up do it in Spice Park right you can there are two ways if you choose if you want help in choosing a platform I can tell easiest way to start would be Azure Data Factory. Right, just create an Azure account, because it's kind of a drag and drop tool. You can also use what you call it glue. I have not like I have used as a as a developer. But yeah, what ADF does, you just write your logic, drag and drop tool like ingestion, there are ingestion activities and whatnot. That's easier to start. Why I'm telling you do that, that will give you an idea how pipelines are created. That's it. Once you do that, like end to end, like simple batching, you don't have to like do everything, just maybe one CSV file you create in your source file and see how it works. Don't worry about, if you don't understand, don't worry about it, leave it. Streaming ingestion, leave it. These are all like bit advanced topic, right? We are working on the common topic at the moment. Take one simple and then move and then move on to gold. Create this end to end, you will get an idea, and then we will switch to PySpark fully. But that pipelining will give you an idea how exactly things are working and where to play. When you work with Spark, it will give you an idea of what kind of code I should write for this particular stage.
+
+25:06 - sanjeev kumar
+So yeah, great.
+
+25:08 - Elliot Eriksson
+I should add though that I am doing use case for machine learning. So. Oh, yeah. Oh, yes, exactly.
+
+25:14 - sanjeev kumar
+You are working on the machine learning use case. So so this has been updated now. Please take a look. Yeah.
+
+25:24 - Unidentified Speaker
+Yeah.
+
+25:26 - sanjeev kumar
+Great. Anyway, then then do you need help in choosing a platform of your choice?
+
+25:32 - Elliot Eriksson
+I'm thinking of using Visual Code and then maybe see if I can implement some PySpark into it because it seemed like most of the functionalities are in PySpark to use this.
+
+25:44 - sanjeev kumar
+And which, which framework do you use? Do you maybe ML, MLOps? Sorry, not MLOps. What is this Databricks tool? Maybe TensorFlow or MLflow? Like what kind of framework would you like to use?
+
+25:59 - Elliot Eriksson
+I mean, I think MLlib had some of the stuff, but I guess I think they use TensorFlow for that. Or like you can use some TensorFlow PyTorch and stuff like that. Yeah, from what I understand.
+
+26:10 - sanjeev kumar
+You mean Spark MLlib, right? Yeah, I think so at least.
+
+26:15 - Elliot Eriksson
+I haven't looked into super deep in, but I will start there. Yeah, yeah, yeah.
+
+26:21 - sanjeev kumar
+And yeah, just to let you know, if you want to choose like one of the platform Databricks has MLflow, Snowflakes has Cortex maybe, AWS has SageMaker, and Azure has So yeah, you have N number of options. Just pick one of them and then then build your expertise in that.
+
+26:43 - sanjeev kumar
+Then let's go on to DEEPIKA.
+
+26:47 - DEEPIKA ELANGOVAN
+Hello sanjeev, so like as Elliot said, like I was also quite confused like without use case. I don't know where to start, so like I started creating account with data bricks. Actually wanted to choose Azure, but since I have already used two accounts with free trial, I was not able to use it immediately. So do you think it is okay to start with Databricks as a DevOps engineer? Or is it I have to switch to any cloud provider only? I would say Databricks is good.
+
+27:20 - sanjeev kumar
+But can you tell me what are you practicing on DevOps part? Because I really like Azure DevOps. Are you actually clear about how DevOps actually works?
+
+27:31 - DEEPIKA ELANGOVAN
+Yes, I am pretty comfortable with the DevOps.
+
+27:33 - Unidentified Speaker
+Okay, okay.
+
+27:34 - DEEPIKA ELANGOVAN
+Azure DevOps. You are quite comfortable, right?
+
+27:38 - sanjeev kumar
+Yes. Okay, then I would say why not try Databricks, right? So Databricks has, you can build your own DevOps, right? You can use, I don't know, actions, you can integrate it with Databricks and build your own API based deployment tools, right? So for everything in Databricks or whether it's Azure or whatnot, they have APIs for it.
+
+28:01 - sanjeev kumar
+Okay, great. Can I ask you one thing?
+
+28:06 - DEEPIKA ELANGOVAN
+Could you, DE and DevOps, create a folder of your own?
+
+28:11 - sanjeev kumar
+Okay. And I don't know, create a small code. And could you show all of us how would a DevOps actually work? So for example, DevOps includes CI and CD both, right? Yes. So could you show me like how would it what will be the life cycle of the whole course deployment?
+
+28:34 - DEEPIKA ELANGOVAN
+Sure sanjeev, I actually have already have one repo in my github maybe I can take I can use that also as an example and I can show team like how exactly it is great like it will be good learning experience for us also and maybe a practice for you right? Yes yeah I can do that I can share you the repo offline and we can discuss and if it is open Okay, can you say example?
+
+28:57 - sanjeev kumar
+I would, it would be great, DEEPIKA, if you could set this repo.
+
+29:03 - sanjeev kumar
+This is the internship repo that we will use, right? And please, if you can commit that here.
+
+29:11 - DEEPIKA ELANGOVAN
+Yeah, I can do that.
+
+29:12 - sanjeev kumar
+And just use GitHub actions to show and then integrate it with your Databricks environment, right? Just maybe mock one dev environment and whatnot, test environment and show example. Exactly how this works, right? It will be great learning for all of us because the first one focuses to something common, right?
+
+29:31 - DEEPIKA ELANGOVAN
+Okay, sure.
+
+29:32 - sanjeev kumar
+And then Databricks has something called Databricks Asset Bundles.
+
+29:37 - DEEPIKA ELANGOVAN
+I haven't learned about it yet. It's quite specific. Do you know Terraform?
+
+29:42 - sanjeev kumar
+Yes, I'm aware of Terraform.
+
+29:45 - Unidentified Speaker
+Okay.
+
+29:47 - sanjeev kumar
+You can, if that is the case, you can also just show everything in Terraform. You can also, I don't know, try out, I don't know, deploying everything, like Terraform as a core, right? Like for infrastructure deployment.
+
+29:59 - DEEPIKA ELANGOVAN
+Yes. Right?
+
+30:00 - sanjeev kumar
+So there is always two parts of it, right? Infrastructure deployment, the common code deployment, and the deployment of pipelines and code and problems like how do you manage the state if I if I do code changing just if you have a monorepo, if I do code changing one of the one of the projects, how the will the other states be affected too. So those technical details we will probably talk later, but it will be nice if you can create something and show us.
+
+30:31 - DEEPIKA ELANGOVAN
+Sure. Yeah. Okay, great.
+
+30:35 - sanjeev kumar
+So yeah, please go ahead with Databricks, if you want, since you're all comfortable with it. Oh, that's great, sanjeev.
+
+30:42 - DEEPIKA ELANGOVAN
+Sure, yeah. As of now, I have created an account and I have just seen how we can do the data ingestion process, sanjeev, and I need to work on hands-on part eight. So I'm just following you on YouTube video and I'm just learning it. Yeah, yeah, not a problem.
+
+30:56 - sanjeev kumar
+Please do that. And once we have these specialized sessions after the first month, then I'll sync with you separately and like to really understand like to what degree you have expertise in DevOps. Sure, yeah.
+
+31:08 - DEEPIKA ELANGOVAN
+Great.
+
+31:09 - sanjeev kumar
+Then let's move on to Nikolaos.
+
+31:22 - Nikolaos Biniaris
+Hey, hey, good morning. Hi, can you hear me? Yeah. Okay, yeah. So, I have worked with Databricks for the, I have done the ingestion part.
+
+31:44 - Nikolaos Biniaris
+Should I share my screen to discuss?
+
+31:49 - Nikolaos Biniaris
+Okay, so. Yep. Oh.
+
+31:58 - Nikolaos Biniaris
+system settings now. Okay.
+
+32:27 - Nikolaos Biniaris
+Yes, it required for me to restart my browser for some reason, but come down to the screen.
+
+32:44 - Nikolaos Biniaris
+Yes, is it showing my Databricks now? Yes. Okay, so I have done SQL and the Python ingestion notebook.
+
+33:01 - Nikolaos Biniaris
+I have some data that I've been working on with my portfolio project. So I have recreated with a Python way to ingest the data, one by one copy and also with SQL.
+
+33:18 - Nikolaos Biniaris
+The data resembles, it is from a CRM source, it's a simulation and also ERP resources. So I have data for customers, products, sales, and then I have some extra data that I can join with them, like birthdays or location of the stores or like categories of the products with some further information. So I try to ingest the data using Spark to do it for creating six tables and also today I tried to do it with SQL as well. Just a practice.
+
+34:03 - sanjeev kumar
+So what, okay, one moment.
+
+34:07 - Nikolaos Biniaris
+So stop sharing maybe. Yes. So I wanted to see how and do partitions, but because not every CSV file had a date column, and also the date types were like, sometimes I had dates, but they were still a string.
+
+34:38 - Nikolaos Biniaris
+I decided not to try and change the files in the bronze table. And this is something that I will do when we move on with the silver, because I wanted to have exactly one to one copy and not something from the sources.
+
+34:57 - Nikolaos Biniaris
+So yeah, this is what I researched. I tried to understand what is partitioning, how it is done on Spark, but how, what is the difference and how it is done on Databricks? Because I know that they try to do all this hard work for you and then you can, and just decide to use Delta tables and already have most of the functionalities that you would do have to create yourself if you do it in VS code with Python Spark, for example. Yeah. Yeah, exactly.
+
+35:38 - sanjeev kumar
+So these are like good questions. So yes, I think we will use the next. So I think we are done with everything. Remaining time to talk about file format, that is very important. And under that, we will talk about formats. And then we will cover formats like iceberg. And, and what we call delta, right? Like, I heard about these formats. This is like bit more data engineering part, but Elliot in the pickup, please, please, just just be here, because it will be nice for you to understand. Because when even if you do ml, right, and you should bit of technicalities on what kind of data you are working, at least for Elliot, it is important, right? How efficiently you're, I don't know, like maybe you're creating a feature tables, what kind of format it is, you are storing the data in right? When you when your ML models try and do a lookup to that table, how quickly it is to fetch that data totally depends on how you are formatting your feature table, maybe I'm not an expert in ML, but whatever I know about it, Right? So to be good, at least for you to know, maybe for DEEPIKA, it will be good to know what are the various kinds of formats data engineers work with, right? So, yeah, maybe not directly related to you, but please bear with us on this part. And it's good understanding for you. Okay, on the partitioning Databricks, in Databricks nothing special happens. The data engineering part is same in Snowflake, Databricks, and whatnot. But all these proprietary platforms, right, to lure the customers to make their platform sticky, to make the platform easy for them to sell and easy for the customers, they do innovations. Like you don't have to partition. Databricks will handle it for you out of the box. So liquid clustering. So they come up with this. Similarly, and liquid clustering is actually a Delta feature which was first created by Databricks and then open sourced. In Databricks, everything, they try to open source most of the stuff. Similarly, if you go to Snowflake, they also have something similar to Promise. They say, OK, don't worry about it. We will do it for you. But yeah, so these are very advanced topics. But we will not go there. We want to learn what is partitioning. Because liquid clustering and whatnot, these are evolution of partitioning. But there has to be partitioning first. So yes, great that you are trying out partitioning. In Delta also partitioning works. We'll talk about Delta now. That's an important topic. But yeah, that's a good progress, Nikolaos. But any questions you have for me and for us now? Any blockers you have?
+
+38:34 - Nikolaos Biniaris
+What I was thinking is for example now we had to just create csv files and ingest them one-to-one in a bronze layer but I see that the project also speaks about API ingestion or other type of sources and I wanted to ask if what is the step that will make us manage to have also different sources than static CSV files. Yes, let me show that to you.
+
+39:09 - sanjeev kumar
+Yeah.
+
+39:20 - sanjeev kumar
+Okay.
+
+39:26 - sanjeev kumar
+So, Is my screen shared? Not yet, right?
+
+39:41 - sanjeev kumar
+Okay, Let me share my screen. So this is what you need to do now. Okay, so this is my workspace, Databricks workspace. What you need to do now is first create a job, right? Something like this.
+
+40:08 - sanjeev kumar
+And if you see here, if you see here, the use case mentions you could have a CSV file as an ingestion. So various sources, right? You could have an API call. Just imagine like whatever use case is working, there is a weather data that you need. So weather data is open source. You can go and check it out online, right? Or maybe there are a number of like open maps data, map data, like geo, coordinates and whatnot. So create a job that does two ingestions. One, CSV. Just assume CSV is your, I don't know, historical data being loaded from somewhere. And then you also need live data or live weather data that will come through API calls. See how can you efficiently handle that in Spark. Is it even possible in Spark? Why not and why yes, right? So create two tasks and all them both of them should be parallel to each other because you know right see you you can create dependency this task depends on this task this will like task one will will finish and then task two will pick up but in your case that is not required because API fetch and that csv load are independent of each other they don't need dependency right so create parallel tasks for them ingest the data, and in the next step, try to join them. That becomes your silver, right? So I would expect you to do like this, and you're not limited only to APIs, right? I don't know, you can have, I don't know, streaming source if possible. I know it will be difficult for you to do that. You can have a streaming source. Instead of CSV, you can have a Parquet file also. Like just imagine another source is actually sending a Parquet file. Just experience with that, we will talk about Parquet a lot because it's very important. The whole big data world is architected on Parquet. Then maybe you connect directly to a database system and bring the data from on-prem to, I don't know, like to cloud, right? Or imagine from Databricks you're trying to access a snowflake table, right? That is also possible, right? So there could be n number of places where your customer would want data in, right? And as a data engineer, you need to connect to them. If they are independent, run them independently, and then join them later on. Right? So so this is what would be your next step, schedule them in proper workflow job and then go ahead from there.
+
+42:46 - sanjeev kumar
+Makes sense.
+
+42:49 - Suhash
+Sanju, one question. One follow up question. When you said like streaming source, like how can we have one streaming source? Is there any readily available streaming source that will keep generating streaming data to practice on? Yes.
+
+43:07 - Unidentified Speaker
+Yes.
+
+43:07 - sanjeev kumar
+So let's do this.
+
+43:12 - sanjeev kumar
+It's a, you can find it actually. It's called, I have used it. It's called, what's it called? Raspberry Pi.
+
+43:32 - sanjeev kumar
+Yes. Raspberry Pi Azure IoT Web Simulator. You can actually use this. What it does, it just looks like this and there is a code already available, right? And then this will pass on the data to, let me do this. So what it does is, did it again stop sharing? Yeah. So you can actually use, just go explore I don't want to like invest more time in explaining this but yeah that's a good question if you want to like really simulate a streaming data source this can write to your Azure IoT Hub or maybe I don't know change it to Kinesis right you can direct data from here to Kinesis instance or maybe if you have a Kafka instance but easier to start up would be just set up because even if you spin up a Databricks environment you need a cloud behind right just create an account on Azure. Once you've started, it will start creating. I think you need to add, you create your IoT Hub, that instance you need to come and paste here. Then when you click Run, it will just randomly start creating weather data or some data and start putting it there. Then just point your Spark or Azure Data Factory to that IoT Hub and start consuming. Them. Right. So this is one way. If it looks difficult, just chat with the OpenAI to see how you can set it up. Right. Yeah. Good question.
+
+45:09 - sanjeev kumar
+Sorry, Nikolaos, you had something. Sorry. I don't know.
+
+45:17 - Nikolaos Biniaris
+I'm just searching about how to work with APIs because I have done this with glue in the past. I have ingested APIs with in AWS, using a lambda. And I was ingesting with was firehose kinesis.
+
+45:39 - Nikolaos Biniaris
+But I'm just searching how you can do the same with Databricks. Yes.
+
+45:47 - sanjeev kumar
+So Justin, you can make that's a good point. So you can use Python to make those API calls and you can also use Spark to do that, right? But in Spark, how? You will face a big blocker there. Read about Spark UDFs and why it is good, why it is bad, right? It is recommended to not use Spark UDFs, but why? Just do that exploration and then we will discuss about it in more detail. Okay, then I think we can stop here and Let's move on to a topic, right?
+
+46:26 - sanjeev kumar
+Anything else you would like to share before we move there?
+
+46:32 - sanjeev kumar
+Okay, great. Let's talk about file formats.
+
+46:38 - sanjeev kumar
+And I hope whatever we talked about last time, you were able to go and Read it yourself and or maybe you are still working on that and you you will bring some questions to us in the team. Please ask them. And don't feel shy that you are asking a very, I don't know, stupid question or basic question. No, don't do that. Just make sure nobody knows about anything. Just ask those questions. At least one other person will be helped by whatever question you ask. There are no wrong questions. Okay, let's let's talk about file format. This is very important, right? So, so, see, earlier, like we have these all these databases, like Oracle, we have and I don't know, Snowflake, and Teradata. They save data in a certain format. And that is prior prior proprietary to them, like they have their own formats, and it's not open source. You do not know what what exactly format it is. Is it a CSV file? File, Parquet file, they might have their own definition of saving the files in. You will hear a lot when you work with distributed system as open source software, OSS. Do you understand what is OSS? So for example, all these companies, so whenever you go to an interview, this question could also come up based on what you are describing so they will give you an architecture okay they will give a use case okay I have maybe I have a driver I have I work in this I'm just taking example just imagine your interview for uber or something right I have my drivers go keep driving and I need to transfer them a specific I don't know coordinates in real time and whatnot could you suggest me an architecture So based on what you suggest, they will figure out what kind of mindset you have, like what kind of systems you have worked in. Have you only worked in closed systems or proprietary systems like, I don't know, only Databricks or only Snowflake, right? Or have you worked in like, say, Apache Spark, MLflow, or, I don't know, Iceberg, Delta, these are all parquet. So these are all open source technologies. Any company can take them and adopt them and use them in their platform. You don't have to pay for it, right? But if you want to use, like, I don't know, Snowflake's own proprietary format, then you have to pay for it. Teradata, you have to pay for it. You have to sign a license to use their format, right, or store data with them. So this is what open source means. Now, all these file formats that we have here, like ORC, Delta, avro iceberg is missing that is also an important format parquet these are all open source format you can just do like you can use open source spark and say like okay spark dot write format as delta format as parquet format as json and whatnot right so we so there is also now here uh file formats are why file formats are anyway it again stopped but anyway I don't have I don't have any diagrams to share. So the data, so majority of data that will be delivered to you will be in certain formats. So there will be a source that will take the data and dump it into your object store. What do I mean by object store? S3 buckets, ADLS containers, or GCS, like Google Storage containers. Storage these are all called object stores they store everything as objects right it could be I don't know csv file or parquet but they call it object that's why we whenever say object store it means cloud storage s3 adls or gcs gcs google container services yeah right that's what I mean so you dump the data in you know object store it will reside in certain formats now And based on format, a lot of things are decided. How fast your ingestion would be. So there are structured and semi-structured data. And completely non-structured data, right? What does non-structured data mean? Non-structured data means, say, image files. There's no structure in that, right? Just blob of binary. You will understand. These are more data engineering-specific But yeah, just for information, ML guys work a lot with image data. You will not always be dependent on engineering team to do that. You might be calling your ML model APIs or endpoints to actually pick up an image file and then process them and see what the models are predicting. So the image file is an example of unstructured data. Then there are semi-structured data, JSON or XML, right? There you have a little bit of structure. So if you have seen a JSON file, it will have proper structure. And there could be a schema also on top of it. Like for JSON, I think it is called x something. And for XML files, it's called xcd files. You can have a schema, right? So these are why it's called semi-structured, because you can actually lose the schema and still you can actually process them as a text files, right? The schema is not tightly coupled to it. It is semi-structured, half-structured, right? It's not like fully structured. The schema is not like tightly bound to the data. Tomorrow, you can actually generate XML and JSON files without any schema too, right? So that's why it's called semi-structured. And then we have structured data. Where, like say tabular data, where data and the schema is very tightly coupled. What do I mean by schema? This column has this data type. So column one is string type. Column two is struct type. Column three is an array type. So that information is very tightly coupled. You cannot separate it.
+
+53:18 - sanjeev kumar
+So that's called structured data. Now, let's see how these different formats affect your ingestion. So these unstructured data are very slow to process because during the runtime, any engine, doesn't matter if it's Spark or Snowflake or whatnot, it has to try to understand what kind of data it is and get the metadata out of it and try to process it. Semi-structured data are a bit more faster because there is some structure available and it's easier for engines to understand it, right? But the fastest format is a structure format where any engine that interacts with the table, right? It just knows, okay, this data is an integer type and maximum of this much information it can contain and there are like 20 columns, I don't have to figure out anything during the runtime, right? Everything is figured out for me and I just need to start ingesting it and processing it, right? That's why such formats are like faster to ingest. Now, let's talk about Parquet. So Parquet is now we talked about the CSV format. And this question could come right in your interviews, they would like to understand whether you understand these problems or not, right? There's a very basic engineering question. Now, exactly. So, so happen is like, so let's talk about Parquet. Parquet is the bread and butter of the whole big data world, I would say. It is still the basic of every platform, every big data platform we have out there. Why? I would, maybe I would like to give this you as a task, like why Parquet is such an important format. So please take this as a task. And I will follow up maybe in the mid of the week. Please discuss about it, like why. It has a very unique feature that actually is a base of a lot of modern features, modern formats. OK, so I will not talk about Parquet now. I will let you explore, and let's discuss that later. Because I want you to do some research. Let's move on to Delta and ILS. And Hoodie. Have you guys heard about it?
+
+55:41 - sanjeev kumar
+No, OK. OK, so some of you have heard. So all these formats are called, they are file formats, but they are called table formats. So file formats, table formats. Why? Because, and all these, like for example, Iceberg, Hoodie, and Delta, these are all, all three of them open table formats, what does it mean? It means they are built on Parquet. But then it keeps metadata on top of it. Like, so the big data system is file based system, right? So anything you write, there will be a file written for it. Even if you write one row, there will be a file created, it will be a Parquet file or CSV file or whatnot, right? Right. And then if you write one recorder, I've 1 million records, all of them will be written into files. You decide how big the file should be. Should I put all 1 million in one file or maybe I should create 1 million small files, right? We will talk about these data engineering issues later on, right? Okay, so these are all files. So what Parquet, Iceberg and Hudi does, so they were innovators, right? So Databricks, what Databricks engineers did, they took Parquet, Found out the problems of Parkey. Parkey is a great technology, right? Read about it. You need to understand that very well.
+
+57:10 - Unidentified Speaker
+Found out the problems

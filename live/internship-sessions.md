@@ -4,53 +4,103 @@
 
 ---
 
-## Session 3 — April 4, 2026
+## Session 4 — April 12, 2026 *(upcoming)*
 
 **Attendees:**
 
 **Agenda:**
 1. Week check-in — what did you work on? Blockers? Wins?
-2. Platform check-in — which platform did you choose? Demo/show your setup.
-3. Spark architecture presentations — interns present their architecture diagram (driver, workers, partitioning, fault tolerance)
-4. Use case Stage 1 progress — what did you build? What failed? Let's discuss.
-5. Architectural discussion — deep dive on distributed engines & file formats
-6. DS/ML use case walkthrough — conceptual topics doc created by Vivek (see `live/use-case-ds-ml.md`)
+2. Parquet deep dive — why is it the backbone of big data? (intern research presentations)
+3. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks
+4. Code sharing — interns screen share Stage 1 progress from action/ folder
+5. Architectural discussion — table formats continued (Delta, Iceberg, Hudi comparisons)
+6. Q&A — Spark UDFs, off-heap memory, API ingestion patterns
 
 **Notes:**
 
-### 1. Week Check-in
-
-*(To be filled during session)*
+*(To be filled after session)*
 
 ---
 
-### 2. Platform Check-in
+## Session 3 — April 4, 2026
 
-*(Which platform did each intern choose? Notes on setup experience)*
+**Attendees:** Sanjeev Kumar (mentor), Kousalya (organizer), Suhash Raja, Filip Cedermark, Asindu Gayangana, Elliot Eriksson, Deepika Elangovan, Nikolaos Biniaris
+
+*Note: Easter weekend — some interns had limited availability; Filip left early.*
+
+**Agenda:**
+1. Repo walkthrough — structure, CLAUDE.md, branching strategy
+2. Week check-in & platform check-in
+3. Use case progress & live demos
+4. Architectural discussion — file formats & table formats
+
+**Notes:**
+
+### 1. Repo Walkthrough
+
+Sanjeev walked through the repo structure for interns who had just cloned it:
+
+- `raw/` — raw inputs including meeting transcripts. Interns can commit their own midweek sync transcripts here as a progress tracker.
+- `live/` — living documents (session notes, use cases, topics list). All interns have read/write access; suggest edits via PRs.
+- `action/` — intern work artifacts. Each intern creates their own subfolder under their stream (e.g. `action/DE-DevOps/your-name/`). Treat it as a monorepo.
+- `CLAUDE.md` — key config file for AI-assisted workflows. Changes should go through PRs, not direct commits to main.
+- Branching strategy: `feature/*` → `dev` → `staging` → `main` (GitFlow lite). All interns should create feature branches and submit PRs.
 
 ---
 
-### 3. Spark Architecture Presentations
+### 2. Week Check-in & Platform Check-in
 
-*(Intern-led: each presents their diagram of how Spark works — driver, workers, partitioning, fault tolerance)*
+- **Suhash Raja** — Started SQL basics (DDL) in Databricks. Chose **Databricks** (free enterprise edition). Has not cloned the repo yet; plans to do so post-session.
+- **Filip Cedermark** — Getting set up on Databricks; file structure setup was trickier than expected. Used ChatGPT to generate sample data and landed it in Databricks. Planning to look at Stage 2 (CDC) next. Sanjeev recommended switching to the **Faker library** for reusable, scalable data generation in Databricks.
+- **Asindu Gayangana** — Built a pipeline in Databricks using a 5M-row Kaggle dataset. Used **Autoloader** for Bronze ingestion. Set up **Change Data Feed (CDF)** on the Bronze table — manually modified data via SQL, then extracted changed records using version history (max version). Loaded dimension tables; still needs to join the fact table for Silver. Also researched Spark internals: worker nodes, partitions, ideal partition sizes, on-heap memory (execution + storage). Could not fully understand off-heap memory.
+- **Elliot Eriksson** — Read about Spark and PySpark; drew diagrams of how it works. Confirmed he's on the **ML track**. Planning to use VS Code + PySpark. Sanjeev pointed out ML platform options: Databricks (MLflow), Snowflake (Cortex), AWS (SageMaker), Azure ML.
+- **Deepika Elangovan** — Created Databricks account (Azure free trial exhausted). Watching YouTube tutorials on data ingestion. Has an existing GitHub CI/CD repo. Sanjeev asked her to demo CI/CD pipeline to the group using GitHub Actions + Databricks integration. Also mentioned **Databricks Asset Bundles** and **Terraform** as tools to explore.
+- **Nikolaos Biniaris** — Shared screen showing Databricks. Ingested CRM/ERP data (customers, products, sales + dimension data — 6 tables) using both Python and SQL notebooks. Chose not to partition at Bronze (no date columns; dates stored as strings). Researched partitioning in Databricks vs standard Spark. Asked about handling multiple source types (CSV + API) — Sanjeev showed how to build parallel Databricks workflow tasks for independent sources. Also asked about API ingestion; Sanjeev directed him to research **Spark UDFs** and their trade-offs.
 
 ---
 
-### 4. Use Case Stage 1 Progress
+### 3. Architectural Discussion — File Formats & Table Formats
 
-*(What was built, what failed, common errors discussed)*
+**Structured vs Semi-structured vs Unstructured data:**
+- **Unstructured** (images, binary blobs) — no schema, slowest to process.
+- **Semi-structured** (JSON, XML) — schema loosely coupled (xsd for XML); can be processed without schema.
+- **Structured** (tabular, Parquet, Delta) — schema tightly bound; fastest for engines to process.
 
----
+**Open Source vs Proprietary formats:**
+- Proprietary: Oracle, Teradata, Snowflake's internal formats — require licenses.
+- OSS: Parquet, Delta, Iceberg, Hudi, Avro, ORC — free to use; any engine or platform can adopt them.
+- Interview tip: being able to reference OSS technologies (Apache Spark, MLflow, Iceberg) rather than only vendor tools shows platform-agnostic depth.
 
-### 5. Architectural Discussion — Distributed Engines & File Formats
+**Object stores:** S3, ADLS, GCS — where all data lives as files (called "objects"). Bronze/Silver/Gold data all lives here.
 
-*(Deep dive continuing from Session 2)*
+**Parquet:**
+- The bread and butter of the big data world. Columnar format. Foundation of almost every modern data platform.
+- **Task for interns:** research *why* Parquet is so important and what problem it solves. Discuss in midweek sync.
+
+**Open Table Formats — Delta, Iceberg, Hudi:**
+- All three are built on top of Parquet but add a metadata layer.
+- Key features added: ACID transactions, time travel, schema enforcement, versioning, upsert/merge support.
+- Delta Lake: created by Databricks engineers, then open sourced. Liquid clustering is a Delta innovation, also open sourced.
+- Iceberg and Hudi: alternative open table formats with similar capabilities.
+- Discussion to continue next session with deeper comparison.
+
+**Streaming source tip (for Suhash's question):**
+- **Raspberry Pi Azure IoT Web Simulator** — free, browser-based tool that generates IoT data and writes to Azure IoT Hub. Can be pointed at Databricks Structured Streaming or ADF for practice with real streaming ingestion.
 
 ---
 
 ### Action Items for Next Session
 
-*(To be filled at end of session)*
+| # | Task | Who |
+|---|------|-----|
+| 1 | Research why Parquet is the backbone of big data — come ready to discuss in midweek sync and Session 4 | All interns |
+| 2 | Clone the repo; create your own folder under `action/` for your stream | All interns |
+| 3 | Start Stage 1 (batch ingestion) in Databricks | Suhash |
+| 4 | Switch data generation to Faker library; explore Stage 2 (CDC) | Filip |
+| 5 | Complete Silver fact table join; commit code to `action/` folder | Asindu |
+| 6 | Choose ML platform (Databricks / SageMaker / Azure ML); start ML use case | Elliot |
+| 7 | Commit CI/CD demo (GitHub Actions + Databricks) to internship repo; explore Databricks Asset Bundles and Terraform | Deepika |
+| 8 | Build parallel Databricks workflow (CSV + API sources); read about Spark UDFs and their trade-offs | Nikolaos |
 
 ---
 
