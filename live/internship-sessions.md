@@ -12,11 +12,11 @@
 1. Week check-in — what did you work on? Blockers? Wins?
 2. Git workflow recap — feature branch → PR flow (quick 5 min; confusion observed in midweek sync)
 3. Data sources Q&A — clarify what datasets to use per stage (Faker, Kaggle, CoinGecko API, Raspberry Pi IoT simulator)
-4. Parquet deep dive — Sanjeev-led (interns did not complete research task; discuss why Parquet is backbone of big data)
-5. Code sharing — Asindu to share Autoloader code; others show Stage 1 progress from `action/` folder
+4. Parquet deep dive — Sanjeev-led discussion on why Parquet is the backbone of big data
+5. Code sharing — Asindu to walk through Autoloader code; anyone else who has made progress on Stage 1 is welcome to share
 6. Architectural discussion — table formats (Delta, Iceberg, Hudi) deep dive and comparison
-7. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(if ready)*
-8. Check-in on Filip & Nikolaos — both absent from midweek; catch up on their progress
+7. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(whenever ready)*
+8. Catch up with Filip & Nikolaos — hear about their progress and see if there is anything the group can help with
 
 **Notes:**
 
