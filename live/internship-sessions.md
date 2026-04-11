@@ -18,9 +18,9 @@
 5. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(whenever ready)*
 
 **Part 2 — Based on midweek sync (Apr 8)**
-6. Git workflow recap — quick walkthrough of feature branch → PR flow
-7. Data sources Q&A — clarify what datasets to use per stage (Faker, Kaggle, CoinGecko API, Raspberry Pi IoT simulator)
-8. Catch up with Filip & Nikolaos — hear about their progress and see if there is anything the group can help with
+- Git workflow recap — quick walkthrough of feature branch → PR flow
+- Data sources Q&A — clarify what datasets to use per stage (Faker, Kaggle, CoinGecko API, Raspberry Pi IoT simulator)
+- Catch up with Filip & Nikolaos — hear about their progress and see if there is anything the group can help with
 
 **Notes:**
 
