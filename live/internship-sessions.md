@@ -4,17 +4,19 @@
 
 ---
 
-## Session 4 — April 12, 2026 *(upcoming)*
+## Session 4 — April 11, 2026 *(upcoming)*
 
 **Attendees:**
 
 **Agenda:**
 1. Week check-in — what did you work on? Blockers? Wins?
-2. Parquet deep dive — why is it the backbone of big data? (intern research presentations)
-3. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks
-4. Code sharing — interns screen share Stage 1 progress from action/ folder
-5. Architectural discussion — table formats continued (Delta, Iceberg, Hudi comparisons)
-6. Q&A — Spark UDFs, off-heap memory, API ingestion patterns
+2. Git workflow recap — feature branch → PR flow (quick 5 min; confusion observed in midweek sync)
+3. Data sources Q&A — clarify what datasets to use per stage (Faker, Kaggle, CoinGecko API, Raspberry Pi IoT simulator)
+4. Parquet deep dive — Sanjeev-led (interns did not complete research task; discuss why Parquet is backbone of big data)
+5. Code sharing — Asindu to share Autoloader code; others show Stage 1 progress from `action/` folder
+6. Architectural discussion — table formats (Delta, Iceberg, Hudi) deep dive and comparison
+7. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(if ready)*
+8. Check-in on Filip & Nikolaos — both absent from midweek; catch up on their progress
 
 **Notes:**
 

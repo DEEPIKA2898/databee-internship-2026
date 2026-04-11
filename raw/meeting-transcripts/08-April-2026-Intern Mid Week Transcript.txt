@@ -1,0 +1,247 @@
+Kousalya  3:02  
+Make it Hello, Neha, hi, hi. I just noticed my mic was off. Okay, okay, yeah, how are you? I'm good. How are you? I'm fine. Thank
+
+Kousalya  3:29  
+you. Yeah, we'll wait for others to join. Okay, no problem. I have an internet issue today, so, like it might drop in between. So I'm just informing you so that, yeah,
+
+Kousalya  3:50  
+hi, hello, if, if it
+
+Kousalya  4:30  
+Yeah, Philip has said that he wouldn't be able to join the meeting.
+
+Kousalya  5:08  
+Yeah, so How was your week going? Internship going this week
+
+Elliot Eriksson  5:19  
+that's been going well, I would say I haven't had too much time just yet, but I've been looking some of the tasks that I need to do for this meeting, And it's looking good so far,
+
+Elliot Eriksson  5:31  
+same for me as
+
+Suhash Raja  5:45  
+like, have you guys started doing the activities that has been mentioned by San Juan last week,
+
+Elliot Eriksson  5:55  
+the ones on The GitHub
+
+Elliot Eriksson  5:56  
+or, yeah, yeah,
+
+Elliot Eriksson  6:01  
+I can't remember which exactly it was that I had
+
+Elliot Eriksson  6:05  
+to do. Okay, okay,
+
+Elliot Eriksson  6:07  
+okay, yeah, for me, I haven't started yesterday. I've been
+
+Elliot Eriksson  6:13  
+bit bad on the keeping up, but I'm gonna start to either tonight or tomorrow.
+
+Suhash Raja  6:19  
+Okay, okay, okay. Like, okay. Like, I'm trying to start as well. Like, I'm not sure. Like the GitHub, they have mentioned that we need to get data from API. We need to
+
+Suhash Raja  6:42  
+get data sources from multiple things like, but I'm not sure like, which data sources? Like, is there any selected data sources should be used? Do you guys have any idea?
+
+Elliot Eriksson  7:01  
+I don't know if there was any specific but it did the reference to Raspberry Pi,
+
+Suhash Raja  7:10  
+yeah, like, like, just paste it in the chat, like, so we can take any data or like, it should be relating to the customers on orders TV. Good question. Part of this, can it be explained again? Yeah,
+
+Asindu Gayangana  7:36  
+one minute. Let me do Yeah.
+
+Suhash Raja  7:40  
+One minute, let me share my screen. So,
+
+Suhash Raja  7:56  
+like in the are you guys able to see my screen? Yes, yeah. Like so in the use case, de iPhone DevOps, like the smart retail analytics platform, like the data sources, has been mentioned, like customers and orders, DB, Product Catalog and store inventory and suppliers. Like, is there any specific source for this data, or we can just take any data of these types for doing this stage one batch ingestion.
+
+Asindu Gayangana  8:33  
+Actually, I don't have any ideas. Look into that. Okay, you might need to use by our own I think, okay, okay, okay, did you start to develop this?
+
+Speaker 1  8:51  
+Yeah? Like, not yet. Like, I'm just trying to prepare these sources.
+
+Asindu Gayangana  8:58  
+Like, give some examples, so I create a batch pipeline, okay, using data breaks. I downloaded and CSV, fine, okay, then I create some dimension by my own. Okay, so there is, I think, distinct three millions of records I create a distinct product, details, distinct country, those kind of thing that has a dimension sources, okay,
+
+Suhash Raja  9:50  
+okay, okay, okay, so we can pick up any data, right? Like, yes, okay,
+
+Asindu Gayangana  9:55  
+okay, okay, but I need to create some streaming pipeline, so I need to look into that API, which is previously mentioned, raspberry,
+
+Suhash Raja  10:09  
+okay, okay, okay. So, like, I'm just trying to set up these things, so I'm searching many things and stuff.
+
+Elliot Eriksson  10:24  
+So here on the GitHub for action items for Philip that they need to do, switch data generation to fake a library which seems to be like a generates fake data. So maybe you can use that and see if it's like the right format. Yes, Faker library, yeah, yeah, okay, okay, okay,
+
+Asindu Gayangana  10:50  
+so it generate fake data as you requested.
+
+Elliot Eriksson  10:56  
+Okay, okay, but is it like in the REST API then, or like, what is it? Just like a CSV file, or, if you know,
+
+Suhash Raja  11:08  
+not sure it's like, I mean, that website, it is having API also, yeah, yeah, need to explore as
+
+Asindu Gayangana  11:29  
+well as you can use some APIs, free APIs, which is, it, is It includes, what does mean, coin status, it's okay. Okay. Bitcoins, kind of thing. They updated their prices on each, every, each and every 30 minutes, kind of thing. So you can extract the data through that API, if you will. Okay, so, okay. API to extract data.
+
+Suhash Raja  12:04  
+Yeah. Coin, Gecko, right, yes. Coin, okay.
+
+Suhash Raja  12:17  
+Okay, then we'll try on these things for Today, and before that's at today class here.
+
+Suhash Raja  12:42  
+You do you guys know for Saturday, if you're like, supposed to read up on any of the things that we didn't touch on their architectural discussion?
+
+Elliot Eriksson  12:56  
+Sorry, Elliot, I didn't get you.
+
+Elliot Eriksson  12:59  
+Do you guys know if we're gonna, if we should, like, read up on any of that stuff in the architectural discussion, like we did last week.
+
+Suhash Raja  13:07  
+Yeah, I think yes, like in the Slack channel, I saw the action items noted down when Sanji was like, read about parquet and iceberg delta and hoodie files, like,
+
+Elliot Eriksson  13:39  
+okay, but It's just that, because I don't think we touched on like half the things in the architectural discussion,
+
+Suhash Raja  13:48  
+yeah, this is what he said in the during The class, yeah. And then, like in the slack, I
+
+Suhash Raja  14:11  
+Yeah, in the in the slack chat, he has mentioned like, like, if you go into 2026, internship program, yeah, program, yeah, yeah. Like on the on the last of the thing is like The,
+
+Suhash Raja  14:36  
+yeah, yeah, in the Last years, i i Not
+
+Suhash Raja  15:09  
+so my kid fell down. So, yeah, yeah, it's fine, like he got slipped under, like, fell in the back, so got it in the head. Yeah. Yeah,
+
+Suhash Raja  15:50  
+I joined 10 minutes late. I was just backed up in SFP class. You
+
+Elliot Eriksson  16:10  
+Oh, what we are discussing here. Just been talking a bit about how the book has been going, how our work has been but what I should prepare for the weekend and whatnot. Okay, your work. Sorry, Elliot, please come again. Was it being on your work for this week?
+
+DEEPIKA ELANGOVAN  16:35  
+Yes. Elliot, like I created the Databricks account three edition one, then I'm, I just saw some YouTube videos. Got some clarity. Now I'm it to start off hands on part. So today I'm planning to work on the data edition one. Like, as Sanji said, like for data generation, I tried using Faker, so I got the code from chat GPT, and tried implementing in VS code. Like, I got the example data, so now, like, I'm in the stage of trying to import it in the data exporter and try the data edition itself. How about you?
+
+Elliot Eriksson  17:14  
+I've been able to do too much just yet, but it seems like all I needed to do for this week was to, like, just get started, I guess, okay, okay, look into what is needed for me and research a bit on how to best set up. I guess
+
+DEEPIKA ELANGOVAN  17:28  
+you're also new to Databricks, right?
+
+Elliot Eriksson  17:30  
+Elliot, yeah, never used it before. Gonna be doing some machine learning, but use it through Databricks. Seems like they have some good stuff for that. How
+
+DEEPIKA ELANGOVAN  17:46  
+about you, Asindu, I think you are already an expert in Databricks.
+
+Asindu Gayangana  17:51  
+Actually, I don't have too much experience in Databricks, but I have experience in synapse, so I can share some code. Should? I couldn't able to upload that into the
+
+Unknown Speaker  18:06  
+repository and use repository kit tab,
+
+Asindu Gayangana  18:11  
+yes, I couldn't able to upload it. So I have, I have used auto loader to invest five files into the tables. So you can use auto order, yeah. So what it does is, if you upload a new file into desired location, as soon as it you someone upload that file, it will automatically extract data from that file. New File.
+
+Speaker 2  18:48  
+Is it possible for you to share your screen and show yeah?
+
+Asindu Gayangana  19:15  
+Hey, can you see my database?
+
+DEEPIKA ELANGOVAN  19:18  
+Yes, I can see the screen, but blur and not sure it is only for me? No, it
+
+DEEPIKA ELANGOVAN  19:26  
+is for me as well. Is
+
+Elliot Eriksson  19:30  
+it clear right now, my PC network issue, I guess I can see your screen, but it is bit blurred.
+
+Asindu Gayangana  19:39  
+Do you think is it my network issue? Can anyone is see this clearly? I think
+
+Asindu Gayangana  19:57  
+when we try, we used autoload feature. We have to try this spark, dot read stream this one, so we have to use the format as a cloud files. Then they automatically detect the this is autoloader feature, auto order function we are going to use. So we can use different kind of options in here. So first one is in schema. I think you guys okay. I will explain in first schema means it detects what are the column types of source, source files, it will automatically detect it means, if the source file have a data column, Date column, it detects that column as date, date column. Did you understand that
+
+Unknown Speaker  20:59  
+this is quite new to me.
+
+Asindu Gayangana  21:07  
+If you don't use this sometimes it extract all the data as strings, you know. So it means, if there is 10 columns containing integer columns, date columns and other types of data columns, it extract every column as a string. Otherwise, we can use this inverse schema into detect what are the schema types available in the source files. This is the thing then. So in here,
+
+Speaker 2  21:48  
+which data you are using Asindu for this process,
+
+Asindu Gayangana  21:53  
+CSV files and packet files.
+
+DEEPIKA ELANGOVAN  21:56  
+Okay, okay, like you are using the same example as and you provided that retailer example only. Or like, you got some other data, sorry, well, like, you got the data provided by the example of San Jose's one. Or like, is it like your own data?
+
+Asindu Gayangana  22:13  
+No, I just extract, downloaded the data from the cover, then I used it as I want. So then this line, it saves our files schema. It means, what are the column types and column names? If the new coming call files containing a new column, it will automatically detects that new files have a new color kind of so it saves this schema in different schema location for each and every table. So that's why we use this schema location. So in here, if we use this one, this is also bit critical schema evolution mode. If you want to load newly added columns from the source table, it means, when you just assume yesterday, you load some data. It contain 10 columns. Okay, then it will be automatically loaded that 10 column and save that schema, 10 columns, name in this this folder. Now you today. You're going to when you're going to load data today, it may contains 11 it means it additionally added new columns from the source. So then we can tell them our pipeline to process, to add that new columns to our destination as well. So this is what happening here. If you want to fail your pipeline in new new columns included from the source, you have to change.
+
+Unknown Speaker  24:16  
+Actually, the screen stopped.
+
+Asindu Gayangana  24:21  
+I'm sorry, this is the I have coding for the autonomy. If you are, you, if you are enable this part, this add new columns part. It means schema evolution mode. You have to change. You have to use that merge schema also. Then it will automatically merge updated schema while writing to the tables. So however, I will share that query with you with the team. Do
+
+Asindu Gayangana  25:04  
+I hope you guys can use this query. There are so many options you can go on by one, and also I can share some document test, You
+
+Asindu Gayangana  26:22  
+I I think I can't upload some files into the chat, so I will upload it to the slack. Sure, the features of explaining, features of database, some kind of features. There are so many features through one by one, so I can't upload it to the chat. I think i
+
+Asindu Gayangana  27:42  
+you i can't upload it to the I will upload it to the repo as soon as possible.
+
+Elliot Eriksson  27:59  
+That'd be amazing, just like it would be useful for us to begin to us beginners to get an understanding how
+
+Asindu Gayangana  28:08  
+otherwise I can upload it to slack. It is a bit comparison I have done regarding feature, okay, I will upload. I uploaded it to the chat slack structure. So maybe it is useful for you.
+
+Unknown Speaker  28:31  
+And I think this will be great
+
+Asindu Gayangana  28:36  
+in your you can get some understanding deep on about That, features on that. Features
+
+Asindu Gayangana  29:01  
+connect that repos with you. Sorry, did you, I mean, deploy that repo to your local machines?
+
+Speaker 3  29:15  
+Yeah, I go down to my copy, at least to my local machine. I Okay,
+
+Elliot Eriksson  29:23  
+I have forked it, but I haven't cloned it in
+
+Asindu Gayangana  29:28  
+my local I didn't.
+
+Elliot Eriksson  29:34  
+We were supposed to fork it, or we were supposed to just upload it to the original one, if you
+
+DEEPIKA ELANGOVAN  29:42  
+guys know, uh, he has, he has to create pull request when we are about to push something by forking. We can do that or by
+
+Suhash Raja  29:57  
+we need to create a future branch for us, where we will upload the things,
+
+Transcribed by https://otter.ai
