@@ -14,7 +14,7 @@
 1. Week check-in — what did you work on? Blockers? Wins?
 2. Parquet deep dive — why is it the backbone of big data?
 3. Code sharing — Stage 1 progress; screen share what you have built so far
-4. Architectural discussion — table formats (Delta, Iceberg, Hudi) deep dive and comparison
+4. Architectural discussion — table formats (Delta, Iceberg, Hudi) deep dive and comparison; Lakehouse vs Data Lake vs Data Warehouse
 5. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(whenever ready)*
 
 **Part 2 — Based on midweek sync (Apr 8)**
