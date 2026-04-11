@@ -9,13 +9,17 @@
 **Attendees:**
 
 **Agenda:**
+
+**Part 1 — Carried over from Session 3**
 1. Week check-in — what did you work on? Blockers? Wins?
-2. Git workflow recap — feature branch → PR flow (quick 5 min; confusion observed in midweek sync)
-3. Data sources Q&A — clarify what datasets to use per stage (Faker, Kaggle, CoinGecko API, Raspberry Pi IoT simulator)
-4. Parquet deep dive — Sanjeev-led discussion on why Parquet is the backbone of big data
-5. Code sharing — Asindu to walk through Autoloader code; anyone else who has made progress on Stage 1 is welcome to share
-6. Architectural discussion — table formats (Delta, Iceberg, Hudi) deep dive and comparison
-7. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(whenever ready)*
+2. Parquet deep dive — why is it the backbone of big data?
+3. Code sharing — Stage 1 progress; screen share what you have built so far
+4. Architectural discussion — table formats (Delta, Iceberg, Hudi) deep dive and comparison
+5. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(whenever ready)*
+
+**Part 2 — Based on midweek sync (Apr 8)**
+6. Git workflow recap — quick walkthrough of feature branch → PR flow
+7. Data sources Q&A — clarify what datasets to use per stage (Faker, Kaggle, CoinGecko API, Raspberry Pi IoT simulator)
 8. Catch up with Filip & Nikolaos — hear about their progress and see if there is anything the group can help with
 
 **Notes:**
