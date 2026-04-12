@@ -1,0 +1,227 @@
+Internship Coordination and Scheduling
+Wed, Apr 1, 2026
+
+0:00 - Unidentified Speaker
+Hi.
+
+0:01 - Kousalya
+Hi, how was your week so far? It's been good.
+
+0:06 - Elliot Eriksson
+Just doing some slight research.
+
+0:09 - Kousalya
+How about you? Yeah, it's going good. Yeah? Nice to hear. Yeah.
+
+0:23 - Kousalya
+Hello, hello, Filip.
+
+0:25 - Filip Cedermark
+Hello.
+
+0:25 - Kousalya
+Hi, how are you doing?
+
+0:32 - Filip Cedermark
+Doing good, doing good. I think at least very nice weather. I'm going to get outside a bit after this.
+
+0:43 - Kousalya
+Okay. Yeah, I wanted to ask, like, is this time okay for you?
+
+0:50 - Filip Cedermark
+For me? Yeah, absolutely.
+
+0:52 - Kousalya
+Yeah, Deepika has texted me saying that if it is possible to reschedule or something like after 4 or before 12 p.m. She has a Swedish class from 1 to 4.
+
+1:06 - Neha Doda
+I mean that's that's not a problem either I think.
+
+1:22 - Filip Cedermark
+Sorry, are we gonna reschedule for later today or like tomorrow?
+
+1:35 - Kousalya
+Next week, maybe we can schedule if it is fine with everyone also. Yeah, okay, I see. Yeah, like what times would you prefer?
+
+1:48 - Filip Cedermark
+I mean, I'm I'm flexible, so I can pretty much any time of day would work for me. Okay.
+
+1:57 - Kousalya
+Elliot, for you?
+
+2:00 - Elliot Eriksson
+Yeah, I would say I'm pretty flexible as well. So, whenever works for everyone, I guess.
+
+2:06 - Unidentified Speaker
+Okay.
+
+2:07 - Kousalya
+Yeah, Neha, the thing like we are planning like next week, maybe rescheduling the meeting. So, before 12 or after 4, When would it be comfortable for you?
+
+2:23 - Neha Doda
+Because if it is on Wednesday, I usually have class from 9 to 11 for my Swedish.
+
+2:32 - Neha Doda
+And I can manage between 11 to 12. Otherwise, I'm OK after 4 o'clock.
+
+2:40 - Kousalya
+OK, OK, yeah.
+
+2:44 - Kousalya
+Hello, hello.
+
+2:47 - Kousalya
+Hi, team.
+
+2:52 - Kousalya
+Hi.
+
+2:56 - Neha Doda
+Is it this meeting you're talking about? Yes, yes.
+
+3:02 - Neha Doda
+So do we have anything on Saturday, this Saturday?
+
+3:07 - Kousalya
+Yeah, this Saturday, yes. There will be a meeting. OK.
+
+3:11 - Neha Doda
+At what time it is, because I didn't receive anything about that?
+
+3:14 - Kousalya
+Yeah, it would be in the morning only like 9 or 10 like that.
+
+3:20 - Kousalya
+9, yeah. 9 10 or? Yes, 9 to 10, yeah.
+
+3:27 - Neha Doda
+Hello, Asindu.
+
+3:58 - Kousalya
+Yeah, like maybe we can discuss like what you did like the last week from last Wednesday to today.
+
+4:08 - Kousalya
+Yeah.
+
+4:11 - Kousalya
+That's good.
+
+4:15 - Elliot Eriksson
+I don't know about everyone else, but did you get access to the GitHub repo that Sanjay was going to share? Because I had a bit of a problem finding anything I haven't seen anything.
+
+4:29 - Filip Cedermark
+At least I haven't received a mail invite or anything like that. From what I can tell, I haven't been added to anything, which would make sense because I don't think he wouldn't know our GitHub accounts.
+
+4:45 - Elliot Eriksson
+Yeah, of course. I tried messaging him on Slack yesterday, but it didn't get a response yet.
+
+4:57 - Elliot Eriksson
+But it leaves me like, I'm a bit unsure what I'm supposed to do for my case for this week. So all I've been doing is like really researching. I've been reading up a bit on like PySpark, because it seemed kind of interesting. But yeah, that's all I've really done. Yeah, I got started a bit.
+
+5:19 - Filip Cedermark
+I mean, last week from Wednesday, still the first week we didn't have anything super concrete yet, so I did some more studying, reading up on some more SQL stuff. After our meeting last Saturday, we discussed the possibility of, at least for those who are more on the data engineering track, to start on a rudimentary, really basic pipeline. So I've been doing that. Today and yesterday as well. Kind of reading up a bit on Databricks, which I'm not, like, I want to get better at, and I'm not super familiar with everything. So I've been kind of setting up some file structure and kind of just generating some sample data that I'm going to be working on for the rest of the week.
+
+6:11 - Unidentified Speaker
+Nice.
+
+6:32 - Kousalya
+Yeah, I think Sanjeev might have been busy this week. I also couldn't get in touch with him. Yeah, I completely understand that.
+
+6:41 - Elliot Eriksson
+It's just that, at least for me, we didn't get the machine learning. I didn't get exactly what I was supposed to do. So I figured I'd ask, but I understand that if he's busy, he will get back to me when he's able to. OK.
+
+7:00 - Kousalya
+Yeah, were you given any github link or something like that? Yeah, I couldn't find anything.
+
+7:09 - Elliot Eriksson
+But maybe I wasn't looking deep enough. I'm not sure if it was done or not. Yeah, Asindu has asked me regarding the github link.
+
+7:21 - Kousalya
+So maybe you guys can help him out if you have any idea regarding that.
+
+7:29 - Kousalya
+I could never find any link right until now. So I think it is not granted access for us. Yeah, I think that might be the case for now. Yeah, so but I started.
+
+7:50 - Asindu Gayangana
+Building a pipeline using Databricks. So we can. There is a two way to use Databricks first one is free edition so we can it is we can use it there is no expiry date otherwise if we need to go for the premium Databricks account we only had 14 days trial in that we can build streaming pipeline so they also offer free edition in free edition they didn't offer us to build a pipe streaming pipeline so it is the main difference as I think and there are so many differences as well but for that task we can do by using free edition so yeah Okay, good to know.
+
+8:53 - Elliot Eriksson
+I haven't really looked into Databricks yet, but might have to start soon.
+
+8:59 - Unidentified Speaker
+Okay.
+
+9:23 - Asindu Gayangana
+This is the update from my And...
+
+9:28 - Unidentified Speaker
+Yeah.
+
+9:36 - Elliot Eriksson
+Kodasa, are Sanjeev and some of the other mentors supposed to join us? I guess vinod is there.
+
+9:43 - Kousalya
+Yeah, vinod has joined from the mentors team. Yeah. Yeah. But like on a regular schedule, is it also that these are supposed to be like meetings with some of the mentors as well as well as the interns or is it like a kind of just I think this meeting was like maybe like interns could check with each other and like mentors also like if you have any doubts you can ask mentors also Hi Elliot, so guys you can discuss like I don't think Sanjay has shared you the github repo link there isn't any update of probably we can reach out to him.
+
+10:38 - vinod Kumar
+So asking for a link or any task that you are supposed to, you know, complete it or submit to him by this weekend. So I'm not sure whether, do we have a call on Saturday? Because I think Saturday is somewhat holiday.
+
+10:58 - Elliot Eriksson
+yeah I mean as long as I get some info I think it will be good some plan for data analysis part I'm able to cover some topics I think soon you will share with you guys in the coming days, maybe in the week or something like that.
+
+11:29 - vinod Kumar
+Yeah, that sounds great.
+
+11:32 - Elliot Eriksson
+Let's see. Okay, perfect. Good to know just a bit more. Yeah.
+
+11:38 - vinod Kumar
+So if you guys have something to share or like give any update on your task, like I remember from last call, so Sandeep was asking to do something like a yes, like share any document with you guys?
+
+11:57 - Elliot Eriksson
+I didn't share anything but they did say on the last call that we were supposed to look into one of the three or four different areas like the distributed data systems and I decided to look into PySpark and I think there was one more field that you were supposed to look into if you wanted to.
+
+12:17 - Unidentified Speaker
+Okay.
+
+12:19 - Elliot Eriksson
+So that's why I'm looking into PySpark work right now because I think it seems more interesting to me.
+
+12:26 - vinod Kumar
+Okay, so I think Kousalya we can reach out to Sanjeev and ask for anything that team can do before Saturday.
+
+12:37 - Kousalya
+Yeah, yes I'll text him and maybe in the group we can text him so that we can directly reach him.
+
+12:49 - Unidentified Speaker
+Okay.
+
+12:52 - Kousalya
+Okay, guys.
+
+12:56 - vinod Kumar
+So if we don't have anything, I think we can end this call. Not for now.
+
+13:04 - Filip Cedermark
+I think if anything comes up, I'm assuming most of the people or most of the mentors are available for like just a quick message or something like that.
+
+13:13 - vinod Kumar
+OK. Yeah.
+
+13:18 - Elliot Eriksson
+OK.
+
+13:19 - Kousalya
+Yeah.
+
+13:20 - vinod Kumar
+Thank you, guys.
+
+13:22 - vinod Kumar
+Thank you.
+
+13:23 - Unidentified Speaker
+Yeah. Bye. Bye-bye.
+
+13:27 - Filip Cedermark
+Bye.

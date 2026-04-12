@@ -1,0 +1,371 @@
+Data Ingestion and Parquet Practices
+Sat, Apr 11, 2026
+
+0:32 - Conference Room (sanjeev kumar) - Speaker 1
+Okay, then let's start. Just give me a second. Item four. Give me a second. OK, nice. So let me share my screen, and let's look at the agenda. OK, great. So let's look at the agenda now. So we will, as usual, do the weekly checking just to see what blockers you have, what wins, What did you work on? Then the Parquet deep dive, if somebody can, if you got a chance to actually work on that part, it will be great to hear from you. What do you think about it? Then it will be nice if you have made any progress on the code share. I think Asindu, you made something and DEEPIKA, you also were working on DevOps part. It will be great if you can showcase or share whatever you have right it will be nice then then some discussions around the architectural part when we go to the second second part of this hour and I will show you like the kind of presentation I was telling you right like what what do I expect you to draw I will give you an idea on that then DEEPIKA if you are ready then maybe maybe we can also see if you can demo your CI-CD path, the work that you have done. If not, then we can move it to next week also, not a problem. Then based on part two, sorry, based on the midweek sync, the transcription that they have, there are some issues that were highlighted. We will also look into it, right? So for example, yeah, the Git workflow, I have not been able to set it up. I also don't see any actions or PRs here. So maybe if you need some help, we can also quickly look into that. Does this agenda look fine? Any other thing before we start? Okay, fine. So let's do this. So the first point is to do a simple check-in quickly. Let's go around this room. So Elliot, you are first on the screen. Would you like to start?
+
+3:44 - Unidentified Speaker
+Yeah, sure. So I've spent some time just setting up the project, I guess, like my case. I've decided to go with Databricks as a platform. And I'm currently just doing a simple supervised learning project to learn how Databricks works, I guess.
+
+4:04 - Conference Room (sanjeev kumar) - Speaker 1
+OK, great, great. OK, and are you facing any issues in setting up this Git?
+
+4:13 - Unidentified Speaker
+No, I've set it up, but I haven't posted anything yet just because I haven't been done with the code yet.
+
+4:20 - Conference Room (sanjeev kumar) - Speaker 1
+Great, not a problem. So it's just that make sure that you have access and there is and where is that? Yes, so you have the, where is the use case? Oh yeah, sorry, my mistake. This is the use case and you have access to this use case, right? You can take a look. Yeah. Okay, great. Then let's go, so we know the, we have one of the mentors, so let's go to Suhash.
+
+4:55 - Suhash
+Yeah, Sanjay, so I, just worked on window function, column table, column table expressions, and understood what they are. And then like, I tried setting up the source data, like for the use case in data engineering. But I was facing some connectivity issue between my local system and Azure environment. So like I'm trying to troubleshoot it.
+
+5:24 - Conference Room (sanjeev kumar) - Speaker 1
+What do you mean by local system?
+
+5:26 - Suhash
+Like you trying, trying to like, like, I'm just trying to create sources like Kafka, and the Kubernetes and then like, sending it to Databricks like, so I'm just trying like I'm exploring like, stuff. Okay.
+
+5:44 - DEEPIKA ELANGOVAN
+Yeah. Just make sure that you don't get stuck for long. If you are getting stuck, ask for help, right? That might be able to block you. Right. But yeah, that's good. So as I hear from you, no blockers there, right?
+
+6:00 - Unidentified Speaker
+No, no, no, no.
+
+6:03 - DEEPIKA ELANGOVAN
+And you will also be able to set up the Git repo, right? Yes. OK, great. Then DEEPIKA.
+
+6:11 - Conference Room (sanjeev kumar) - Speaker 2
+Hello, sanjeev. So this week, I worked on setting up the Databricks platform. As you said, I tried generating the data from Baker. So I used the same example which was provided repository that retailer one. So with the help of baker like I created data set something around 5000 for orders.csv and customer.csv. So I tried uploading the data to Databricks and I have read the data using PySparks engine. So I tried to understand about Spark about that how how the architecture is and DAG and lazy evaluation implementation and try to understand about data frames and what are ELT and ETL hybrids and data bricks. So this is how my week went this week, Sanju.
+
+7:00 - Conference Room (sanjeev kumar) - Speaker 1
+OK, great. And on the CI-CD part, were you able to?
+
+7:05 - Conference Room (sanjeev kumar) - Speaker 2
+On CI-CD part, I have created the pull request now, Sanju, but I would be able to present it next week, Sanju. I will prepare some more, and I will prepare it with better clarity.
+
+7:19 - Conference Room (sanjeev kumar) - Speaker 1
+Exactly, no pressure there. If you want two more weeks, please do that, right? It's just that. Yeah.
+
+7:24 - Conference Room (sanjeev kumar) - Speaker 2
+But it can cross verify my pull request once, sanjeev, when you have time.
+
+7:30 - Conference Room (sanjeev kumar) - Speaker 1
+OK. Oh, yeah. Nice. I have it. I will take a look at it. Sure.
+
+7:34 - Conference Room (sanjeev kumar) - Speaker 2
+And also, I used fork method instead of cloning the code, sanjeev. I forked it to my repository, and I created PR to push the changes.
+
+7:42 - DEEPIKA ELANGOVAN
+Is it OK? No, that's even better. Yeah. OK. Great. If you want to directly work on this repo, you have collaboration access. If you want to just fork it out.
+
+7:53 - Unidentified Speaker
+I did have access to merge it, but still I thought it would be better you validate and merge it.
+
+7:58 - Conference Room (sanjeev kumar) - Speaker 1
+Great. So please always make sure that you raise a pull request so I can take a look at what you are doing and whatnot. And I can give you some feedback. Great. And I hear no blockers. And you are?
+
+8:12 - Conference Room (sanjeev kumar) - Speaker 2
+It would be great if you tell me how I can progress next century from this step to next step. So as of now I am in data engine step like I have uploaded raw data and I have read it using PySpark. So how should I take it up further next century?
+
+8:30 - Conference Room (sanjeev kumar) - Speaker 1
+Okay, could you tell me like you you are reading the data you said five five hundred thousand data points you created for order.
+
+8:35 - Conference Room (sanjeev kumar) - Speaker 2
+So I am assuming you are on this step.
+
+8:45 - Conference Room (sanjeev kumar) - Speaker 1
+First, first batch. Yes. Okay. Now, okay, skip this one for now, right? Not the CDC part, but incremental ingestion. So you have done a batch ingestion. Just imagine next day, again, you get next set of files, right?
+
+9:05 - Conference Room (sanjeev kumar) - Speaker 2
+Okay.
+
+9:06 - Conference Room (sanjeev kumar) - Speaker 1
+Right.
+
+9:07 - Conference Room (sanjeev kumar) - Speaker 2
+So it was actually a CSV file, which I generated. How the next set of file would be generated?
+
+9:14 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, so usually what happens is like, you in production environment, there will be data sources that will deliver data to you to data engineers at a location, right? For example, you're using whichever maybe volumes, right database volumes. So files will be delivered in an incremental fashion, let's call it there are multiple variants, right? Like there could be snapshot also, but incremental fashion on daily basis in the same object store or volumes in Databricks, right? So what you have? So you have written your code. Whenever you trigger that, it is going to read, go to that path, whichever path you have set up. It's going to read the CSV file and run to a table, Delta table, right?
+
+10:01 - Conference Room (sanjeev kumar) - Speaker 2
+Okay. I still haven't found Delta table, sanjeev.
+
+10:06 - Conference Room (sanjeev kumar) - Speaker 1
+It should be a Delta table. I'll tell you why. So we'll talk about it.
+
+10:10 - Conference Room (sanjeev kumar) - Speaker 2
+Okay.
+
+10:11 - Conference Room (sanjeev kumar) - Speaker 1
+Or Parquet table. Is also completely fine. But no other format, you should not read from CSV and write into a CSV, it will not make sense. Right? I'll tell you. Then you then what you do, if you have written your job properly, in big data, well, it is very important to understand the incrementalization of your ingestion. Next time when you run your pipeline, it should be smart enough to find out what new has arrived and let me ingest only that because we are working on 5,000 data points but in production when you go for interviews and customers are coming you with problem they will say I have 1 trillion data points right so you have to very carefully design a job that incrementally ingests now it's up to you to find or do your own research how it can be done right and then there are more complexities your pipeline should be idempotent right I I will discuss right so so these are the things you should take care so make sure your pipeline is incremental right next step would be uh this is what it talks about so bronze make sure things are uh incrementally right then uh try try to try to do this uh simple data cleaning Maybe write a, I don't know, null checks, duplicate checks, see how that is done in Spark. Define some invalid rules like, okay, if, I don't know, age is more than 100, then it's an invalid or let me remove that, right? I don't know, timestamp. So these are some examples on what kind of things you can think about while cleaning the data, right? And these are like very valid examples from the production cases. Also, right? Just see how does window functions work if you want, right? And if you if DevOps, you don't need to go into much detail, you can skip it, just do a little bit of it. And this should be good enough for you. But it is still helpful if you if you implement this. So second step. So once your data landed, the bronze table has been created bronze table should be as is. And then silver should should do some kind of cleaning some kind of transform maybe add, split a column into multiple columns and whatnot. They are like more advanced stuff, but yeah, your next step should be after you do the incremental bronze table to implement the silver, right? Once this is done, then we will talk about gold later on, right?
+
+12:52 - Nikolaos Biniaris
+Okay Sanjay, I will try this and I will share my progress next week.
+
+12:57 - Unidentified Speaker
+Thank you. Incrementalization and idempotency. OK, we have Nikolaos.
+
+13:11 - Nikolaos Biniaris
+Hey hey good morning. So my my task for this week was to. Not only have a CSV ingestion, but also work with and try to join them. And yeah, that's what I did. One blocker that I had was I firstly tried to use a weather API so that I can enrich like every order to also show the weather so that later on I could analyze if the weather is somehow correlating with increase or decrease That was my idea. But then I used the API so much in batches like I wanted of 6000 this API for like historical weather data that it stopped. It stopped giving me the files. It was not ingesting after I tried one or two times. So I had this. Problem because I needed to ingest only up to 900 records per day. So I just changed my plan and I used another API that had bigger limits. So I decided to use an API that's called public holidays major date, which gives me all the public holidays on the relevant countries that I want so that I can see in the end if sales are increased, for example, in every public holiday for the countries. I can share a bit my screen to show the ingestion. So I can...
+
+15:15 - Unidentified Speaker
+Okay.
+
+15:17 - Nikolaos Biniaris
+Share the window. I need to. Yeah, I need to reopen the browser.
+
+15:48 - Conference Room (sanjeev kumar) - Speaker 1
+OK, then we can probably move on to Asindu and then come back to Nikolaos. While he sets everything up, Asindu, would you like to go ahead?
+
+16:08 - Nikolaos Biniaris
+OK.
+
+16:10 - Unidentified Speaker
+Nikolaos, are you ready?
+
+16:11 - Nikolaos Biniaris
+I think yes, if I if I try this now to share my window. Yes. OK. Is it sharing?
+
+16:23 - Unidentified Speaker
+Yes.
+
+16:25 - Nikolaos Biniaris
+All right, so I don't need that. OK, so what we talked about the other time was to have those tasks working in parallel to ingest CSV and then to ingest an API something that is relevant with my sources and then what I do is I ingest and then in silver I join them with one relevant table on the date column so I end up in the goal layer to have enriched data because I now have all the public holidays for the countries that I'm working with on my synthetic data. So, for example, this is my ingestion. So, I am mapping first and then I use this How do I? OK. Yeah. And I end up.
+
+17:38 - Conference Room (sanjeev kumar) - Speaker 1
+One question. Yes. So you are using API calls, right? This is great, right? This is what you were in production also, right? Yes. Are you using pure Python to pull from APIs?
+
+17:56 - Unidentified Speaker
+Yeah. Yeah. This is what we, what else? We had discussed that I should not use Spark UDFs for APIs. And I studied a bit the limitations of it.
+
+18:11 - Conference Room (sanjeev kumar) - Speaker 1
+Exactly, yes. So this is what was coming. So could you, so when you interact with API, there are multiple issues that could come, that you could face. One of them that you already faced was rate limits, right?
+
+18:25 - Unidentified Speaker
+Yeah.
+
+18:26 - Conference Room (sanjeev kumar) - Speaker 1
+So when you go to interviews, would like to hear, OK, I have this API thing and whatnot. Could you tell me how you can design that, right? What I would like to hear that you say, OK, yeah, ingestion is definitely possible, but you will have these potential problems that you might face, like rate limits. Is the API the only way to receive the data? Because what about the scalability? What if tomorrow you want to, I don't know, of records being ingested right will that API be able to support that right so these kind of right questions you can put forward so that then they understand that yes you have actually worked with APIs ingestion is possible and you can give them right advices so usually viewers what would do they will give you a scenario they will say you have to help me I do not know anything about my this one this is the architecture I want to do I have one API source I have one database source I have one tell me how should I design so you should design and while you are doing that keep on highlighting the problems and what alternatives you can think of right so this is great do it face the problems and then then remember them right okay yes another thing yes so udfs right uh why you did not go for Spark, you can within, even within Spark UDF, you can call APIs, right? Could you tell me why you did not go for that?
+
+19:53 - Nikolaos Biniaris
+Yeah, yes. What I read is that UDFs in Spark, they act like a row based. So they will go row by row and this is really decreasing performance. And also it was a problem with, What was the other one? I think UDFs in Spark, they do not use the JVM, the Java machine. So they go straight to Python and this is not giving the capabilities of what is Spark built for.
+
+20:31 - Conference Room (sanjeev kumar) - Speaker 1
+Yes, exactly.
+
+20:33 - Conference Room (sanjeev kumar) - Speaker 1
+That's a very good point. And it's for everyone who are like data engineering focused, right? They should know about this particular thing, very common question that is asked, right? Now, Nikolaos, I want to give you a few more steps on for you to research, go and research. But you know, UDF is still faster than what you're doing now. I'll tell you why. So what Spark does, so your point is absolutely correct. Like if you are, if you are like, falling to UDF, then it, it It just does things and it falls out of JVM, it uses JVM and then all those capabilities that Spark provides natively, it's gone, right? It has to do the serialization, deserialization, it becomes inefficient, right? But there are scenarios where we cannot get rid of it. Now, this scenario where I need to actually connect to an API. If you have five workers, right? Because Spark works on distributed systems, right? Be five different, the UDF work can be distributed into five different worker sites. So there could be five parallel calls. If your API can handle a lot more calls in a second, usually production systems will have that, right? Then the Spark would be a bit more scalable. Also read about, it's called vectorized Spark UDF. Please make a note, read about So there are two types of... Spark always keeps on improving its tech, right? Read about scalar UDF versus vectorized UDF, also known as Pandas UDF in Spark.
+
+22:14 - Unidentified Speaker
+Pandas?
+
+22:15 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, or Pandas UDF. This is also called vectorized UDF. Just see like what's the difference, right?
+
+22:22 - Nikolaos Biniaris
+Okay, yes.
+
+22:25 - Unidentified Speaker
+Yeah, take a look and then we can again talk about it. And so I hear no other blockers?
+
+22:33 - Nikolaos Biniaris
+No, no. Yeah, I'm just showing the process of now I use it in silicon. OK. Yeah.
+
+22:42 - Unidentified Speaker
+It's absolutely fine. Great. What is the next step you are planning?
+
+22:51 - Nikolaos Biniaris
+I'm not sure. Maybe I will try. Implementing a CDC pipeline, but that's what I wanted to ask because I know that in Databricks, you use the auto loader if you want to kind of automate the capture. But then I think that we use that only if we have, if we take our data from clouds like S3 or Google storage. But in our case, we have some synthetic data So I don't know if auto loader would work.
+
+23:27 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, exactly. So I think I would tell you the same thing that I mentioned earlier. Next step for you would be to work with incrementalization of a pipeline. And I am assuming most of the thing that you are doing, it is in Spark, correct? Apache Spark, nice. So now think about, you created a synthetic data, right? Just simulate it. Today, again, run your Faker library how maybe the APIs pull it and maybe land it into your this one just just create incremental data like on assume like every day a new set of files are arriving. Now you just see if your job is incrementally ingesting them or again going back to yesterday's file and today's file and combining them and trying to insert them. Can you do that test? Have you handled the incrementalization of your job.
+
+24:22 - Unidentified Speaker
+OK, but then we won't have for real data coming in. We just simulate that, right? Yes, exactly.
+
+24:33 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, exactly. We need to because you don't have any live data sources. But in production, the CSV file that we created will be delivered by some system, maybe by Kafka system or some system, right? Those systems will keep on dumping data. Day on a schedule. When you trigger your job next morning, how it will find out what new has arrived, right?
+
+24:55 - Unidentified Speaker
+Yes.
+
+24:56 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, because you need to do that because we are not dealing with 10 MB or 100 MB or 1 GB of data. We will deal with 1 terabyte of data. 1 terabyte of data, your job will run for to just ingest it. And that's not acceptable at all, right? We have to design the job in as optimized, as efficient manner as possible. And right now we are just touching the surface of Spark, right? I want you to then, so once you do this right, you will get an idea, this for everyone, you will get an idea how a pipeline is created. What is a medallion architecture? What you did in bronze, what you did in silver, what you did in gold, right? To give you an idea for interviews, now you know the basics. Then we will scale this data up and see how Spark behaves. Then we will go a little bit deeper into shuffle, skew, spill and whatnot. So these technicalities we'll go into, but yeah, this is a very good start.
+
+25:56 - Unidentified Speaker
+Okay. Okay. Yes. Okay. So next step is this. All right.
+
+26:00 - Conference Room (sanjeev kumar) - Speaker 1
+So yeah, for incrementalization and idempotency, think about it. What is idempotency? Read about it. Whenever you create a pipeline, or somebody needs to do a backfill, you know, what is backfill? Yeah, something. I want to go and load the last maybe one month back data. How will you be able to handle that? Think about it, right? And these keywords, if you search about it, you will get all the help possible, right? And then do your research. Let's come and discuss in the midweek, Singh, whatever you have find out, discuss in the team, impart your knowledge to them. It's very important. When you share your knowledge, you learn even more, and others will get to know the new concept of research.
+
+26:49 - Asindu Gayangana
+Great. OK. Thank you, Sanjay. I stop sharing now.
+
+26:55 - Conference Room (sanjeev kumar) - Speaker 1
+And let's move on to Asindu.
+
+27:00 - Nikolaos Biniaris
+Hi, Sanjay. In this week, I have completed a sales pipeline that loaded to Celeron. Actually, I couldn't able to do too much things in this week, but I can share the screen.
+
+27:26 - Conference Room (sanjeev kumar) - Speaker 1
+And while you're sharing the screen, Were you able to set up the Git repo?
+
+27:33 - Unidentified Speaker
+I have worked locally by now, but I will, I will. I have set it up, but I have not uploaded, so I will do it.
+
+27:40 - Conference Room (sanjeev kumar) - Speaker 1
+And like DEEPIKA did right, please start to follow the CI principles. Because as a data engineer, you are expected to know that as a DevOps engineer, you need to know that right. Even mobile engineers need to know how the CI processes work. So let's treat this as you are delivering a project or a project in production to a customer environment. Because you will work as a consultant, they will give you access to your Git, you need to work locally, but everything needs to be synced with Git, right? Just treat me as your customer and you are working on my problem, use case, and then you are delivering code to me, right? So what is the right process? You create a feature branch, you merge it into a dev branch, then you create a west right it gets it gets what approved and whatnot so we will try to simulate the same situation right okay great let's move on to a single so actually I couldn't able to clone the repo so I will do it I hope to do it today but when I check that it's expired that invitation so I can maybe I can add you again then. Yeah, I can work on that, yeah.
+
+28:59 - Asindu Gayangana
+Yeah, okay, Sanjay. So in this week, I try to parameterize my pipelines scripts. So I create a task parameters and pass it to the notebooks.
+
+29:18 - Unidentified Speaker
+Could you share your screen if possible? Okay. Okay.
+
+29:47 - Asindu Gayangana
+I created a dim table as sanjeev. So in here, I create a parameter in task. It means in the pipeline and call it to the, and extract that parameter value from this code. Then passes to the SQL query. Then it exploded into the several columns like day, month, quarter, week kind of things. Then I just overwrite it actually in here, in the final table, in the silo table. I used only, I don't load the data into the bronze layer because it is a one time. Pipeline, then I create when you go to the bronze.
+
+30:46 - Conference Room (sanjeev kumar) - Speaker 1
+Sorry, could you repeat why you don't create bronze table?
+
+30:51 - Asindu Gayangana
+Because I feel that a DIMM date is a one-time load table. So we can run that DIMM table as we want. It means we can load it once a time if we want to load load data for the 10 years, we can do it by a single run.
+
+31:16 - Unidentified Speaker
+So, so this dim, dim date, what kind of data it will store?
+
+31:24 - Asindu Gayangana
+Date, date key. So and also the year, month, day, quarter, those kind of thing for future analysis kind of things.
+
+31:34 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah. So, okay, fine. Makes sense, yeah, not a problem. Let's move ahead, yeah.
+
+31:39 - Asindu Gayangana
+Okay, we need to go to the bronze table. I created a dim country table. Initially create volumes to store the schema and checkpoints. Then I enable that CDC here. I actually used to use order that can handle the schema evolution as well through this and also I add some kind of maximum file per trigger kind of thing that thinking about scalability of the pipeline and also we can add maximum bytes per partition kind of things so maximum files per trigger, and bytes per trigger, and also another thing, actually, I didn't remember right now. And also I infer the schema to identify what are the column types, these kind of things. Then I add the add load date by loading into the bronze table. So, then my, then I loaded those into the, yeah.
+
+33:06 - Conference Room (sanjeev kumar) - Speaker 1
+I have a couple of questions. Can you scroll up? Okay. Yeah, a little bit up. So, here, so you are using, could you explain me what does schema evolution mode does and what does infer schema 2 does and why are you using it? Keep sharing the screen. That was a good one.
+
+33:32 - Asindu Gayangana
+Sorry, Sanjay?
+
+33:34 - Unidentified Speaker
+Is it? That was a very good code. Could you keep sharing it?
+
+33:38 - Asindu Gayangana
+OK, Sanjay. I don't. It just closed, I think.
+
+33:43 - Unidentified Speaker
+Yeah. But yeah, whatever I see in the screen, it's like really good code. And I have a question that I'm asking. I think you know, but I'm asking that again for others to hear, right?
+
+33:56 - Asindu Gayangana
+That is so many tabs, sorry. Okay. In here, what schema, sorry, info schema does is when we load data from the files, especially in Parquet kind of things, it automatically detects column types. It means, if the date column is there in the source table or source files, it automatically detect the column types. If we don't use this info schema, it automatically extract all data as strings.
+
+34:38 - Unidentified Speaker
+Yes, absolutely.
+
+34:42 - Unidentified Speaker
+Also, we can add another part which is Schema hints. So as an example, in the source table or source file, I had the ID column, which is integer, but we want to extract them as a string. So we can exclusively tell them to extract this column as integer or string. So what that schema.
+
+35:14 - Conference Room (sanjeev kumar) - Speaker 1
+One question to you. Could you maybe next session tell me what problems in production I could face if I set the infer schema true versus I define, as a pre-step I define, I find out the schema of my data and then give it manually. Like I want to fix the schema. Could you do the comparison of pro and cons of both and how which is better, right, or why, right? Could you do that?
+
+35:47 - Asindu Gayangana
+Okay, maybe sometimes if in first schema is enabled, so in meanwhile, the source column type was changed, it can be failed, that pipeline can be failed. If in first schema true always, so as I think I need to...
+
+36:09 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, so that also could happen, That will happen for the fixed scheme also. But I think we have less time, but I would like you to think about it. So what you have done, it's really great, right? But there is one problem here, right? That in production, we'll face. And customers might ask about it. And this is a very, very important thing. Please research about it and get back to us.
+
+36:33 - Unidentified Speaker
+Sanchit, can you tell me it again a bit? Info schema versus?
+
+36:37 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah. When I should use infer schema versus when I should fix the schema. By fixing a schema, I mean I make the effort, manual effort, of identifying this is the schema that I will get. This column will be integer, this column will be date, this column will be that, and whatnot. Could you try to find out what production issues could come, this versus that? Sure. Schema evolution. But before that, why did you use ReadStream? Is this a streaming data that you're trying to load?
+
+37:18 - Asindu Gayangana
+Not actually. I just needed to try out autoloader. So to try out autoloader, we have to use ReadStream with Cloud Files. So that's why I used autoloader. That's why I use ReadStream.
+
+37:36 - Conference Room (sanjeev kumar) - Speaker 1
+Could you tell me, so we already talked about with Nikolaos and I think with DEEPIKA about next incrementalization and item potency, right? Could you tell me how we this could handle incrementalization? What I mean with myself, tomorrow again you dump some data, how will it find out that these are the new files, this is the only one that I need to ingest, I don't have to bother which arrived yesterday. How will this code work on that?
+
+38:11 - Asindu Gayangana
+Actually, AutoLoad automatically handles the idempotency. So if we run this code again without landing new files, it doesn't extract anything because it automatically handles what are the new files, then they identify those data. Using uh checkpoints checkpoint locations so this actually this is automatically handle the item potency as I read could you tell me what is auto why is it auto loader functionality or is it sparks functionality uh sorry uh you mean in the checkpoints, no? Sanjay. Yeah.
+
+39:02 - Conference Room (sanjeev kumar) - Speaker 1
+Okay. Let me summarize it. So this is exactly what is expected out of a data engineer. You did a great job, Asindu, to explain us what you're trying to do. This is the very advanced way of incrementalizing your job. Spark has two APIs, batch APIs and stream APIs. What Asindu did, If you use the read stream API, which is a streaming API, what streaming APIs in Spark does, it does the incrementalization automatically. How? Using checkpoint location. Read about it. This is an advanced concept, but let's take it later. But yeah, Even using batch APIs, you can do the incrementalization. You don't need to know this read stream, right? But in Databricks, this is recommended. I use the read stream API even for my batch jobs. Asindu, could you explain to me what is this AvailableNowTrigger?
+
+40:02 - Asindu Gayangana
+If we use AvailableNowTrigger, it's, oh, sorry. Give me a minute so you can. It handled the parallel processing as I know. So if there is a three kind of triggers, first one is actually I got to remember. I'm not remember the one is the streaming kind of thing. It is continuous trigger so. One is continuous, it is for the real time.
+
+40:43 - Conference Room (sanjeev kumar) - Speaker 1
+Please don't mind, since we are running out of time, so please don't feel bad. This is how I try to control the, do the time management. See, I understand where you are going, but that answer is wrong. Read about it, what this available now trigger does.
+
+41:05 - Unidentified Speaker
+Okay.
+
+41:06 - Conference Room (sanjeev kumar) - Speaker 1
+I understood where are you going, but that probably is not right. See, if you do read stream, this job should be running in continuous fashion, right? That's what a streaming job means. It should be running 24 by 7. This available now trigger is related to that. Available now trigger gives the signal to streaming API that this is a bad job. Don't treat this as a continuous streaming job, OK? About it. I'll stop there, but great work Asindu. Keep working on this one since we have left.
+
+41:41 - Unidentified Speaker
+Sorry. Okay sanjeev.
+
+41:46 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, so actually move on to the next section because that is also important, the knowledge sharing part, right? And guys, I'm also thinking one hour is kind of proving to be like very short in time. We probably have to increase So I'm going to talk to Raj about it, because I'm expecting more of these kind of screen sharing sessions like Asindu and Nikolaos did. That's where I can see exactly what you're doing, what mistakes you are doing. And others take a look at it and understand, OK, maybe I could have adopted this code. So we will do this more. So let me think about it. This is just to let you know. And Asindu, very sorry for cutting you short. I need to go move ahead.
+
+42:31 - Unidentified Speaker
+OK, enough of that.
+
+42:33 - Conference Room (sanjeev kumar) - Speaker 1
+OK, and if possible, please set up the Git and please push your code. This is great. It will really help others. And this helps me explain things better to all the interns, right? Great. Let's move on to the next part. Let me share my screen. Did I miss anyone? No, right? I think no. OK, now, let's get back here. Did you guys get a chance to look at why Parquet is such an important file format? Any one of you, if you could raise your hand and talk about for a minute?
+
+43:21 - Suhash
+I can. So Parquet stores the data. Data in columnar format. So instead of row wise format. So the advantages of doing that way is like since the data is going to be of same type, it compresses to a variable compression is there so it can save some space. And when particular column, when particular column is being selected, only that particular column is being read. Instead of the entire row, so it is faster. To work with Parquet files, we need a Panda library and a Parquet engine to process on the Parquet files. Again, in Panda, it's more similar to PySpark where it is data frame for reading and writing to Parquet. So yeah, these are the things I have learned about it.
+
+44:30 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, so great. Yes, exactly. This is what it does. So main points that Suhash covered was columnar format, very important. Then compression, Parquet, there are various compression techniques, ZD, SD, Snappy. There are other compression techniques which compresses the file to a very small size. So on a disk, if a file shows 100 MB, when you load it in the memory, it could be like 10 GB. So in some formats, compression could be very high. And why these things are important for us, that's how the big data system scales, right? You cannot just have very, very big files. Earlier, if you just keep the same data in CSV or text file, and even if you do the compression and whatnot, these are not columnar formats. I will explain you what it means. And the compression will be very bad. Maybe a 10 GB file could be compressed to say 5 GB. But Parquet compressions are really efficient. It could be like ZTSD or it could compress it even 10 times, even more than that, right? So these two things are very important. Now, can somebody explain what do I mean, what does, did Suhash when he said it's it's columnar format like how it is different if I do a select star or say select column age from parquet versus collects columns age in a table which has CSV as its formats like what what's different there yes Nikolaos yeah so if we use a CSV even if we just to select and then we select two columns out of 20 then the engine will go and read everything all the columns for all the rows we have selected.
+
+46:29 - Nikolaos Biniaris
+We even we can limit the rows with limit or in Microsoft SQL with select top 20 example but the columns will all be read and this is something that we want to have Because if we care about, for example, age and spend, Parquet will help us with this. Because the engine will only read about these two columns and not go row by row for every column that exists. So maybe time will be decreased from maybe even hours to seconds.
+
+47:06 - Conference Room (sanjeev kumar) - Speaker 1
+OK. Can somebody validate this? This comment from Nikolaos. Is it true? Is it right? Is it partially true? What can be corrected?
+
+47:17 - Asindu Gayangana
+I think it is correct. Like unwanted data doesn't have to be read when the data is stored in Parquet format.
+
+47:37 - Unidentified Speaker
+Anybody else?
+
+47:37 - Asindu Gayangana
+I would agree with them.
+
+47:46 - Unidentified Speaker
+Sorry.
+
+47:48 - Asindu Gayangana
+I would agree with Nikolaos. Very good. Great.
+
+47:55 - Unidentified Speaker
+OK, I think you had a comment.
+
+48:02 - Asindu Gayangana
+Actually, I'm not fully clear. About the explanation, but I know that it is really good for the OLAP things because it focusing on the column storage in a column manner. So they can compress their data that can in most efficient way for each and every column. So because each column had specific column type, so they can do the most efficient compression type. And also, since they save in the statistics, they can reduce the reads while we're using filters, using statistics.
+
+48:52 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah. So you said OLTP or OLAP. OLAP.
+
+48:58 - Unidentified Speaker
+AP.
+
+48:59 - Conference Room (sanjeev kumar) - Speaker 1
+Yeah, exactly. OK. So yes. I will skip you for now, but yeah, let me, what Nikolaos said is absolutely true. And this is how Parquet works, right? So out of 10 columns, if you select just each or one column, it is just going to read that column alone and return it to you, right? So, but the traditional DBMS systems don't do that. Server. If you do a SELECT star for age, and SELECT star age where name is sanjeev Kumar, it will select my age plus 10 other columns. It will return the whole row. But what Parquet will do, Parquet will return just one data point, name is sanjeev and age is this much. Other columns my address and PIA and whatnot, everything will be ignored. This drastically reduces the amount of data that you need to select. And why we needed to do that? Because in RDBMS system, we might be needing 10 GB of data, 15 GB of data. 50 GB of data. Here, a table could contain one terabyte of data. It's like hundreds and thousands of times more, right? So that's why Parquet as a format really makes things efficient. And like Asindu mentioned, then, but Parquet has some problems. Maybe next step for you guys to go and read about is what problems Parquet has. Why? Then in the market came table formats like Delta, iceberg, hoodie, right? They use Parquet as the format, but on top of that, it starts writing a lot of metadata, like Sindhu mentioned, right? What kind of metadata? Like this Parquet file has maximum, okay, age maximum is 56, lowest is, I don't know, 27, right? So that kind of metrics it keeps in a separate easy to read JSON files, right? Whether it is Iceberg or Hoodie or Delta, that's it, nothing else it does. So all of them have their own way of writing. I don't want to go into the technical details now. But they all write just metadata on top of Parquet, right? Min, max, deletion, a lot of things, right? And so whenever you try to access that Parquet file, say Delta, it will first check your query against that metadata and see what kind of information I can get from here itself. Because in big data world, when you have a table which is one terabyte big, you just don't have one file. There could be thousands of files. That one terabyte data will be divided into thousands of files. When you do select sanjeev and whatnot, it has to go and find in out of that 10,000 files which files probably have sanjeev's information right so instead of reading that 10,000 file that metadata helps in something called file pruning or data skipping just by looking at the metadata it understands okay sanjeev can be at max in these hundred files rest other 90,000 900 files there is no chance that sanjeev is available there. So why I have to go and read that, right? So these tabular formats help with that, right? So maybe next week's task for you, you might have already read about it. You have to read about what, so Parquet is great, right? But what problems these tabular formats try to solve with The next iteration of Parquet is this delta iceberg hoodie, right? And this is very fundamental in data engineering and everywhere, right? Very, very easy question because a lot of customers will work with Parquet. When you go and tell, oh, you work with Parquet, how do you solve this problem? It makes you sound that you understand things. You are giving a very smart suggestion. You understand Parquet has this problem. Maybe you should try out. Why not, right? So in interviews, if you give your perspective like this, and there could be a direct question also, right? It really, really shows that you have a bit deeper knowledge on how data formats work, how big data world, we can scale things up easily, right? On such large data scale. So it may be a task for you to read. Then I'll stop here, right? Because there is there are other topics also to discuss. The next topic, if you can see my screen, is to talk about Lakehouse. Have you heard about what is Lakehouse, Delta Lake, Warehouse? Do you know these constructs? Do you have any idea about this? I just want everybody to be involved. It will be great.
+
+54:18 - Conference Room (sanjeev kumar) - Speaker 2
+Yes, Anjali. I did try to understand about what is Data Warehouse, Data Lake, and Data So like as per my understanding, the data warehouse like, It it it holds only the processed data, whereas data lake it it provides storage for like raw and structured data, whereas data lake house is it is the combination of both data lakes as well as the data warehouse like it provided for it is used for some advanced analytics. So this is the small understanding. With these three things.
+
+54:56 - Conference Room (sanjeev kumar) - Speaker 1
+You know, makes sense. But there is one special thing. So when you say it's a mixture of so lake house is a is a very latest technology, right? We started with data warehouse, like Oracle systems, SQL servers, and whatnot, you have data warehouse, then came, and these are very good for structured data, fast access, very operational systems, right? But then came the concept of data lake.
+
+56:52 - Unidentified Speaker
+you you

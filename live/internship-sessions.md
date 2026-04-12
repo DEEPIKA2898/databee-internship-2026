@@ -4,21 +4,135 @@
 
 ---
 
-## Session 4 — April 12, 2026 *(upcoming)*
+## Session 5 — April 19, 2026 *(upcoming)*
 
 **Attendees:**
 
 **Agenda:**
+
 1. Week check-in — what did you work on? Blockers? Wins?
-2. Parquet deep dive — why is it the backbone of big data? (intern research presentations)
-3. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks
-4. Code sharing — interns screen share Stage 1 progress from action/ folder
-5. Architectural discussion — table formats continued (Delta, Iceberg, Hudi comparisons)
-6. Q&A — Spark UDFs, off-heap memory, API ingestion patterns
+2. Deepika demo — CI/CD pipeline with GitHub Actions + Databricks *(carried over from Session 4)*
+3. Intern presentations — research from last week's tasks:
+   - Incrementalization & idempotency — how to design a pipeline that only ingests new data; what is backfill and how do you handle it?
+   - `infer schema` vs fixed schema — production pros and cons *(Asindu leads)*
+   - `AvailableNow` trigger — correct explanation *(Asindu leads)*
+   - Scalar UDF vs vectorized / Pandas UDF — when to use each *(Nikolaos leads)*
+4. Architectural discussion — Lakehouse continued:
+   - Data Warehouse → Data Lake → Lakehouse evolution
+   - How Lakehouse achieves ACID compliance and scalability
+   - What problems Delta / Iceberg / Hudi solve on top of raw Parquet
 
 **Notes:**
 
 *(To be filled after session)*
+
+---
+
+## Session 4 — April 11, 2026
+
+**Attendees:** Sanjeev Kumar (mentor), Elliot Eriksson, Suhash Raja, Deepika Elangovan, Nikolaos Biniaris, Asindu Gayangana
+
+*Note: Filip not present.*
+
+**Agenda:**
+
+**Part 1 — Carried over from Session 3**
+1. Week check-in — what did you work on? Blockers? Wins?
+2. Parquet deep dive — why is it the backbone of big data?
+3. Code sharing — Stage 1 progress; screen share what you have built so far
+4. Architectural discussion — table formats (Delta, Iceberg, Hudi) deep dive and comparison; Lakehouse vs Data Lake vs Data Warehouse
+
+   ![Data Intelligence Platform Architecture](../images/lakehouse-architecture.png)
+5. ~~Deepika demo — CI/CD pipeline with GitHub Actions + Databricks~~ *(moved to Session 5 — PR raised, demo needs more prep)*
+
+**Part 2 — Based on midweek sync (Apr 8)**
+- Git workflow recap — quick walkthrough of feature branch → PR flow
+- Data sources Q&A — clarify what datasets to use per stage (Faker, Kaggle, CoinGecko API, Raspberry Pi IoT simulator)
+- ~~Catch up with Filip & Nikolaos — hear about their progress and see if there is anything the group can help with~~ *(Filip absent; Nikolaos covered in check-in)*
+
+**Notes:**
+
+### 1. Week Check-in
+
+- **Elliot Eriksson** — Chose Databricks as ML platform. Currently working on a simple supervised learning project to learn how Databricks works. Has Git set up but hasn't pushed code yet — waiting until something is complete.
+- **Suhash Raja** — Studied window functions and CTEs. Attempted to set up source data but hit connectivity issues between local machine and Azure. Exploring Kafka + Kubernetes → Databricks as a pipeline topology. Sanjeev flagged to not stay stuck — ask for help early. Will set up Git repo.
+- **Deepika Elangovan** — Set up Databricks platform. Generated synthetic data using Faker (orders.csv + customers.csv, ~5,000 rows). Uploaded to Databricks and read using PySpark. Studied Spark architecture, DAG, lazy evaluation, DataFrames, and ELT vs ETL hybrids. Raised a PR for CI/CD work (used fork method instead of direct clone — Sanjeev confirmed both approaches are fine). Will demo CI/CD next session.
+- **Nikolaos Biniaris** — Joined CSV sources and enriched with API data. Initially used a weather API for order enrichment but hit rate limits (~900 records/day cap). Switched to a **Public Holidays API** to enrich orders by country — goal is to analyse whether sales correlate with public holidays. Screen-shared pipeline showing parallel ingestion (CSV + API) and Silver join on the date column.
+- **Asindu Gayangana** — Parameterized pipeline scripts using Databricks task parameters passed into notebooks. Created a DIM_DATE table directly to Silver (skipped Bronze — justified as a one-time static load). For other sources, used AutoLoader (`readStream` + `cloudFiles`) with schema inference, schema evolution mode, `maxFilesPerTrigger`, and CDC. Screen-shared code. Had a detailed discussion on incrementalization, infer schema, and the AvailableNow trigger (see section 3).
+
+---
+
+### 2. Parquet Deep Dive
+
+Group discussion — interns shared what they researched:
+
+- **Suhash** — Columnar format stores data column-by-column rather than row-by-row. Since values in a column share the same type, compression is very efficient. Only selected columns are read — not the entire row.
+- **Nikolaos** — Validated the column pruning behaviour: selecting 2 of 20 columns reads only those 2 columns; the other 18 are skipped entirely by the engine. This can reduce query time from hours to seconds at scale.
+- **Asindu** — Added that Parquet is OLAP-optimised. Per-column compression is more effective because each column has a uniform data type. Parquet also stores min/max statistics per column chunk, enabling predicate pushdown and file pruning without reading the data itself.
+
+**Sanjeev expanded:**
+- Parquet compression algorithms (Snappy, ZSTD) can compress data 10x or more — a file that is 100 MB on disk could expand to 10 GB in memory.
+- In contrast, CSV/text compression is far less efficient because data types are mixed per row.
+- **Open table formats (Delta, Iceberg, Hudi)** are not new file formats — they are Parquet underneath, but with an additional **metadata layer** (JSON/Avro sidecar files) that stores: min/max statistics per column, deletion vectors, schema versions, and partition metadata.
+- When a query runs against a 1 TB table split across 10,000 Parquet files, the metadata layer allows **data skipping** — the engine reads the metadata first and prunes irrelevant files before touching any data files.
+- **Task for next session:** Research what specific problems Delta/Iceberg/Hudi solve that raw Parquet cannot handle on its own.
+
+---
+
+### 3. Code Screen Shares & Technical Discussion
+
+**Nikolaos — API Ingestion & Parallel Pipeline**
+- Ingesting CSV and Public Holidays API in parallel Databricks tasks.
+- Silver layer joins the two sources on the date column to enrich orders with holiday flags.
+- Hit weather API rate limits earlier — good real-world lesson on API ingestion design.
+- **Sanjeev's advice on API ingestion in interviews:** Be able to articulate that API ingestion is viable but comes with trade-offs — rate limits, scalability (will the API handle a 10x increase in calls?), and whether batch pull vs event-driven push is the right model.
+- **Spark UDFs vs pure Python for APIs:** Nikolaos correctly avoided Spark UDFs for API calls. Key reasons: UDFs fall outside the JVM and lose Catalyst optimiser benefits; they are row-by-row unless vectorized; serialisation/deserialisation overhead.
+- **Sanjeev assigned research:** Compare **scalar UDF** vs **vectorized UDF (Pandas UDF)** — why the vectorised variant is faster and when each should be used.
+
+**Asindu — Parameterized AutoLoader Pipeline**
+- Task parameters passed from Databricks Workflow into notebook widgets — good production pattern for reusability.
+- DIM_DATE created directly to Silver without Bronze — valid for one-time static reference tables.
+- For transactional sources, used AutoLoader (`readStream + cloudFiles`) with:
+  - `inferSchema = true` — auto-detects column types; if disabled, everything reads as string.
+  - `schemaEvolutionMode` — handles upstream schema changes without failing the job.
+  - `maxFilesPerTrigger` — limits how many files are processed per micro-batch (scalability control).
+- **Sanjeev's questions (to research for next session):**
+  - `inferSchema true` vs manually defining a fixed schema — what production problems can each cause?
+  - `AvailableNow` trigger — Asindu's explanation was partially correct; Sanjeev clarified: if you use `readStream`, the job would normally run continuously (24/7). `AvailableNow` tells the streaming API to process all available data *now* and then stop — making a streaming job behave like a scheduled batch job.
+- AutoLoader handles idempotency automatically via checkpoint locations — it tracks which files have already been processed and only ingests new arrivals.
+- **Sanjeev noted:** Even without AutoLoader, incrementalization can be achieved using batch APIs — interns should understand both approaches.
+
+**General points raised by Sanjeev:**
+- All interns should push code to Git using the **feature branch → PR** workflow. Treat the internship repo like a production delivery to a customer.
+- Asindu's Git invite had expired — Sanjeev to re-add.
+- Session time of 1 hour is proving short given the screen-sharing depth. Sanjeev will discuss extending sessions with Kousalya.
+
+---
+
+### 4. Architectural Discussion — Lakehouse Introduction *(partial)*
+
+- **Deepika** summarised: Data Warehouse holds processed/structured data; Data Lake holds raw + semi-structured data; Lakehouse is a combination of both for advanced analytics.
+- **Sanjeev** began the evolution narrative: started with traditional Data Warehouses (Oracle, SQL Server) → limitations led to the Data Lake concept → *(transcript cut off here)*
+- The group discussed the key differences between the three paradigms — Data Warehouse, Data Lake, and Lakehouse — and how the Lakehouse addresses the weaknesses of both predecessors.
+- Discussion touched on how the Lakehouse architecture is **scalable** (built on object stores like S3/ADLS, compute and storage scale independently) and **ACID compliant** (enabled by open table formats like Delta Lake, Iceberg, and Hudi, which bring transactional guarantees on top of Parquet). *(Full discussion not captured in transcript — to be continued in Session 5.)*
+
+---
+
+### Action Items for Next Session
+
+| # | Task | Who |
+|---|------|-----|
+| 1 | Research incrementalization patterns — simulate incremental data arrival and test that pipeline only ingests new files; research idempotency and backfill handling | All interns |
+| 2 | Research what problems Delta / Iceberg / Hudi solve on top of raw Parquet — come ready to discuss | All interns |
+| 3 | Push code to Git repo using feature branch → PR workflow | All interns |
+| 4 | Understand Lakehouse architecture — differences between Data Warehouse, Data Lake, and Lakehouse; how Lakehouse achieves scalability and ACID compliance | All interns |
+| 5 | Research `infer schema true` vs fixed schema — what production issues can each cause? | Asindu |
+| 6 | Research `AvailableNow` trigger — explain correctly next session | Asindu |
+| 7 | Research scalar UDF vs vectorized / Pandas UDF — explain the difference and when to use each | Nikolaos |
+| 8 | Prepare CI/CD demo (GitHub Actions + Databricks) for Session 5 | Deepika |
+| 9 | Resolve Azure connectivity issue; implement incremental ingestion pipeline | Suhash |
+| 10 | Continue supervised learning project in Databricks; push code to Git | Elliot |
+| 11 | Re-add Asindu to repo (invite expired); discuss session time extension with Kousalya | Sanjeev |
 
 ---
 

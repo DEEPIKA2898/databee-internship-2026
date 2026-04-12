@@ -15,3 +15,10 @@ Running list of concepts to cover across sessions. Topics are added as they come
 | 9 | CI/CD for Data Engineering | Mentioned | Session 2 |
 | 10 | SCD & CDC — Slowly Changing Dimensions and Change Data Capture | Pending | — |
 | 11 | Data Quality — checks, frameworks, anomaly detection, contracts | Pending | — |
+| 12 | Lakehouse vs Data Lake vs Data Warehouse — architecture comparison | Pending | Session 4 |
+
+### Lakehouse Architecture
+
+![Data Intelligence Platform Architecture](../images/lakehouse-architecture.png)
+
+*Databricks Data Intelligence Platform — Sources → Ingest → Transform → Query/Process → Serve → Analyze, built on a unified Storage layer.*
