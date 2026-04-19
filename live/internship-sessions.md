@@ -16,12 +16,12 @@
    | Intern | Track | Specialization Focus | Primary Platform | Key Tools & Tech |
    |---|---|---|---|---|
    | **Suhash Raja** | DE + DevOps | Streaming ingestion, medallion architecture, infra provisioning | Databricks + Azure | Azure ADLS, Azure Data Factory, Terraform, Docker, GitHub Actions, PySpark, PL/SQL |
-   | **Filip Cedermark** | DE | Data products, medallion architecture, CDC | Databricks + GCP (prior) | PySpark, Delta tables, Faker, HackerRank (SQL), GitHub Copilot |
+   | **Filip Cedermark** | DE | Data products, medallion architecture, CDC | DBT + Databricks + GCP (prior) | PySpark, Delta tables, Faker, HackerRank (SQL), GitHub Copilot |
    | **Deepika Elangovan** | DE + DevOps | CI/CD pipelines, ETL/ELT, IaC integration | Databricks + Azure DevOps | Terraform, Kubernetes, Jenkins, GitHub Actions, PySpark, PowerShell |
    | **Neha Doda** | DA | BI dashboards, KPIs, SQL fundamentals | Power BI + Databricks (exploring) | Power BI (PL-300 certified), Excel, SQL, HackerRank |
    | **Asindu Gayangana** | DE | Advanced pipelines, CDC, Spark optimization | Databricks | Autoloader, Change Data Feed, PySpark, Kaggle data, Parquet, Azure Synapse (prior) |
    | **Nikolaos Biniaris** | DE | API integration, enriched retail pipelines | Databricks | PySpark, Pandas UDF, Public Holidays API, Weather API, Delta tables, Liquid Clustering |
-   | **Elliot Eriksson** | ML | Supervised learning, Spark ML | Databricks | MLflow, Spark MLlib, TensorFlow/PyTorch (exploring), PySpark, VS Code |
+   | **Elliot Eriksson** | ML | Supervised learning, Spark ML | Snowflake| MLflow, Spark MLlib, TensorFlow/PyTorch (exploring), PySpark, VS Code |
 
    > **Note — Uncovered tech platforms:** The current cohort has not worked with **dbt**, **Snowflake**, or **AWS**. These are widely used in industry and worth exploring as stretch goals or future sessions.
 
