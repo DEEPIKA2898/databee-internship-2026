@@ -4,6 +4,42 @@ A running log of all intern midweek check-in calls. Latest first.
 
 ---
 
+## Midweek Sync — April 15, 2026
+
+**Attendees:** Kousalya, Suhash Raja, Filip Cedermark, Neha Doda, Deepika Elangovan
+**Absent:** Elliot Eriksson, Asindu Gayangana
+
+### Onboarding — Neha (DA Track)
+
+Suhash walked Neha through the internship program plan for the BA Analyst path:
+
+- Month 1 focus: SQL (window functions, common queries) — practice via HackerRank and ChatGPT
+- Can use her existing Microsoft SQL Server for hands-on work; alternatively sign up for Databricks Free Community Edition (browser-based)
+- Filip pointed her to the GitHub repo and explained the `live/` folder for use cases and assignments
+- Discussed uploading personal work under `action/` — each intern to create their own subfolder
+
+### Intern Progress Updates
+
+- **Filip Cedermark** — Slower week due to personal commitments. Implemented `Faker` (per Sanjeev's feedback) to generate synthetic customer event data; built a Delta table in Databricks and is practicing CDC patterns within a medallion architecture (bronze → silver). Next: deduplicate by most recent row per ID when moving data to the silver layer.
+- **Suhash Raja** — Made progress ingesting data from Azure Storage. Learned about **Azure Access Connector for Databricks** — a service used to create credentials for Databricks to access Azure Storage. Once configured, Spark (`readStream` / `read`) automatically uses those credentials to load Delta tables in the bronze layer.
+- **Deepika Elangovan** — Prepared a small PPT recap of her CI/CD with GitHub Actions demo (requested by Sanjeev). Also studied incremental ingestion concepts and Parquet vs Delta — new topics for her. Will demo at the Sunday session.
+
+### Logistics
+
+- Weekend session timing: moving from **Saturday → Sunday**, same time slot (9–10:30 AM) — Sanjeev confirmed Sunday works better; Kousalya to update the invite.
+- Wednesday midweek sync timing: currently 4:30 PM; discussion on whether to revert to 3:30 PM Swedish time — to be decided at the Sunday session.
+
+### Action Items
+
+| Task | Owner | Due |
+|------|-------|-----|
+| Confirm weekend session moves to Sunday (same time) | Kousalya | Before Sunday |
+| Discuss and agree on preferred Wednesday sync timing | All interns | Sunday session |
+| Upload work artifacts to `action/` folder on GitHub | All interns | Ongoing |
+| Demo: CI/CD with GitHub Actions | Deepika | Sunday session |
+
+---
+
 ## Midweek Sync — April 8, 2026
 
 **Attendees:** Kousalya, Elliot Eriksson, Suhash Raja, Asindu Gayangana, Deepika Elangovan, Neha Doda

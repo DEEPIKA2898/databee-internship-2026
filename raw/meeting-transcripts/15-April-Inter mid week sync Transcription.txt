@@ -1,0 +1,208 @@
+Speaker 1  0:00  
+Screen. And then is better, because then I can see, I mean, any one of you can
+
+Unknown Speaker  0:10  
+share, yeah, is it possible for
+
+Unknown Speaker  0:12  
+you to view, yeah, yeah, yeah. I can see that,
+
+Suhash Raja  0:16  
+were you able to go to this page? Yeah, yeah.
+
+Speaker 1  0:19  
+I can see I actually opened up all these folders as well. And, okay, yeah, yeah.
+
+Suhash Raja  0:25  
+So in draw, like, under other, you have that internship program plan, which was shared by, yeah, I read this one, yeah, yeah, yeah. So, like, so it is foundation for each roles. So, like, since you are into ba analyst, you can follow the BA analyst plan. So, like, you can check on SQL, because, like, in Ba it's mostly SQL and then DAX queries that they will be using. So, so these, all these things are like, SQL only. So the month one is completely of SQL. Okay, okay, yeah, yeah. So the window functions, these are all, like, common for everyone, and they are more important for interviews as well, yeah. So, yeah. So if you can concentrate on this SQL, you can use like, as Philip was said, like, for questions, you can use hacker rank, but to understand SQL, you can, you can even use chat GPT, yeah. So, like, even I used that one and, like, it's, it's good, and yeah. Then the final month, you will be choosing any one of the BA tools, like either Tableau or Microsoft or ba, so it's mostly SQL is important for BI. So, yeah, like, so if you, if you go with this plan, it is very good, yeah. And then, like, when you pick up the tool, it is very easy to create the queries and stuff. And as Phillips told here, of the transcripts of the previous meetings, okay, yeah. Like, what was happened, you can catch up using this one. So like, and for data analyst, this is, yeah, like, I it. I think they have provided the setup things, but, but if you're like, you can even sign up for data, please Free Community Edition, if you want, so that you can practice SQL there. There in that platform also. Okay, yeah, yeah. So that is
+
+Neha Doda  2:51  
+for me. I can try that.
+
+Suhash Raja  2:53  
+Yeah, it's a sign up for free edition, and you will be shown into the page. Okay, so, yeah, like that. You can you can load your own data, and you can query on them, like,
+
+Speaker 1  3:05  
+and this one is the, basically the query sheet. I mean, I mean, I can try these queries on SQL,
+
+Suhash Raja  3:15  
+yeah, like here, here they have outlined you the data that you can take. And here they are using Microsoft SQL Server to be installed in your own system. Like, if you couldn't install then you can use the data bricks, free edition. It's only browser, so once you log in, like, you can use it over there. And like you can, yeah, yeah, yeah. It is an online one. Like, okay,
+
+Suhash Raja  3:51  
+yeah, so it is an online one that you can use. But like you can begin with hacker rank and chat GPT to understand SQL and and then, like, you can sign up into the free edition data engineering free edition. So like, that's only that, like, you can load your data there, and then you can try querying it also. But like, you can also, if it is possible for you can install it in your locally, in your system.
+
+Speaker 1  4:21  
+Yeah, I have a Microsoft SQL server into my system.
+
+Unknown Speaker  4:24  
+Then, then you can use that itself.
+
+Neha Doda  4:27  
+I can try this query, and then for like, hard tasks, I can try on Hacker rank.
+
+Filip Cedermark  4:34  
+Yeah, that's good. So much. Thank you for guidance. Also, like, if you finish with like this page, oh, okay, well, you start. I just wanted to, like, kind of go over a bit more on the on the GitHub, yeah, in, like, just the, what is it? The live folder also has some more, like, use case things so you can use there should be like, use case da, which is data analyst, and here's Okay, well, this looks like, maybe it's the same thing. It looks the same, but like, the live folder is also probably going to be more updated with like, if we end up talking about, like, more use cases or like assignments and stuff, some updates are gonna go in here. So it's gonna be a good idea to kind of keep track.
+
+Speaker 1  5:31  
+So like, whatever you guys are doing, you're uploading it on this repository, right?
+
+Filip Cedermark  5:37  
+Not yet. Like, uploaded much yet because, like, I don't have that much, like, ready, and I don't really know how to how would you add, like, data bricks, stuff on here? I guess you would just, like, separate everything into notebooks and maybe create an on my own folder.
+
+Suhash Raja  6:00  
+Yeah. Like, you have to clone this folder into your local and then under Actions, I think you have to create,
+
+Filip Cedermark  6:15  
+I think that as well, like, Yeah, whatever you're doing, and then you can add more stuff there. So yeah, so once we have some more things, like, everyone is able to upload, like, what they have been working on. So if you want to, like, take some inspiration from other people, or you want to like, look into how other people have, like, solved a similar problem, we can go in there and like, compare how each person has done their thing?
+
+Speaker 1  6:44  
+Yeah, we can do that. And you guys are like, doing data engineering,
+
+Filip Cedermark  6:50  
+yes, yes, we're both, yeah, we're both doing data engineering. Okay.
+
+Speaker 1  6:59  
+Thank you, Filip, thank you for your help. How's
+
+Filip Cedermark  7:12  
+it going for you? It could have could be going better. Last week ended up, I ended up not being able to work on this as much as I wanted to. Okay, okay, there's been like, a bunch of stuff going on, like, outside of work, so I haven't been, like, able to really focus. But it should be a bit better going forward I did. The first feedback I got from Sandy was to look into Faker for, like, generating data, okay, okay, to have some, like, read something reusable, where you can be using that to kind of practice on, like, CDC, which I wanted to do so I can, I have my like, I have like, a Delta table now in Databricks, and I can run my code to add more like synthetic data to it with different timestamps. So I'm able to, like, modify and add some new things, like to my source table. So I'm able to kind of practice on, like, when I'm moving into, like the silver layer, because I'm doing this in like medallion architecture, I'm gonna be able to start looking into like, only taking the like most updated rows for each like person, or because I'm I'm generating like customer events, something, okay, being able to look into like, if people say someone changes, like updates their email that they're using, or like a new order is like, laid into the system or something, and only fetch like the newest or the most updated for every Like ID, okay, I'm going to be looking into,
+
+Suhash Raja  9:04  
+okay, okay, okay. I was trying, like, trying to ingest data from assured data, like storage this week, I was bit successful with that. So, so it was nice. Like, I've learned that there is something named as access connector for data bricks, which is kind of a service within Azure. It's like to create the credential for accessing the Azure from the data bricks. Okay, okay, yeah, like, once we have it connected, then it's automatically, like when you load the Delta tables, right, like in the bronze layer, like Spark, dot read off or read stream off. So once we have this credentials in place, it then it automatically uses that credentials for accessing the storage. Okay, so, yeah, so that is something I did this week, and and then in I was into Swedish, little bit like, so, yeah, that's, that's how my week was, like, until now, most probably on Saturday, I can share with everyone, like, when we have a Saturday or Sunday based on the next session,
+
+Filip Cedermark  10:30  
+yeah, I think it's looking like it's gonna be Sunday. Yeah, what I can tell at least you said Sunday works better. Elliot did for me. It's not like I would rather do Sunday than, like, really early on Saturday, so I'm thinking I'm just gonna write in there as well.
+
+Speaker 2  10:49  
+Yeah, will you be on Sunday? I think this week we'll be having one end of our meeting
+
+Kousalya  10:57  
+instead of okay, okay, okay.
+
+Suhash Raja  11:00  
+Kousalya, do you? Do you have any finalization on the timing? I think
+
+Unknown Speaker  11:05  
+it is the same time,
+
+Suhash Raja  11:07  
+but Ah, okay, okay, that's good. Okay, okay,
+
+Kousalya  11:11  
+today or tomorrow, and I will change the meeting by tomorrow. Yeah. Okay, okay,
+
+Kousalya  11:22  
+maybe in that call we can discuss like we can make every week on Sunday rather than Yeah, if everyone is comfortable with that, ah, okay, okay, we'll see yeah
+
+Neha Doda  11:42  
+and Kousalya. What about this? Like, meeting on Wednesday? Will it be the same time, like 430 to five or
+
+Kousalya  11:52  
+Yeah, actually, we have post like this. Meeting used to be in the afternoon, but we did it in the evening, because Deepika said she had some Swedish classes, but I think she's
+
+Kousalya  12:07  
+unable to join this meeting,
+
+Filip Cedermark  12:09  
+also because previous weeks we used to Do, was it 330 in Swedish time? So yeah,
+
+Kousalya  12:22  
+it's let's feel free to suggest anytime it works for you.
+
+Neha Doda  12:27  
+Yeah, actually, my kids are usually at home after 330 so for me, like I prefer attending for that anytime, but it's okay. I can manage for half an hour if it is like,
+
+Filip Cedermark  12:42  
+yeah, yeah, maybe we could ask like, everyone on on our like, big meeting on Sunday as well. Yeah, time for everyone.
+
+Neha Doda  12:54  
+Yeah, because now I feel like we don't have so much to discuss, but maybe with time we have something to discuss, and then we may need more time to talk. So in that case, there's some flexibility.
+
+Filip Cedermark  13:09  
+Yeah, I think so too. Like the Wednesday meetings are usually, like, from what I've experienced so far, like they're usually are a bit shorter, just to kind of everyone, like all of the interns, to kind of catch up with each other. And like, the weekend meetings are with, like San Diego and the other mentors, where you can really start, like, kind of discussing on, like, a deeper level. So I think probably those are going to be more important if, like, if you have, if, like, the timing doesn't work out. And like you said, if you have your Kids at home or something like that,
+
+Neha Doda  13:58  
+do anything else, like discussion, like
+
+Filip Cedermark  14:07  
+no from my end,
+
+Suhash Raja  14:12  
+deep guys here, hi Deepika.
+
+Kousalya  14:20  
+Morning, late. How are you all? How is it doing?
+
+Suhash Raja  14:28  
+Yeah, it's good. It's good, good, good.
+
+DEEPIKA ELANGOVAN  14:31  
+How about you? Ah, yes, fine.
+
+DEEPIKA ELANGOVAN  14:33  
+Thanks. Doda already discussed pretty much note note taker, notes. Okay, yeah. So from my end, like I prepared on the demo, which Sanjay asked me up with the CICD with GitHub action. So just trying to make sure that what I was did earlier. So I was just recap, but a small PPT to under to make you all understand better. Then I try to have some small understanding about incremental, inject, ingestion and quite important pipelines. Then about parquet and delta. So it's kind of new to me, all these new terms. So I just try to understand about it. So this is the thing which I did last that's nice, great.
+
+Suhash Raja  15:27  
+Excited to see you the demo on Saturday, Sunday.
+
+Unknown Speaker  15:30  
+Please don't expect
+
+Suhash Raja  15:39  
+so you are in Swedish class, Deepika, like, yes,
+
+DEEPIKA ELANGOVAN  15:43  
+yes, I'm in, like, currently in SAP C level. Okay, okay, okay, three, four months, I'm into
+
+Suhash Raja  15:50  
+the class. Uh huh. Okay, okay, that's nice. I just graduated from C to D last week.
+
+Unknown Speaker  15:58  
+So, yeah, how long did it take to,
+
+Suhash Raja  16:07  
+like, I started on last August, Neha. Like, but I'm on distance. Like, I don't go straight to the class. Like, yeah.
+
+Unknown Speaker  16:17  
+Like, also doing the same way.
+
+Suhash Raja  16:20  
+Okay, okay, that's nice. Like, so, like, it's a weekly one hour, two two days. It was for sfec level. Like, I used to go on Monday and Wednesday, like, teams meeting, and used to do the courses on the app they give. So it is good now, now I can, now I can understand whatever Darren newspaper or anything. But now, now, now I'm at the stage where, like, I'm grammatically, I'm failing in forming the sentences. So, yeah, like the V to order, like I'm just adapting and then pushing myself a little bit on one side, like,
+
+Unknown Speaker  17:07  
+hopefully I can speak
+
+Suhash Raja  17:11  
+little bit casually from a month or Two from now. Yeah, let's hope,
+
+Speaker 3  17:21  
+Filip, you speak Swedish, right?
+
+Filip Cedermark  17:24  
+Yeah, native speakers for us. I don't know, I'm not the best teacher,
+
+Suhash Raja  17:40  
+but we can, we can even have some Swedish sessions, like, like just to speak In Swedish, Spro cafe, stroke cafe, something like that.
+
+Suhash Raja  18:02  
+We then still got some seven minutes.
+
+Filip Cedermark  18:08  
+I don't think or Did anyone else have any final like addition or thing they want to mention. I don't have any Kousalya. Okay,
+
+DEEPIKA ELANGOVAN  18:32  
+okay, all right,
+
+Filip Cedermark  18:35  
+I think, yeah, five minutes we can wrap up a bit early. I'm gonna get dinner started? I think Sunday
+
+Filip Cedermark  18:56  
+wrote in the Slack channel asking me, because he's not going to be available the usual time, so we're thinking of moving it to Sunday, but the same time, okay?
+
+Unknown Speaker  19:07  
+The same time. Nine to 10. Okay, 1030 Okay.
+
+Suhash Raja  19:18  
+Nice to see you guys. Bye. Weekend you you.
+
+Transcribed by https://otter.ai
