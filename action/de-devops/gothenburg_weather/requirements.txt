@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+pytest
+httpx
+prometheus-client
+jinja2
+python-dotenv
+
