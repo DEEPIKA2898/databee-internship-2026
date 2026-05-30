@@ -14,21 +14,17 @@
 
 1. Week check-in — what did you work on? Blockers? Wins?
 2. Admin — Approve/confirm Neha's PR (Power BI presentation → `action/` folder) *(raised May 27 midweek)*
-3. Sanjeev — Analytics engineering step-by-step path for Neha *(assigned Session 9 — overdue)*
-4. Sanjeev — Deepika's MLOps path *(carried over Sessions 7, 8, 9 — overdue)*
-5. Neha — Direct Lake mode + Power BI Fabric Capacity pricing model research share-out *(assigned Session 9)*
-6. Deepika — Live Terraform + DABs E2E demo: Databricks workspace on Azure *(deferred from Sessions 8 & 9)*
-7. Asindu — End-to-end pipeline demo with DQX plugged into silver layer *(carried over Sessions 8 & 9)*
+3. Sanjeev — Deepika's MLOps path *(carried over Sessions 7, 8, 9 — overdue)*
+4. Neha — Direct Lake mode + Power BI Fabric Capacity pricing model research share-out *(assigned Session 9)*
+5. Deepika — Live Terraform + DABs E2E demo: Databricks workspace on Azure *(deferred from Sessions 8 & 9)*
+6. Asindu — End-to-end pipeline demo with DQX plugged into silver layer *(carried over Sessions 8 & 9)*
 
 **Part 2 — Technical deep-dives**
 
-8. Suhash — Multi-job DABs mono-repo experiment: `databricks.yml` per-folder isolation *(assigned Session 9)*
-9. Suhash — DLT deep-dive: streaming table vs materialized view vs Delta table (pros/cons, use cases) + SCD type 1 & 2 in declarative pipelines *(assigned Sessions 8 & 9)*
-10. Nikolaos — Metadata-driven DQ framework live walkthrough *(carried over Sessions 8 & 9)*
-11. Nikolaos — Tableau connection to gold layer (manual CSV export path) *(assigned Session 9)*
-12. Filip — dbt progress + data scaling: larger dataset / API source for realistic modeling *(dbt carried over Sessions 7–9; scaling raised May 27 midweek)*
-13. ~~Sanjeev — Spark Definitive Guide: specific chapters for DE interns~~ → *(carried over Sessions 7, 8, 9)*
-14. ~~Elliot — MLflow deep-dive: model logging, feature stores, serving endpoint~~ → *(carried over — Elliot absent multiple sessions)*
+7. Suhash — Multi-job DABs mono-repo experiment: `databricks.yml` per-folder isolation *(assigned Session 9)*
+8. Suhash — DLT deep-dive: streaming table vs materialized view vs Delta table (pros/cons, use cases) + SCD type 1 & 2 in declarative pipelines *(assigned Sessions 8 & 9)*
+9. Nikolaos — Metadata-driven DQ framework live walkthrough + Tableau connection to gold layer *(carried over Sessions 8 & 9)*
+10. Filip — dbt progress + data scaling: larger dataset / API source for realistic modeling *(dbt carried over Sessions 7–9; scaling raised May 27 midweek)*
 
 **Pre-session — Deliverables Submitted to Repo (as of May 30)**
 
