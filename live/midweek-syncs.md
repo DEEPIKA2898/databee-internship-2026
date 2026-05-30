@@ -4,6 +4,31 @@ A running log of all intern midweek check-in calls. Latest first.
 
 ---
 
+## Midweek Sync — May 27, 2026
+
+**Attendees:** Kousalya, Filip Cedermark, Neha Doda
+**Absent:** Suhash Raja, Deepika Elangovan, Asindu Gayangana, Elliot Eriksson, Nikolaos Biniaris
+
+*Short 8-minute check-in. Low attendance; no blockers raised.*
+
+### Intern Progress Updates
+
+- **Filip Cedermark** — Continuing dbt work; no major new things to show. Planning to scale up — looking for larger datasets (API sources or public datasets) to move beyond small sample data and practice proper data modeling at scale.
+- **Neha Doda** — Learning a lot; tried GitHub for the first time yesterday. Cloned the repo, created a fork, and raised a pull request to add her Power BI storage modes presentation to her `action/` folder. PR is visible in GitHub and awaiting Sanjeev's approval for merge.
+
+### GitHub Q&A (Neha + Filip)
+
+Filip screenshared to show Neha where to find pull requests in the repo (Code → Pull Requests tab). Confirmed Neha's PR is correctly submitted — it will merge once Sanjeev approves it. Correct workflow confirmed: clone repo → add files → fork → pull request.
+
+### Action Items
+
+| Task | Owner | Due |
+|------|-------|-----|
+| Review and approve Neha's PR (Power BI presentation) | Sanjeev | ASAP |
+| Find larger dataset / API source for dbt modeling at scale | Filip | Next session |
+
+---
+
 ## Midweek Sync — May 20, 2026
 
 **Attendees:** Kousalya, Neha Doda, Filip Cedermark, Suhash Raja

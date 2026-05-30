@@ -1,0 +1,118 @@
+Impromptu Google Meet Meeting - May 27
+VIEW RECORDING - 8 mins (No highlights): https://fathom.video/share/yc-d_fM96ArijUrYCzz9PNfiwJJjb9Qv
+
+---
+
+0:00 - Filip Cedermark
+  Hello, Kousalya. Hi.
+
+0:03 - Kousalya (nanduri1120@gmail.com)
+  How's your day going?
+
+0:06 - Filip Cedermark
+  Good so far.
+
+0:08 - Kousalya (nanduri1120@gmail.com)
+  Not yourself? Yeah, it's going good.
+
+1:07 - Neha Doda
+  Hello, Neha. Yeah, hi, Kousalya. Hi, Filip. Hi, Neha. How are you doing? Good, good.
+
+1:17 - Filip Cedermark
+  How about you? I'm also good. How about you, Kousalya?
+
+1:22 - Neha Doda
+  Yeah, I'm good. Thank you, Kaya.
+
+1:24 - Kousalya (nanduri1120@gmail.com)
+  I'm good. How are you?
+
+1:27 - Neha Doda
+  Yeah, it's going great.
+
+1:46 - Kousalya (nanduri1120@gmail.com)
+  So how's your internship work going? It's going good.
+
+1:56 - Filip Cedermark
+  Same here, moving along. Yeah.
+
+2:00 - Neha Doda
+  For me, I'm learning a lot of new things. Yesterday, I tried with GitHub because I never did it.
+
+3:13 - Kousalya (nanduri1120@gmail.com)
+  I don't think anyone might be joining also because I think he has declined the invitation. So if you do want to discuss or if you have any questions you can ask because in the transcript Sanjeev also can read.
+
+3:42 - Filip Cedermark
+  I don't think I have much to share. I'm still working on my own things and it's moving along. I don't really have much to much to list right now.
+
+3:56 - Neha Doda
+  Yeah, I also don't have anything. I just wanted to ask you. Filip, like, because I have never worked on GitHub.  So I just wanted to ensure that whatever I did yesterday is correct. So like, because I think we are not collaborators on GitHub.  So we have to create a fork and then pull request. Is that the correct way to do it?
+
+4:20 - Filip Cedermark
+  I don't, because I'm not the best at using GitHub either. I have used it a bit, but not too much.  I think what you have done is correct. You either create the fork or you can clone the entire repo onto your local machine.  And from there, you can like add your stuff and then do a pull request.
+
+4:43 - Neha Doda
+  Yeah, I actually cloned the whole like repository and then I created this fork and the pull request because I don't know, I just took the help of AI and followed the steps that was told to me.  And I think I cannot see it yet. Because it needs like an approval from Sanjeev, maybe, because I wanted to add my PPT inside my folder, so I did that.
+
+5:10 - Filip Cedermark
+  Let me see if I can, yeah, exactly. I can see like, because you can go into the GitHub and you can see requests made by other people.  And I can see that your request is up. Where can we see this?
+
+5:24 - Neha Doda
+  Can you just help me, like where can we see this? Yeah, sure.
+
+5:27 - Filip Cedermark
+  I can share my screen really quick. Entire screen. There we go. You should be able to see now. Yeah, yeah, I can see the screen.  Yes. So this is like the main page of the repo. And if you go here, you have the code, you have issues.  And then here you have a time for requests. Okay, pull requests.
+
+5:51 - Neha Doda
+  Okay. And you can see like Nicholas did one a few days ago.
+
+5:56 - Filip Cedermark
+  And here you can see yours. Okay, yeah. And like you He it has to be approved by Sanjay before it's merged into the main Git, but it is there, and as soon as he approves it, then it should be up.
+
+6:10 - Neha Doda
+  Okay, okay, yeah. I think that means it is correct. Yes.
+
+6:16 - Filip Cedermark
+  And have you started with your project?
+
+6:18 - Neha Doda
+  Like, what are your plans with your project?
+
+6:22 - Filip Cedermark
+  I am going to start scaling up a bit. Most of my time so far has been, like, kind of refreshing some of the stuff, and I've been learning how to work with dbt and such.  And I've been using the notebook that I wrote a while ago to kind of generate some sample data, but in order to get bigger, like, more used to, like, large amounts of data, and, like, when you need to start, like, doing some proper, like, modeling and stuff.  So I'm trying to look around and find some, like, larger sample data sets. Maybe. that I can try to pull the API requests and stuff like that.  So I can get a more like whole picture. Okay.
+
+7:10 - Neha Doda
+  So you're looking for big data. Yes.
+
+7:14 - Filip Cedermark
+  Yeah.
+
+7:15 - Neha Doda
+  Yeah. Okay. That's good. Yeah. Then you will have more exposure to large dataset transformations. exactly. And that's what I think I need.
+
+7:25 - Filip Cedermark
+  And I think both Sanju and Raj as well kind of hinted at that as well, like try to start working with bigger amounts because working with larger data is different.  Okay.
+
+7:38 - Neha Doda
+  That's good. Yeah. That's all from my side, Kousalya, think.
+
+7:48 - Filip Cedermark
+  Then we can leave. Yeah. Seems like it if no one else is joining, which it doesn't seem like it's almost 10 past and no one else is joining.
+
+7:57 - Kousalya (nanduri1120@gmail.com)
+  Yeah. Yeah. I think, yeah, I'm going in. Soon do I know, so yeah. Yeah.
+
+8:03 - Filip Cedermark
+  Alright.
+
+8:06 - Neha Doda
+  Alright then. See you on Saturday.
+
+8:08 - Kousalya (nanduri1120@gmail.com)
+  Yeah, see you on Saturday, bye.
+
+8:11 - Filip Cedermark
+  Have a nice day.
+
+8:12 - Neha Doda
+  Have a nice day.
