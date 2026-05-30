@@ -30,6 +30,21 @@
 13. ~~Sanjeev — Spark Definitive Guide: specific chapters for DE interns~~ → *(carried over Sessions 7, 8, 9)*
 14. ~~Elliot — MLflow deep-dive: model logging, feature stores, serving endpoint~~ → *(carried over — Elliot absent multiple sessions)*
 
+**Pre-session — Deliverables Submitted to Repo (as of May 30)**
+
+| Intern | Deliverable | Location |
+|---|---|---|
+| **Deepika Elangovan** | CI/CD presentation deck (GitHub Actions overview) | `action/de-devops/CICD using Github Actions.pptx` |
+| **Deepika Elangovan** | Full CI/CD demo app — FastAPI Gothenburg Weather app with Dockerfile, Kubernetes manifests, GitHub Actions CI + CD workflows | `action/de-devops/gothenburg_weather/` |
+| **Filip Cedermark** | Faker-based synthetic data generator notebook (customer/order/CDC records) | `action/de-devops/filip/Sample Data Generator.ipynb` |
+| **Nikolaos Biniaris** | Full medallion pipeline — bronze (CSV + Public Holidays API, overwrite & CDC), silver CDC (CRM + ERP + API), gold (fact_sales, dims, 5 aggregations), orchestration, metadata-driven DQ framework | `action/de-devops/nikolas/` |
+| **Neha Doda** | Power BI storage modes presentation | *PR raised — pending merge* |
+| **Suhash Raja** | DABs CI/CD workflow | *Pushed to separate branch — not merged to main* |
+| **Asindu Gayangana** | *(nothing committed yet — pipeline in Databricks only)* | — |
+| **Elliot Eriksson** | *(nothing committed yet)* | — |
+
+> **To discuss:** Asindu and Elliot have no repo artifacts yet. Suhash and Neha have pending PRs/branches to merge. Goal — every intern should have something in `action/` by next session.
+
 **Notes:**
 
 *(To be filled after session)*
