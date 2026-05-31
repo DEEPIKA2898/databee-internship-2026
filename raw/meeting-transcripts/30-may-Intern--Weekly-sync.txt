@@ -1,0 +1,553 @@
+Impromptu Google Meet Meeting - May 30
+VIEW RECORDING - 98 mins (No highlights): https://fathom.video/share/tohsLsL-AxKwzwWJxfyKR59UVKXj6L1V
+
+---
+
+0:00 - Kousalya (nanduri1120@gmail.com)
+  How are you? I'm fine, thank you. How are you?
+
+0:04 - Neha Doda
+  I'm all so good.
+
+2:17 - Kousalya (nanduri1120@gmail.com)
+  Hello, Suhash. Good morning. Hi, Kousalya. Good morning. Hi, all. Hi, Neha.
+
+2:26 - Neha Doda
+  Hi, Suhash. How are you? Good, Neha. How about you? Good.
+
+2:34 - Suhash Raja
+  Just a minute. We'll be back. Yeah.
+
+3:09 - Kousalya (nanduri1120@gmail.com)
+  Hello Sanjeev. Good morning. Hello. morning.
+
+3:17 - Neha Doda
+  Hi. Good morning. Good morning.
+
+3:21 - Suhash Raja
+  How are you people doing? Sorry Sanjeev. How are you guys doing? Yeah.
+
+3:33 - sanjeev kumar
+  Good. Last week? Sir. Non-work related. Anything interesting last week?
+
+3:39 - Kousalya (nanduri1120@gmail.com)
+  Nothing much from it. Any else mentioned or just practicing? Yeah. Just practicing. Okay. Hello.
+
+3:52 - Rajkumar Rajagopal
+  Raj. Hello Sanjeev. Hello Sanjeev.
+
+3:55 - Kousalya (nanduri1120@gmail.com)
+  Good morning.
+
+3:56 - Rajkumar Rajagopal
+  Good morning. Yeah. How are you, Sanjeev? Yeah, I'm doing good, Raj.
+
+4:02 - Neha Doda
+  How are you doing?
+
+4:03 - Rajkumar Rajagopal
+  Yeah, yeah, good. It's a sunny weekend, so it looks more positive. Yeah, there are some forecasts of drizzling.
+
+4:14 - sanjeev kumar
+  I hope that doesn't happen, but yeah, let's see. Ah, okay, okay.
+
+4:18 - Rajkumar Rajagopal
+  Already both days are planned, packed up, some outdoor also. Okay, okay. Yeah, yeah. I hope for everyone, Suhash, Neha, Filip, you're doing good, right?  Yeah, yeah, it's going good.
+
+4:32 - Neha Doda
+  I just listen in, Sanjeev, you drive as usual.
+
+4:37 - Rajkumar Rajagopal
+  Sure, sure, yeah. Okay.
+
+4:43 - sanjeev kumar
+  Hi, Filip. Sandhu. Hi, Sanjeev.
+
+4:47 - Filip Cedermark
+  Good morning, everyone. Hi, Sanjeev.
+
+4:49 - Kousalya (nanduri1120@gmail.com)
+  Good morning. Everyone.
+
+4:52 - sanjeev kumar
+  Nice, great. Let's wait for one more minute, a couple of minutes, just to see if somebody else joins, and then we will start.  Start with the agenda. Yes. How was your midweek sync?
+
+5:16 - Filip Cedermark
+  It was only me and Neha who showed up, so it was pretty short. Okay, not a problem.
+
+5:26 - sanjeev kumar
+  Does the time align for everyone, for the midweek sync, or is it like families?
+
+5:33 - Kousalya (nanduri1120@gmail.com)
+  Yeah, it aligns. Okay, fine.
+
+5:39 - sanjeev kumar
+  Then let me share my screen and then we'll start in a few seconds. Okay, it's 9.3 now, so we can start.  So this is the agenda for today. Like as usual, we will start with weekly check-in, what you have worked on, what are  Talkers, any wins, anything you would like to share. Then a couple of tasks. From the Midweek Sync, I saw that Neha, you had created a PR.  I have merged it now. So your presentation that you did last week is in the repo now. Thanks for doing that.  Deepika has not joined, but I have created a MLOps path for her. If she joins, we can discuss it with her, right?  Then there was something that Neha, while you give her update, we wanted to see about the Direct Lake mode and Power BI Fabric Capacity Pricing Model, right?  Because last time you did share, like, there are various ways of, like, there is a composite model, dual mode, direct...  We also wanted to see if you can, because the pricing model has changed for Power BI, and a lot of customers plan things accordingly around that.  And also they have this Direct Lake mode feature. It would be nice if you could share some thoughts about it if you were able to prepare.  Then, if Deepika joins, we also had this Databricks workspace on Azure end-to-end deployment demo. She said, like, it is ready for her.  We just need to find time. And then, Asindu, I think you also have this end-to-end pipeline with the DQX plugged into the silverware, right?  Let's see if you are able to get to that. Then, Suhash, who picked up DApps monorexperiment. I think last time, this is what we discussed, right?  You wanted to work on this part.
+
+7:49 - Suhash Raja
+  Yeah, yeah, Sanjay, but I connected with Deepika in the midweek, like on Thursday or something.
+
+7:56 - sanjeev kumar
+  So she was doing this. So then I...
+
+8:00 - Neha Doda
+  I differed from doing it.
+
+8:02 - Suhash Raja
+  Not a problem.
+
+8:03 - sanjeev kumar
+  once we come to you for the update, then we can talk about it. There was some DLT deep dive that we were planning, then for Nicholas, Tableau connection to Gold and the metadata driven that he was working on already.  And then Filip, think dbt progress and data scaling and like what you have been working on that, it will be great if you could give some summary.  And also, so I made this list today. So we have, so I see that a lot of us, a lot of you guys have actually committed the work that you are doing.  That's really great. Thanks a lot for that. And I have just made a list like what exactly we have been committing here.  Last week, Neha, you committed the Power BI storage mode presentation that you had done, right? Okay. Thanks. Then let's start with one.  I have Neha on my screen first. Would you like to go? Yeah.
+
+9:08 - Neha Doda
+  So like, as you said that the first thing I did was I explored about this direct lake mode in fabric.  And I, again, also with that, I also like studied about this fabric capacity pricing model, but I will come up with the PPT next week because I need to prepare a little more about it.  Yeah, along with that, because I was not familiar with GitHub. So it was like a new task for me, like pulling the requests.  And then I have never done anything on GitHub. So I explored about GitHub a lot. And along with that, it was like interesting for me last week because I, I built a small project, like end to end project just by like pulling the data from multiple sources.  And you better. Yeah. Although the dataset is quite small, and then bringing everything into like GitHub repository. So cleaning, performing data transformations.  I tried using dbt also. And then, but I haven't, like, although everything is connected with Power BI at the moment, I have created the CSV files to import in Power BI.  But I wanted, like, the KPIs from your side, so that it's just a challenge or a task for me, because I can do it by myself.  But it would be nice if I have, like, my business questions from someone so that I can, yeah, yeah, so kind of a use case that you would like to implement.
+
+10:49 - sanjeev kumar
+  Yeah, yeah, yeah, I can, I can help with that. One more thing. So, first of all, thanks a lot for working with Git, because honestly, the visualization part, you are already working on that, right?  Power BI, but the analytical engineering part, yes, if you want to be in that space, you should know, because if you develop something, you should know the CICT process.  So it's good skill to have, and thanks a lot for investing time on that. About the use case, yes, let me think about a use case that I can share probably by end of this today or early next week, right?
+
+11:27 - Neha Doda
+  Yeah, I can give you my data models and my data set so that you can design the relevant questions, whatever you want me to answer from that data set, because I can share you the link.  Yeah, exactly. Yeah, that will be great if you can share that.
+
+11:45 - sanjeev kumar
+  You can also commit your data model in here. So you created your own directory here, right? can also do that, and then I can derive it from there, right?
+
+11:54 - Neha Doda
+  Yeah, another thing. Yes.
+
+11:57 - sanjeev kumar
+  So once we have that use case, Yes, what we will try to do, you as an analytical engineer will try to create the final transform layer and also do the visualization of Power BI, right?  And then in the end, you will show us end-to-end how exactly you would present to a business user, right?  Or your customer or a client, like how exactly you have designed, what does these pipelines do, and what does this dashboarding do?
+
+12:25 - Neha Doda
+  And along with that, I was also thinking because I used DuckDB as a database now, I was thinking because I'm not aware about this Google Cloud.  So I think it has some free tier and I can use that also and along with that.
+
+12:42 - sanjeev kumar
+  Why you are using DuckDB? Aren't you using Fabric? No, because I'm not allowed to use Fabric.
+
+12:50 - Neha Doda
+  Fabric is like paid. I don't have any organization's ID. Oh, okay, okay, okay. Yeah. So you're using it.
+
+13:00 - sanjeev kumar
+  You can store your whatever intermediate data you want to work on, right?
+
+13:04 - Neha Doda
+  Yeah, that's the only challenge because Fabric is like a very interesting user interface and you can easily create pipelines using Fabric.  It's like very, I mean, user friendly, but the thing is, I cannot access Microsoft Fabric. I tried its trial version last year already.  So, okay, I was not aware, so Fabric doesn't give you any trial version?
+
+13:30 - sanjeev kumar
+  You need an organizational ID. I cannot even use Microsoft Power BI service.
+
+13:35 - Neha Doda
+  I'm only working on Power BI desktop. If I have an organizational ID, then I can assess Power BI service and then Microsoft Fabric also.  That's why I read about DirectLake, but I cannot show it to you. I can only tell that what's happening in Fabric and DirectLake, but I cannot show it to you.  Yeah, but I think that's a
+
+14:00 - sanjeev kumar
+  We can get around it, but directly it's like very important feature of Power BI, right? we will discuss about it in detail whenever you are ready, right?  Okay, great. And then, so see, there is another way. You can just dump whatever. So if I understand it correctly, you are using DuckDB to store your intermediate data or maybe the final finalized goal on which you want to build a visualization, right?  You can also do that as Parquet. Okay, like I'm not sure it might be too technical for you, but you can just dump them as Parquet files in ADLS, the object store, right?  And then probably you can probably use that to import that in your Power BI. That also is one of the solutions that you can think of.  Okay, I can explore that also. Yeah, but if you have DuckDB installed and everything is working fine, it's completely okay.  right. take I'm you. You can go. Okay, great. Then for Deepika, Deepika, you wanted some MLOps path, right? So I have created this, the use case MLOps course plan, like specifically focused on MLOps.  Okay, thank you. Right. So it starts with a little bit of basic, right? And right now, yeah. So I have like done a comparison of two known frameworks that I, that I'm a bit comfortable with, I have added them, like, for example, MLflow and SageMaker, right?
+
+15:40 - DEEPIKA ELANGOVAN
+  There is TensorFlow also, there are a lot of other things also in the market.
+
+15:45 - sanjeev kumar
+  But this one is open source and also part of like Databricks managed package. And SageMaker is like quite famous, right?  In AWS, you can use it. So, yeah. So please feel free to choose. Framework if you want, but overall the flow remains the same.  The foundation that you work on, just read about everything, like for example, Vertex AI, think it is Google's ML Framework, SageMaker is for AWS, yeah, there are a lot of the MLflow is open source also, and there is a database version of MLflow also.  So you can just try it out, right? And I think in Snowflake, it is Cortex or something. Nothing related to Cortex, right?  Just you'll have to explore that. Nice. Then yeah, experiment and tracking. So this I have built with my knowledge of MLflow, right?  Maybe, so the concept remains same, but it might be called something else in some other framework. Just keep that in mind, okay?  Then data and feature engineering. This is also one of the parts of an MLflow engineer because data scientists will create, do the feature engineering and then you have to make it in the  Then model packaging and serving, and then CICD for ML, orchestration of ML pipelines, model monitoring and observability, right? And yeah, just tying everything into one captain project.  Okay, let's take a look at it and see if it makes sense or not. And do let me know if you think the difficulty level is too low, you want to go a bit more detailed, then we can work on it.
+
+17:26 - DEEPIKA ELANGOVAN
+  Okay, Sanjeev, sure. Yeah, thank you. Let's go back to this.
+
+17:33 - sanjeev kumar
+  Deepika, so yeah, so that task was on me. So anyway, now, next on my screen, Suhas.
+
+17:43 - Suhash Raja
+  Yeah, yeah, Sanjeev, so I went through the difference between materialized view and streaming table, and data table, and found out that materialized view is used in the aggregation layer.  And it is automatically. Yeah. be refreshed or reloaded by Databricks based on changes in the source table that it is derived from whereas in streaming table it is used for a streaming source and it's used for incremental load and and we can we can control it is being used in the silver layer mostly and yeah so it is for incremental load and yeah.
+
+18:33 - sanjeev kumar
+  those are the things that I found out about these two things yeah so so my class view streaming table versus Delta table could you like it will be nice to us like if you if you can make a proper I don't know some slides to present like what exactly it does okay okay and and I would also like you to give as a as a data engineer suggest me for my case  What kind of table type you would use? Why, when, right? Pro and cons of that. And so you have to think of like, you can just go to these data engineering use cases that we have, right?  Take one of the use cases, the simplest one or a little bit mid-complex one, and just design one pipeline in Databricks.  First, give us a plan, right? Like, how would you approach it? And why would you approach it? And if a customer asks, why should I even go for the DLT in Databricks?  Why not just simple data tables, right? You should be able to justify that. Why you are suggesting about something.  Okay. And then please make sure those use cases have mid-level complexities, like how do you do SCD type one, like slowly changing the dimension of the data one type two.  How do you do it in declarative way? How do you do it in non declarative way? Right? So these things, you will have to do some evaluation to come up with it.  Like why such, why, what object you should use, because in interviews, since you are positioning yourself as a data bricks, hands on that, right?  These things will be expected out of it. You should know because customers usually, because I also work with customers with on similar problems, they are almost always confused what to use when.  And we have to go into the calls and give them clarity, right? Okay, please work on that. And whenever you are ready, just give us a session and then we can, we can do a Q&A there.  Yeah, sure. Sure. Absolutely. Okay. So, so you have been making progress here, right? On the, so it's, it's called DMP, but it's SDP.
+
+20:45 - Suhash Raja
+  Yeah, like I also see how ACD Type 1 and Type 2 is used in, using declarative pipeline. Yeah.
+
+20:53 - sanjeev kumar
+  Yeah.
+
+20:53 - Suhash Raja
+  So I utilized a tutorial from, from the Databricks it's learning itself. All right.
+
+21:00 - sanjeev kumar
+  Yeah.
+
+21:02 - Suhash Raja
+  So, uh, I saw that one and like, um, and, and, and I tried to, uh, the entire flow, uh, from the beginning to end.  Uh, so, uh, so, uh, as a mental model, uh, so to understand the full flow. Yeah.
+
+21:19 - sanjeev kumar
+  yeah. Makes sense. Yeah. And, and just, just for everyone, right. So, uh, what Suhas is talking about is, is something called spark, the creative partner, DLT.  Uh, in data bricks, it's a managed way of doing engineering or declarative way, a lot of things, uh, you just sort of focus on your logic and a lot of things like logging, observability, blah, blah, depending on everything is managed by, uh, data bricks similar to this.  And then if you don't want declarative way, you can do hardcore engineering, just write everything in spark, py spark, or, uh, spark SQL, spark Scala.  And then you can just build everything. Similar offering you will find in every platform. Like for example, in Snowflake, there is called dynamic tables, right?  Dynamic tables do something similar what SDP does. So when you work with various platforms, they will give you a native or developer friendly way of doing pipelining or whatnot, analytics, engineering, data engineering, and also will give you a managed solution where you don't have to worry about a lot of pilot plate processes and whatnot, right?  So SDP is exactly that, which Suhas is working on. Snowflake, you have something called dynamic tables. Who was working on Snowflake?  Filip, you were on DBT, right? Yeah, I'm on DBT and Databricks.
+
+22:50 - Filip Cedermark
+  I think Elliot is using Snowflake, but I don't know if he's here. Oh, yeah. No, no. He's an ML part, right?
+
+22:56 - sanjeev kumar
+  So we have chosen a different statement. No, I'm not able to do justice to his course, right? So, okay.  Yeah. So, but we don't have anybody from Snowflake who is okay. Anyway, not, not a problem. So in Snowflake, you have dynamic tables.  Similarly, like Neha, you are exploring fabric, right? Fabric also has a very good managed way of developing things. Like you can do things in just notebooks and you can also use, earlier it was called Azure Data Factory.  Now it is called a fabric data factory, FDF. That can, that also gives you a drag and drop, even better, like simpler experience of developing pipelines, right?  Similarly, in AWS, you have something called Glue ETN, right? That is also kind of a declarative way. But yeah, all of these have, will have their own flavors and whatnot.  The reason for telling this is like, every platform will have a native way and a declarative way, right? And for, for, for, for customers who don't want to be.  Bog down into the details. They just go with the declarative way of doing things. Okay. Anything else for us?  Yes, Sanjeev.
+
+24:11 - Suhash Raja
+  I have one question. We use partition by red. We use it in a bronze level on the date thing.  And we use it in gold layer for faster access by Power BI or front-end users. Do we do partitioning in the silver layer, Sanjeev, or is it not done?  No, no.
+
+24:39 - sanjeev kumar
+  is done. It all depends on what kind of use case you have, right? So bronze, so when we talk about Medallion architecture, bronze is where you just dump the data, keep on appending them, right?  And it's completely fine to partition them, say on month, on date or month. or say region, right? Like US data is arriving in this partition.  In silver also, can partition them, right? Like for example, if you have, I don't know, some tables where with similar logic, like if you can dump data into date partitions in silver layer, and then use them when you create a downstream tables, like in gold table.  So it completely depends on use cases. There are requirements where the data is not quite big. In those cases, we don't recommend partitioning, right?  Because partitioning is a very tricky topic. If you do it right, it's, it's very good for your downstream query performance.  But if you do it wrong, it's very bad for your downstream. So there is no middle ground in partitioning.  It's either good or bad, right? So, so yes, to answer the question in silver, you can do the partitioning, no problem at all.  There's no set rule on which layer you should do partitioning. It's just that you should understand like why partitioning is done.  It is done to enhance the read performance, right? If somebody is firing the query, if it can improve the read performance, why not?  You can partition it. But then, like we have talked about it, but with partitioning, a lot of complexities come.  Over partitioning is bad. Under partitioning is bad. What keys you are using to partition are very crucial, right? What query patterns are being fired, right?  So there are a lot of variabilities that come into the picture. And this is like, as an analytical engineer or ML engineer or data engineer, all of us should understand these things because partitioning is not a delta or iceberg or parquet concept.  Partitioning is everywhere, right? Even in Postgres databases, you have partitioning concept. Concept is similar, it's just applied in a different way in different systems.  Another thing, in Databricks, since you are focusing on Databricks, also read about liquid clustering. So Databricks right now, not only Databricks, even Snowflake, right?  A lot of these platforms advise against partitioning. And they have come up with their own way of optimization, like in Databricks, Databricks is called liquid clustering, right?  In Snowflake, I don't know what it is called, but yeah, there are ways how it is done. In Fabric also, they have come up with something, I'm forgetting the name, Neha, when you study about this direct lake, like you will come to know about what are they using, the techniques.  So for specifically you, Suhas, study about partitioning, because in an interview, they will expect you to know that. But in Databricks specific, also read about liquid clustering.  what exactly it does it is a replacement of partitioning actually and a bit more powerful than partitioning okay okay and in production environment we use job clusters for running the productions job right so the image file will it be decided by the organization and it will be the data engineer will be choosing it or the data engineer will prepare the image and along with the code and then use that image for the job clusters you're saying yeah yeah no data engineer doesn't need to maintain any image right okay you just need to specify the definition of the cluster in your job when you do using CICD tabs and whatnot right yeah a definition of the job will automatically go pick up an image and create a cluster for you based on what configuration you have given what conditions you  between how many machines, so one driver and how many workers, so it will automatically set that up for you, you just have to use the right API's.
+
+29:12 - Suhash Raja
+  Okay, that's all from me, Sanjeev. Okay, great. Thanks, Suhas. Asindu, you are next on my screen.
+
+29:21 - sanjeev kumar
+  Hi, Sanjeev.
+
+29:22 - Asindu Gayangana
+  So I will initially share my diagram, I mean the architecture. So is it okay to initially show? Yeah, please, please.
+
+29:47 - sanjeev kumar
+  Can you see my screen, Sanjeev? Yes, I can. It's a bit blurry, but yeah, let's wait, I think it is.  Is it only on my side or everybody's? It's a bit blurry for me too.
+
+30:04 - Filip Cedermark
+  Okay. Okay.
+
+30:09 - Asindu Gayangana
+  Is it still blur?
+
+30:11 - sanjeev kumar
+  Yeah. Okay. Now it is better. Yeah. Yeah. Please go ahead. Okay. So I have created a volume to upload the files.
+
+30:24 - Asindu Gayangana
+  So then use the...
+
+30:25 - sanjeev kumar
+  Sorry. Your screen is not visible now.
+
+30:53 - Asindu Gayangana
+  Is it visible right now? Yes, it is. So initially I create the... So, using autoloader, I load those data into the bronze layer, partitioned by load date.  So, then, when I load those bronze data into the silo layer, I check whether if it is a backfill or daily usual running pipeline.  So, if it is backfill, it will take the date parameters and load the necessary data from bronze to silver.  If it is a, as usual, stream data without history loading, it use the read stream, then validate the data based on the DQX.  If there is any invalid data, it will load it into the silver invalid table. And then the valid data will be loaded into the Scylla layer.  I model the Scylla layer. It means I partition by order date. In here, I partition by load date because in Scylla layer, the reason I partition by order date is so it can easily be used by downstream analytics because usually people analyze their database.  based the order date so they can easily extract the data. Then loading through this Scylla, I do the deduplication using raw ID.  Then Sanjeev, I store the date in the date table. So because in here, we used, I used a merge query.  So it is a bit, it takes some time. So I store the date in here. Then I use the partition replace option to load those data into the goal layer.  So this is the architecture. So I will share my screen. Here. Can you see my database account?
+
+33:45 - sanjeev kumar
+  Yeah, it's a bit blurry, but I think it will get clearer. Yeah, now it is a bit clearer. Okay.  So I create three tasks to load.
+
+34:00 - Asindu Gayangana
+  Data into the bronze, silver, and gold. So in bronze layer, in bronze task, I set the retries. I set three retries within 10 minutes, with 10 minutes delay, and also set the threshold to set the timeout.  Because I use this one, this threshold, because if the system is lag, or keep running without extracting data, so it automatically fail the pipeline, and then rerun the pipeline automatically.  So that's why I use the timeout. Maybe it is the best one of the good solution, in best practice, and doing the, as I know, when doing the managing.  In the data pipelines, so here my bronze layer query, this is how I load the data into the bronze table, so I need to add the schema hints, sorry, so it is better if I could be able to add schema hints with this info schema, so So this is how I load the data into the bronze layer, I have one question to you, Asindu, so please make a note, like I think we have talked about it, but you know, please keep
+
+36:00 - sanjeev kumar
+  This is really good. Just one feedback I want to give you. The infer schema part, right? Please do a little bit of research on whether will you do it in production or not, right?  Because that is something important because you will be asked on that part. Okay. So, but yeah, please keep going if you have more to share.  Okay, thank you. So, in here I do the partition.
+
+36:26 - Asindu Gayangana
+  So, I will move into the cellular layer. Passing to the screen channels.
+
+36:32 - sanjeev kumar
+  So, I see.
+
+36:35 - Asindu Gayangana
+  So, I create the parameter widgets. So, then I can pass the values through the pipeline into this. So here I create the widgets from this code.  Then I extract the values from the parameters. So I installed the Databricks DQX in here. Where is DQX?
+
+37:18 - sanjeev kumar
+  Could you show me? This one, Sanjeev. Okay, nice, nice. Okay. So, okay.
+
+37:28 - Asindu Gayangana
+  Actually this code works properly till yesterday. When I ran in the today morning, it is not working for redistreaming data.  But we can load data, backfill data properly. So in here, I will start from there. So I check, initially I check whether it is a backfill or redistream data.  So, I need to pass the backfill and the date. We need to load the history through the UI. So how we pass those things is when we select the backfill in here, it will redirect to the backfill UI.  Then we can select the date we want to load. So in here, I need to name this one and pass the backfill.
+
+38:41 - sanjeev kumar
+  Yeah, exactly. So you're controlling everything through the parameterization. There is no hard coding in the job, right? No, Sanjeev.  Great, great. So this is good. One more thing. What if this bronze silver gold Could you tell me, what is the table you are creating?  Maybe it's a consumer table, customer table, orders table, whatever. It's FathSales. Sorry? tables. Sales tables. Now, just imagine, tomorrow sales team, can you go back to your tasks again?  Close this one. Yeah, here is the tasks. No, no, go back to the same one. Here you have this run task, the tag, the graph that it shows, right?
+
+39:32 - Asindu Gayangana
+  Yeah, exactly.
+
+39:34 - sanjeev kumar
+  Here. So you did a sales ingestion. Now, tomorrow, if sales team says, I have a campaign data arriving to me, right?  sales teams will also have some campaigns that they will launch, right, for customers. And they need to ingest that data.  How will you go about doing it? , room today. I a, a
+
+40:02 - Asindu Gayangana
+  Okay, so, actually, till late, I upload the files manual, Sanjeev. No, no, no, that is completely fine.
+
+40:13 - sanjeev kumar
+  Don't worry about the data. I want you to think about how the pipeline is designed. If a sales, sorry, if campaigns data come, are you going to write another code for ingesting it?  Or create another job to ingest it? Like, could you explain the process?
+
+40:32 - Asindu Gayangana
+  Yes, I will create another pipeline. So, if it is only the ingestion part, only loaded to the bronze layer, I can use this file, which I use in the bronze table.  Yes, okay. So, only for the ingestion, for the loading for the silver. I have to use another pipeline so what I can use for ingestion only one file for the ingestion and I can use them.
+
+41:12 - sanjeev kumar
+  Yeah, but but here let me so your thought process is absolutely right now what you have to think about is so we should not try to replicate code because I just took an example of one there are customers who will have like thousands of table and different sources.  You could not just start going and creating a code file a pipeline for all of them right so this is called metadata driven ingestion where you create a generic code see ingestion of data from till bronze and even till silver in in 90% of cases is quite common you don't need to change the logic data cleaning logic could change but everything can be parameterized in a metadata file you can write it outside.  gold is something is a it's a Proper data modeling. that's where you cannot probably just, sorry, create a generic code for that.  So let's keep the goal layer separate. But till silver, it is always recommended if possible, create a generic pipeline, which can be controlled through metadata.  By metadata, I mean tomorrow if I'm ingesting a sales, sorry, campaign data, only thing I should be, I should, my developer should do is, in that metadata file, should define what is the source directory, what is the target directory, what is the table name, what are the data cleaning checks I need to do, right?  So these rules, right, should be defined in the configuration file. That's it. No code changes, and it should automatically bring in the same pipeline another flow, like you have for sales, bronze, silver, and whatnot, right?  Similarly for campaign also, in the same it. Job, it should bundle multiple flows, right? Because spinning up a separate pipeline for every ingestion is a costly affair.  So I just wanted you to think about thinking those terms also whenever you're designing the pipeline. So whatever you have done, it's great.  I think you made sure that it is everything is through parameters. You just have to think about how do I onboard a new table or source now, right?  Without trying to change the code, without trying to create too many pipelines. If you could do that, that's a proper production pipeline.  Okay, Sanjeev.
+
+43:41 - Asindu Gayangana
+  I will try to do in next weeks. Great. The parameter.
+
+43:47 - sanjeev kumar
+  Yeah, just to complement, like it's a really good progress. Keep doing it, Sanjeev. Okay? Okay. So I had another point for you.  So keep doing it. Pattern and design is really important. What I see is the CICD deployment. I don't see that being happening.  Right now, you are just working with this part, right? CICD part? Yes, Sanjeev.
+
+44:14 - Asindu Gayangana
+  Actually, I create a CICD pipeline using GitHub Actions inside the Azure environment. But I need to work. I need to focus more on that, Sanjeev.
+
+44:32 - sanjeev kumar
+  Not a problem. Take things in steps. You are doing good progress. First focus on this one. I just wanted to point out so that you remember that you have to do that.  Then only it will be a complete thing. And Suhas and Deepika are already doing a great job there. So feel free to sync with them, right?  If you have any kind of question. Another thing. Once this pipeline is done, I'm repeating this part again. We have to-  Do the same testing on higher scale of data. Right. So Filip has created that data generator. I would like you to run the same pattern with the higher amount of them, say 20 GB, 30 GB, maybe 100 GB is just too much of data.  But yeah, if possible, later on, we will also do that so that the real problem in Spark and distributed platform will be visible only when we scale the data.  Okay. So these are the tools I wanted to give.
+
+45:34 - Asindu Gayangana
+  Once I complete this one, so I will focus those things. Sure. Sure. Step by step.
+
+45:40 - sanjeev kumar
+  So do one, one doubt.
+
+45:42 - Suhash Raja
+  Like when you, when you mentioned like parametrizing and using it for all other ingestion also, like how do you pass this value as like while deploying it from the CICD bundle and you have a different, so you will have a single bundle.
+
+46:00 - sanjeev kumar
+  Yeah, so see, the bundle will be different, but there will be a metadata file or metadata table that you will maintain.  That will be just another component in your whole bundle. Let me show you if I have it here. And this is true for analytical engineers also.  You will also have to do things in metadata-driven fashion, right? So always keep that in mind. Let me see if I have that.  Okay. You cannot see my screen yet, right? No. I'm just trying to find that up. I recently created one.  Yes, exactly. Let me share my screen. So this is what it means. So if you can see my screen, I created this project, right?  It might be quite small. I'll try to see like what I can do here. But if you see, I have created a project.  I'm working with one of my customers. What they wanted, they wanted to see how you design a pipeline, right?  So what I did, I wrote on my code, blah, blah, everything. But as usual, I resources, I'm using data research bundles.  But yeah, the whole point is to make it the metadata driven, you need a file like this. Okay.
+
+48:54 - Suhash Raja
+  Either it could be a file or this file can be put into a table, right?
+
+49:00 - sanjeev kumar
+  If you go and look at it, this is how it looks like. It just gives me all the information that I will, that I don't need to hard code in my, in my code.  Like, for example, like I have a claims data. When the bronze table is done, I am defining the what should be the table name, right?  Otherwise, you will go and select create table, bronze underscore claims, blah, blah, blah. Instead of what I would do, I would say create table.  Then I will add a placeholder, right? And that placeholder will be filled on runtime with this. So now I'm creating bronze claims tomorrow, I can go and create bronze campaigns, right?  By just passing this argument, right? Yeah, similar. Yeah. So similarly, what What the source path type? What is the format?  Whether I want header or not? Schema hints. For silver table, I want to define my expectation. If claim is there, then it is null, right?  Like data quality checks, right? So what I mean by metadata driven is like, and even transformations, if you see, right?  I can say if you are there are drive columns, just pass them here. And if you go and check my code, my code has a very highly parameter, categorized code.  There are no very long codes, right? And all these things are just submitted as, as what you call in the variable.  Okay.
+
+50:46 - Suhash Raja
+  Okay. in this YAML file, like each stance source, like now ID claim is one, one.
+
+51:01 - sanjeev kumar
+  I have one configuration set. Let me minimize this one. If I can, no, I cannot. Anyway, so this whole thing is one source or one table's configuration into it.  Now, if I have like new source that I need to ingest, right, I am just going to create a new block of with similar information.  I keep adding them here. That's it. I don't have to change anything in the code. It will automatically go and create those stacks for me.
+
+51:38 - Suhash Raja
+  Okay. Okay. But how does the mapping happen? So mapping happens in the code.
+
+51:45 - sanjeev kumar
+  So if I go and show you the pipeline here, right? So here, the very first thing I do is I go and read my metadata file, the file that I created.  Okay, okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay. Okay You see, source, bronze, configuration from configuration format.  So everything that I have put here, what is the path, everything I will get it from that metadata file.  You see all the source catalog, all these are variables here. So I can, in runtime, right, I can just go and populate it.  Then what I will do, I will just create a simple for loop to populate all of these and it will create a proper DAG for me.  And then run all of them in here, if you see in the code, these are all generic, there is no, nothing hard coded here.  Everything what I am doing is being read from that metadata file path, sorry, metadata file that I have created.  Right. Okay. And in this way, I'm able to make it like fully metadata driven. Okay. Okay. Okay. Yeah. You see silver table name, configuration, bronze table name, whether it overrides.  So not, what are the derived transformations? Everything is being picked up from what I am showing is a bit advanced level.  You don't have to worry about that now, but like for bronze, what is my source? What is my target table?  What is the schema? Right. At least these three things you can parameterize. Correct. Okay.
+
+53:18 - Suhash Raja
+  Okay. Okay. So, so yeah, I'm very important concept, uh, to do anything in production.
+
+53:24 - sanjeev kumar
+  you're a data engineer, you everything or data engineer, analytics engineer, whatnot, right. Everything has to be metadata. Then only it's called a production grade pipeline.  Okay. I'll stop sharing now. Yeah. Uh, does it make sense Asindu and even to others? Uh, Philip, uh, Neha, what do you think about it?  Yes, Anjeev.
+
+53:49 - Asindu Gayangana
+  Is it, uh, like a configuration table? Yes.
+
+53:55 - sanjeev kumar
+  Yeah. It's configuration table. Nothing else. There are different. First of all, I like to do it in files, but yeah, a lot of people like to do it in configuration tables, like SQL server.  You can just set it up anywhere. Okay. So it will be outside when they set it up in tables.
+
+54:14 - Suhash Raja
+  So usually, so there are various ways of development.
+
+54:18 - sanjeev kumar
+  Usually I recommend a developer to, because a developer will create those metadata entries in that table, right? So best practices, you still write them as JSON or YAML files.  You should deploy it. While deploying, there will be a test case that will run on that. And once it passes the test case, it will automatically go and make an entry in that table, configuration table.
+
+54:43 - Suhash Raja
+  Okay.
+
+54:43 - sanjeev kumar
+  This should be the lifecycle, but yeah, to keep it simple, I have also seen admins just going and adding, okay, a new source is coming called campaign.  This is the source directly. This is it. They will just go write an update statement in that configuration table.  That is also a way of working. But it's something that I don't recommend. But anyway, that also works. One more follow up question from you.
+
+55:06 - Suhash Raja
+  Like when you say about test cases, like, where do you write test cases, Sanjeev? Like for declarative pipelines, can we write unit tests and so, or like?  You can write it.
+
+55:20 - sanjeev kumar
+  So if you just search like a Spark declarative pipeline, unit test cases, right? You will find database documentation on that.  Okay. Okay, so usually, so this is for everyone, right? You should understand when you do development, there are, there are test cases like in CICT patterns, there are test cases that you need to write.  Some customers are very stringent. Some customers are not, but as a software development lifecycle, best practices of SDLC, you should write.  So for example, unit test cases that run right in a local. So the code that I showed to you, right?  Whenever I'm going to deploy it. it. There will be some test cases that I have, I will write, which can be performed right in my local.  I don't need to do any, I don't need like very detailed things. Like for example, a simple thing like, okay, a ping to an external SQL server where you have configuration.  So these are like tests that you want to do, right? And there are a lot more other things that I can talk about.  You can create a sample data and check input and output and whatnot. Let's not complicate it. Then there is integration testing.  Integration testing is like, because the piece of code that I have developed, maybe Asindu is working on gold layer of the pipeline.  I am working on silver layer of pipeline. And Suhash, you are working on bronze. All of us can do our own development, our own unit testing.  I will test only silver logic. But then when it goes to the production, there has to be integration testing.  How will the whole pipeline work? process. we we need look okay. Thank you. Suhash Bronze, MySilver, and Asindu's Gold.  Will they work? Are they in tandem, right? That happens on after the deployment. That happens on UAT or testing environment, right?  So unit test cases on my local, every developer is responsible for that. Integration testing is done in a proper environment, which is like production-like environment.  Like just before deploying to production, we do that. So these are like CACD best practices. And I think, Deepika, you can also talk about it, right?  You already have like good experience on this part. So yeah, so just to keep it short, this is what we mean by metadata-driven and whatnot.  Any other questions would you like to ask? No, Sanjeev. Thank you very much. But really appreciate Suhash. Keep asking these questions because a lot of times this question  Initiate others to think about it, right? So thanks a lot for asking these questions. Great, then I think we might miss who else?  Who is missed actually? Deepika, we did not go to you. Yes, yes, sanjeev. Okay, okay. And I, Nikolas is also here in the call, I guess, right?  Maybe we'll, we'll miss. Anyway, Deepika, let's start with you.
+
+58:27 - DEEPIKA ELANGOVAN
+  So this week, like as we discussed last week, like I tried creating another bundle and see how the pipeline will get triggered.  So when I added another bundle, and when I pushed it, like both the bundles was running. Then like I added a condition, but still like both the pipelines was running.  Then if I run manually, I can run two bundles separately. But when I tried to push it, then it automatically runs to pipeline.  Then I added a condition, like some guitar condition, like only if the bundle, whatever the particular bundle has been.  So you talking about bundle deploy, bundle run.
+
+59:07 - sanjeev kumar
+  Yes. So you mean it's like when you deploy, it doesn't matter which bundle has been changed, it ran both the bundles.
+
+59:18 - DEEPIKA ELANGOVAN
+  Yeah.
+
+59:19 - sanjeev kumar
+  But wait once again. So what we talked about, it's not about running. See, bundle deploy run is done in unit test, UAT environment, testing environment, where you just deploy and run it, right?  But in production, you don't just deploy and run, you deploy and schedule, right? So the main test case here is, you have to check when you do bundle deploy, whether, because whenever a deployment happens, you can go and check the code files, right?  The timestamp will get updated. Yeah. Right?
+
+59:53 - DEEPIKA ELANGOVAN
+  When it was deployed.
+
+59:55 - sanjeev kumar
+  When you're using these asset bundles, you do the deploy. Only deploy, like you have four or five bundles that you have created, like in the same monorepo, if you have like say claims project and sales project or finance projects, all of them have their own database.tml file, then you change just one of them and do a bundle deploy, right, or that project only, just go and check in the environment, whether it is updating all the projects or just one, which you changed.  That should be the real use case, not deploy run, because run would happen if you have said like deploy, bundle deploy run this particular project, bundle deploy run this particular project, correct?  Yes. Okay, yeah, but anyway, so please keep doing it, that's great, give us feedback and I think others also can utilize that because they will ultimately have to move towards CID.  Sure. I will push the code to the repository. So, you had this Databricks workspace deployment part, right? Yes. Is that ready?
+
+1:01:12 - DEEPIKA ELANGOVAN
+  Maybe not today, but maybe next week. I have already prepared, yes. Done that, right? Okay, yeah. It would be great if you could do that.  Should I start now? No, no, not now. We also have Nikolas. Let's go to Nikolas and then let's see if we have time.
+
+1:01:28 - sanjeev kumar
+  Hey.
+
+1:01:30 - Nikolaos Biniaris
+  So, I created the dashboard, as I had said that I will do after the business metrics. But I decided to not do it manually because as I had said, the free edition of Tableau is not providing any kind of connections directly to Databricks or Snowflake.  So, instead of going manual and because I said a thought last time. Maybe I will create all my call tables into CSV files and try to do it that way.  I didn't really like this idea because I want the pipeline to be fully connected and automated. So I created the dashboards inside Databricks with the new features they have.  Oh, yeah. Okay. Yeah. So it's like using SQL behind in the engine and it creates a chart. So I have...  Could you share a screen and show? Yeah. Yeah, I understand. Like, I'm not sure, like, how do we solve that issue of licensing, right?
+
+1:02:41 - sanjeev kumar
+  So, yeah. Okay.
+
+1:02:57 - Nikolaos Biniaris
+  Is it visible? Yes, it is.
+
+1:03:01 - sanjeev kumar
+  Okay.
+
+1:03:02 - Nikolaos Biniaris
+  So for the dashboards to work, I should always pin up here, the serverless compute. So they go live every time my compute is active.  Okay. Okay, maybe I shouldn't have done it now. But yeah, it will take like two, three minutes maybe for the warehouse.  Yeah. Okay. So this is like the summary I have, like, I always try to compare the holiday days compared to the non-holidays.  Sorry, sorry.
+
+1:03:46 - sanjeev kumar
+  Can you first explain to me the KPIs that you're trying to show, what kind of data you had, because you did the analytics engineering part also, right?  Yeah. As an engineer, analytics engineer, you build the gold layer. Yes. this is what... Yes. Yes. What... I'm sorry.  What are the KPIs you are trying to showcase? Explain me like I'm a customer, right? And I asked you, gave you a task, and you gave me a proper presentation, right?
+
+1:04:11 - Nikolaos Biniaris
+  Oh, okay. One minute for me to find. So the metrics that I have created, like the business metrics that come after the cold layer, I try to prove the impact of holidays versus the regular days.  If there is like a holiday lift caused by these days instead of the non-holiday days, so I have an API that brings the holidays of each day.  So I do a comparison between holidays and non-holidays, then I move on with the customer behaviour analytics, the lifetime value of customers, I make them, I cluster them by cohort, and I estimate the churn of the customers if they are in risk of living or not.  I also apply the recency, monetary, and the, it's also, I think it's the, it's the value, no, it's the frequency, recency, and monetary segmentation of the customers, then I do product analysis, and also time-based, for now I have those dashboards, revenue analysis, basis, and the time basis, month over month, and day of the week patterns.  So, on this matrix. I created inside a notebook that is using Spark SQL. Nice, nice, great. And then I went and created the dashboards directly from the metrics I have created.  So, for example, holiday performance. I compare the holidays versus non-holidays. I see exactly how much revenue was calculated for each holiday date.  Customer analytics is a customer lifetime value by date, like cluster by date. And then here, at risk, the segment of customers, if they're at risk of churning or promising the loyal customers, all of these are created by the SQL queries.  They already are inside my business metrics tables. So I don't need to do nothing. about going focus to I'm As very complex SQL.  Nikolaos, this looks really great. Thanks a lot for creating this one.
+
+1:07:04 - sanjeev kumar
+  Did you use the AI assistant to create some of them or it was all hand coded? If I use that?
+
+1:07:13 - Nikolaos Biniaris
+  The AI assistant, the genie code or whatnot. I use this to give me the ideas on what would be like the ideas on what I could create from my business metrics.  And then I don't really need to create them because they are already like, it's just columns that are created inside my business metrics.  So it doesn't have any kind of complex job to do. It's my already created business metrics. Great, great. Oh yeah.  Okay.
+
+1:07:48 - sanjeev kumar
+  But just for information, there is no problem in saying you have used AI in your work. Yeah. Right. I usually showcase that.  Yes. Right. But make sure that you, because in today's world, if you're not using AI for your work, you are lagging behind.  You will not be considered for any position. I know that for sure. That's what we are looking for. Even if the other person is very knowledgeable and shows reluctance in like talking about AI, how are they using AI, then it gives a wrong signal.
+
+1:08:26 - Nikolaos Biniaris
+  Right. Yeah. But always substantiate that you are in the group.
+
+1:08:30 - sanjeev kumar
+  You are managing the AI as an assistant. Right. So just want to put that point.
+
+1:08:35 - Nikolaos Biniaris
+  Yeah. I got, of course, I use it a lot for creating the business metrics and also for creating the metadata driven quality checks.  Great. Which is way more, it's way more complex than the dashboards. Yeah. Yeah. Yeah. But always enforce that. Yes.  You checked everything. Right. Don't select it for some autopilot. Okay. Great.
+
+1:08:56 - sanjeev kumar
+  Thanks a lot. Thanks Niklas. I think If you guys are okay, I would like to like, anything else Niklas before we move on?
+
+1:09:06 - Nikolaos Biniaris
+  No, at one other point, I would like to show you the metadata quality checks, just the description of it, because it's not, yeah, so what, one minute, okay, I have used Gini code to analyze the process, just, just to have it like, as a summary, so that you can tell me if it makes sense.  So it is, the screen, okay, so the core idea, so as it says here, I have some quality rules, and they are stored inside the tables as column, uh, as common.  These comments, the Unity Catalog can read them. So, for example, I start by saying alter table, for example, gold fact sales table, I say alter table, change column, I say the column, and then I put a comment next to this column, and I say data quality, not null, or like data quality, non-negative.  And then I perform Spark Catalog list columns. So this will allow the Unity Catalog, like the Spark, to read the metadata, so the comments.  And I have, I am scanning all the comments that contain the data quality. So this, the DQ. So whenever it sees that, it automatically parses the rule that is next to that, like not quality me Thank  Now or positive, or like that it should be a date, for example, like a specific data type. So the engine will enforce the rules in specifically in this column, in all the values of this column, it will create the is invalid column, which if it will be true, then it will get to the quarantine table.  And it will also list exactly the error that caused it to be invalid. Okay, I will have also them, like description of the error in my metadata.  So bad data are going to the quarantine table, quarantine data frame, and the clean data frame will be only with the clean data.
+
+1:11:46 - sanjeev kumar
+  So all I need to do, Niklas, so you are explaining the part for preparing your goal level data, right?  On which you build the dashboard, or which part is it?
+
+1:11:57 - Nikolaos Biniaris
+  Yeah, it's inside only. The gold layer. Okay, great. Makes sense. Go ahead. Oh, yeah. So that's it. So I don't need to do any kind of code changes every time because I just go to the new tables, like if I have a new source and it goes up to the gold layer, all I have to do is put these comments and they are automatically created as data quality checks for my table.  Absolutely.
+
+1:12:26 - sanjeev kumar
+  So this is what I was talking about to Asindu and Suhash some time back. Yes. So it doesn't matter what kind of engineering we are doing, ML, DE or analytics engineering, you have to always keep this in mind.  A production deployable pipeline is only which can be driven by metadata, not by writing code.
+
+1:12:49 - Nikolaos Biniaris
+  Otherwise, you just cannot scale.
+
+1:12:53 - sanjeev kumar
+  But yeah, great job, I think. Currently, it's only my data quality checks.
+
+1:12:59 - Nikolaos Biniaris
+  So. As I saw, you have done everything, like from the sources all the way down to... Yeah, I have done, but like I explained, like it's like more sophisticated one.  We will come to that, but yeah, to start with, start simple, right?
+
+1:13:14 - sanjeev kumar
+  For D, for data engineering guys, start with bronze and silver parametrization. For analytics engineers, just start with what you are doing, like your data quality checks, how you are calculating things.  But later on, we can make it more complex also, right?
+
+1:13:27 - Nikolaos Biniaris
+  Okay, so the next step is to use the Databricks parameters that are inside the notebooks, like Asindu did? Yeah, yes.  Yes. Okay.
+
+1:13:40 - sanjeev kumar
+  So anything in the pipeline should either move through metadata files or key parameters. Nothing should be hard-coded in the code.  There's one more thing I wanted to like quickly check. DEEPIKA will come to you if you have time, okay, we'll, fine, so we're just looking for the, okay, anyway, is that all, Niklas?
+
+1:14:38 - Nikolaos Biniaris
+  Yeah, yeah, that's all, I would like my next steps, just if there's like a recommendation, but yeah, that's all for me.  Okay, great, great.
+
+1:14:47 - sanjeev kumar
+  Yes, let's think about that, like what next you can do, but I think you have already done a great job, like the only problem is this Tableau part, like how do we get around that, like I would like to you to do hands on that.  But okay, at least you are able to do it here. Neha, the Power BI desktop, is it free of cost?  There's no licensing required for that, right?
+
+1:15:12 - Neha Doda
+  You can use the Power BI desktop to build your reports. That's what I was looking because in Databricks, I think the dashboarding doesn't have the full capabilities.  I don't know. No, no, absolutely.
+
+1:15:27 - sanjeev kumar
+  It doesn't have the parity of Power BI, of course. But yeah, Nikolaos, what do you think? Would you like to move to Power BI for your visualization practicing?
+
+1:15:43 - Nikolaos Biniaris
+  Me? I don't have access to Power BI because I use only a MacBook and I have not tried to...  I can't find a way to use Power BI in any kind of version. I have tried a lot of things in the past to get access.  But yeah, mostly, that's why I also use a lot of Tableau or like the Databricks dashboards.
+
+1:16:09 - Neha Doda
+  I have a friend, I think, because she also has a Mac book. I can like ask her, but there is a way like you can use Power BI using Mac.  I don't know, maybe it was, she said, like, it is going to, like, you have to give one time payment, maybe 400 kronos and then something like that.  I'm not sure. But yeah, I can ask for you. Yeah, I think you will be able to use the desktop in Mac.
+
+1:16:38 - Nikolaos Biniaris
+  Okay, thank you. Okay, great.
+
+1:16:42 - sanjeev kumar
+  Then, then I think.
+
+1:16:44 - Rajkumar Rajagopal
+  Sanjeev. Yeah. So these things, Tableau or Power BI, if, if it is something we need to buy for a couple of months, we can try as well.  Okay, okay. That was a great thing. Yeah, yeah. Let's talk about it separately. Yeah. Thanks Raj.
+
+1:17:02 - sanjeev kumar
+  Let's sync and then we can see what we can do, right? Because now we are in the phase where we are really doing demos and hands on, right?  If you can get it for a couple of months, that will be great. And because of that, a lot of features, the complex features on which we want to practice on, these are not available in free version.  So it becomes a bit difficult, actually.
+
+1:17:26 - Rajkumar Rajagopal
+  Okay. Yeah. We can talk about it. Yeah. Okay. Yeah. Thanks Raj.
+
+1:17:32 - sanjeev kumar
+  Deepika, do you have time? Then let's, let's go to your demo. If you could showcase your Databricks deployment. Yes, Sanjay.  I can show you quickly. I can show it up.
+
+1:17:43 - DEEPIKA ELANGOVAN
+  Yeah.
+
+1:18:00 - sanjeev kumar
+  Could you also, since we, I will speak to Raj on this part, could you also drop a list of softwares you would like an access to?  And then we can see how many of them make sense, budgeting and all those things, right? In the internship Slack channel, like for example, too, we know like Power BI if needed or Tableau, but just let me know.  For example, I know we are also trying out DVT. DVT Core is free, but DVT Cloud is not. So, if you have such ideas, right, you can write that down and then we can take a look and think about it, like, why it is needed, why not, right?  Yeah. Okay. Yes, Deepika. I hope my screen is visible too. Yes. So, yes.
+
+1:18:48 - DEEPIKA ELANGOVAN
+  So, what exactly the problem you are solving by doing this way is, like, if you do lots of, like, spinning up of environment or creation of resources, this manual… Yeah.  There be a space for human effort. in order to avoid that only, we are performing automations. And for that, we are using Terraform for spinning up the environment and to create the resources.  So to reduce the human mistakes only, we are trying to automate this. Then when we are trying to spin up lots of environment, there may be a chance like one person can configure the environment with one configuration, then another person can do it in another fashion.  So there might be some deviations. And because of that, it might feel like in one environment, it might work.  And in other environment, it might not act upon the same. So in order to maintain that also, we are trying to do it via code.  Then there is no version control when we are doing it now. So for example, if the last change has broke something, it would be quite difficult to understand for us what exactly the change that went last and how to get rid of it.  But when there is a version control, and if we know the previous version was working fine, then we can go back to the previous version.  And we can restore like if there is some, if the infrastructure has been corrupted or it got destroyed in some of the other way.  So we are just addressing those issues only by configuring the environment and set up by this way. So we described everything, every Azure and Databricks resources in the Terraform files, and we are storing it in GitHub, and it is being deployed using GitHub Actions.  So by this way, we can spin up the environment quickly, and it is easy to set up as well.  So what are all the tools that has been used is, I used Azure Portal, and the Databricks Azure Workspace, GitHub for hosting the repository, and to run the GitHub Actions, and we use code for our local configurations.  So it is better to install the Terraform CLI, Azure CLI, and Databricks CLI for easy local workflow. So the resources are created via Terraform, and there is a thing called Service Principle.  So it is nothing but, it is just for authentication purpose only, like whenever we are trying to log into your site, we need username and password.  Similarly, when we try to access the Azure resources, we need the service principle for authentication. And then we need to give permission, like some contributor, owner, or only reader access, so they can act only accordingly to that.  For example, owner access have full control of the resources. Contributor, they do have access, but still they can't delete the resources.  Reader 1, they will be able to view it, but they won't be able to modify or delete it. So, there are lots of access, and depending upon the requirement, we can specify only those particular access to the resources or the person.  So, this is the architecture, like, I worked on. So, like, I created two repositories, one for platform and another one is for data pipelines.  So, this is the diagram, the GitHub repository where it hosts both the repositories and whatever the secrets I have configured, and the pipeline development that is using GitHub actions.  Then, this is the one that is being We are first creating the resource group, then they are deploying all of the resources, whatever it is needed, like networking model, workspace module, security module, compute module, utility catalog model.  We will see in the next slide of what exactly this module does. Then after all the infrastructure setup is done, it pushes everything key secret.  From that key vault secret only, this data pipeline repo will start working on it. It took what over the workspace name, Databricks workspace name, and catalog to be used.  With that, it starts setting up the workspace and jobs and bundles in Databricks workspace. So you can, and the connecting part is the key vault.  So after the infra platform deploys, it tries the workspace, are a clustering catalog name into Azure Key Vault. And the data pipeline needs those values from Key Vault.  There is no, hard holding of values in there. So I will show you a picture. Thanks, Thank So as well.  So this is the Azure portal. So if I just go to resource groups. So this is the one the Terraform created.  And these are all the resources it has like Azure Databricks workspace, keyword, network security group, and virtual network. Without virtual networks, we can't create or manage any resources.  So this is the starting step of creating any resources. On top of that, all other resources are being built.  Now we can see like what are all the five modules that has been created. So in the networking path, the VNet, SubNet, NSDs are created.  Then in workspace, like this is for some So bricks workspace, like what skew it has to be used, and which network it has to be deployed.  Then comes the unit 80 catalog, which metastore and all those data catalog, and all the schemas like bronze, silver, and gold comes in picture here.  Then in security only like we are deploying the key vault and service principle for CICD and some secrets for like how it can pick up it and it can run in the data bricks workspace.  Then the compute part. So this was the quite challenging part for me when setting up the platform because like with a Sweden center, like I was not able to identify the right VM size that can be used.  So but after lots of time, like I was able to identify one and I was able to deploy it.  So this is what each platform module does. Like I will upload the PPT to our repository and we can just view it.  I don't want to take much time on this. Then these are all something on Terraform, like what exactly it is, and what are the common commands used, how exactly the typical Terraform folder structure looks.  Then there is something beautiful called remote packets. So this is what I was saying when I started first. Like if something happens, we can try to retrieve back the previous working state.  And also, if two persons are working on same thing, it will just log the repository, log the resources. Like only the person who started first, it will run the pipeline or run that activity first, and it will hold the second person's activity.  So that like no concurrent operation will get performed, so that there won't be any correction of the resources. And here also there is a versioning.  So depending upon the versions, we will be able to go back to the previous working one. And this data encryption is also important because it has all the sensitive information about our resources.  So it is mandatory to have some data encryption to save the data encryption. Then we come to the Databricks Asset Bundle.  So what exactly Databricks Asset Bundle is? It is just a bundle with some set of files and folders and YAML configuration.  So this is the repository of data pipelines repo. So this is how a typical folder structure looks. So this is the .github file which is required for our pipeline.  Then this is the bundles where like I have two bundles like called Customer bundles and Customer ETL and Finance ETL.  On inside the one bundle like you will be having which data to be used and all those notebook configuration and the Databricks YAML thing.  And let me show the pipeline now. So this is the platform pipeline. So like you can see like after lots of failures only the last one was successful.  So you can see it validates all my code, whether it has any syntax error of formatting issues, all those things can happen here.  This security scan is something for Terraform to check that any formatting issues or any duplicate codes or any security codes has been used, something like that.  Then this is the planned phase and this is the apply phase. So if you click on the apply phase, you can see Terraform image, Terraform plan and apply, and it exports the output to the keyword.  So here you can see like at the end of pipeline, okay, this is I rerun the pipeline, so we choose just only one changed, that's why.  But usually we will be able to see what are all the resources added or what are the resources that got updated or if there are any resources that got destroyed.  So this is something with infrastructure. Now with respect to data pipelines, like this is how the So this one last week, had only one bundle deployment.  So the pipeline was like this. Then after Sanjeev's recommendation, I tried adding another bundle and see how it works.  But what happened was, even though I made change in finance pipeline, ran the pipeline for customer one also. Then I added a condition to prevent the running of the other pipeline.  So this is how the pipeline has been run with GitHub actions. And here we can view the results. We can go to the jobs and pipelines.  And this is the customer ETL pipeline. And we can see how it has been run here. And we can see the required output in our pipeline also.  So it has aggregated results of this. Yeah. Great, Deepika. Just one question.
+
+1:28:57 - sanjeev kumar
+  So if you can go back to your GitHub application. There was an output after the deploy run that you were showing, right?  How many destroyed, how many destroyed? Yes, and this one, right?
+
+1:29:10 - DEEPIKA ELANGOVAN
+  We had table names. What is that output about?
+
+1:29:14 - sanjeev kumar
+  Yeah, this one that I'm talking about. The bronze schema.
+
+1:29:20 - DEEPIKA ELANGOVAN
+  Usually, the Terraform output provides what all the parameters we have used, it will share all those outputs. Because I have mentioned the output file, guess, in the Terraform structure.  That's very rich. Output.tf, right? Yeah, that's very rich. shared all the outputs at the end after the run of the pipeline.  Any questions from the team for DEEPIKA?
+
+1:29:53 - sanjeev kumar
+  But no, great job, DEEPIKA. This is very clean, very well demoed. Thank you. Thanks a lot for that.
+
+1:30:00 - DEEPIKA ELANGOVAN
+  Sure, I will push it to the repository after some cleaning process, anyone can try to do a hands-on on it.  Yeah, yeah. Thanks, Hathipika.
+
+1:30:10 - sanjeev kumar
+  One quick question. Filip, did I miss you?
+
+1:30:15 - Filip Cedermark
+  I haven't done like a thorough presentation, but I don't really have much to show. I kind of just wanted to ask you something, because like you said, you mentioned this earlier, like talking about me scaling up the amount of data I'm going to be working with.  Because now that I've worked with DBT a bit and I've gotten a bit more used to it, I feel like I'm also ready to kind of step up the amount of data I've been using.  But I've been, I've wanted to check because on the one hand, I have, like you mentioned, I have created this like sample data generator, which I could use, I could generate whatever amount I want.  But that data is like very simple. I've it. can't see use. that's we data, It's only one table, it's a few columns.  It's not very complex at all. So I've been considering using one of the sample datasets that Databricks offer, which admittedly is, at least compared to what you mentioned, scaling up to 10, 20 maybe gigabytes, not as big as that, but the complexity is much bigger.  So there are more tables, it's split up in like 10 different tables, totaling, I think, from what I can see, or maybe like one and a half gigabytes, something like that, like 15,000 rows or something.  In your opinion and in your experience, like what would you say is better to work on? Like a very simple dataset, but that you could scale up to like large amounts or a more complex dataset that is relatively, but shows more like complexity in width.  Yeah, that's a good question.
+
+1:32:04 - sanjeev kumar
+  I think both because the complexity of the data will always be there. So we need that to understand what kind of problems do customers face.  Like, for example, how do you pass a really nested structured data? Like, for example, three, four levels of data.  If data is being delivered from Kafka, you will have blobs. So maybe that will serve as separate, but at scale is very important.  Without at scale, I would not consider this internship done. Sure. That complexity part is good. We should know that.  But yeah, we can also theoretically read about it, right? But this at scale part, where does the distributed systems fail?  Why do they fail? How do you fix them? Shuffle, spill, skew? These are the main concepts we have to actually kneel down before we end the internship.  So let's do one thing. We can actually mix both of them. I'm not sure whether I'll get time, but you can use Claude or to just make sure to enhance the complexity of your library that you have created.  So it randomly generates data, Maybe it has just five columns. Why don't you add a couple of more? So for example, you can just ask Claude to create a random three or four level nested structure, struct field, right?  And add that as one of your fifth column or sixth column, right? And also try to have at least 10, 10, 12 columns, if that is possible.  Yeah, just, just repeatable. Just one complex column should be good enough. We don't want more than that, right? So usually I think 70% of cases is not very difficult.  It's straightforward. It's just the business. That matters, but yeah, in 30% of the cases, we have to work with arrays.  When you explode them, the data explodes, right? So complexity of parsing the data, those things are also important problems.  But let's not go too deep into that. Maybe one complex type, maybe 10 or 12 columns, and then let's work on scale.  That's most important. Okay.
+
+1:34:24 - Filip Cedermark
+  In that case, I'll see if I can revisit my code then, and like you said, pump some complexity into it.  And once that's done, I can push the changes as well in case other people want to use it, and then I'll scale.  Yeah.
+
+1:34:39 - sanjeev kumar
+  Yeah. Let's do that. And on the dbt part, so you are practicing on dbt core, I understand correctly, right?  Yeah, exactly. Okay. And are you able to do everything? Are some features missing that you would like to go check on dbt cloud or whatnot?  I haven't really looked into dbt cloud.
+
+1:35:00 - Filip Cedermark
+  So I don't really know what the differences are. At my previous post-nord internship, we used dbtcore as well. So that's kind of what I'm used to.  So I don't feel like I'm missing out on much.
+
+1:35:10 - sanjeev kumar
+  Okay, great. Because I know that dbtcore is open source. It lacks few things. But I have seen customers using dbtcore in production too.  So I don't see too much complaint. Maybe the cloud part is paid. So they might give you very nice features of packaging things, blah, blah, out of the box.  But I think if it suits your purpose, yeah, dbtcore should be better. Yeah, think like for this purposes, like for the internship and for developing purposes, it's not a problem at all.
+
+1:35:38 - Filip Cedermark
+  I don't like have any complaints.
+
+1:35:41 - sanjeev kumar
+  Great, great, great. Nice. Okay, then I think we are like quite over time now. Let's close the call.
+
+1:35:49 - Rajkumar Rajagopal
+  But yeah. Thanks for it, people. Just one second. Yeah, yeah. think overall, yeah, I had a... Since everyone is in the remote how this will be working in a smart way but everyone is active participation and I was listening to the presentation also but it will go in a really effective way even though we are from different places but still the results come out that's very good from everyone and one advice if possible try to place the midweek call also more and you guys talk and help each other get clarified whatever may be missed out right I can see at least two more than one person is working for single area Deepika Nikola sorry I think Neha Nikola is in a separate area and others kind of so you you guys can get cleared what are things need to be maybe before coming to sanjeev whatever you can solve yourself you try to close then come here that will be not having much break so you refresh in the midweek In the end the
+
+1:37:00 - sanjeev kumar
+  So yeah, and also use it to discuss and say, okay, maybe this is what we should ask Sanjeev to guide us on, right?  Maybe you can use that call to come to a consensus. This is what you want to learn in internship and steer these calls, right?  So yeah, use it for those purposes also. Yeah, it looks really a good progress.
+
+1:37:22 - Rajkumar Rajagopal
+  And we're looking for the further outcomes. Yeah. Sanjeev, do you have five more minutes? Yes, we can. Okay, then myself and Raj will stay and please feel free to drop.
+
+1:37:37 - sanjeev kumar
+  Thank you, everyone.
+
+1:37:39 - Rajkumar Rajagopal
+  Thank you.
+
+1:37:41 - Filip Cedermark
+  Bye.
+
+1:37:43 - DEEPIKA ELANGOVAN
+  Bye. Bye.
+
+1:37:48 - Kousalya (nanduri1120@gmail.com)
+  Yeah, should I also drop, do the notes need to be there? No, no.
+
+1:37:54 - sanjeev kumar
+  Please stop the note taking if possible. Yeah, Yes, fine.
+
+1:38:04 - Kousalya (nanduri1120@gmail.com)
+  So you have to switch on switch.

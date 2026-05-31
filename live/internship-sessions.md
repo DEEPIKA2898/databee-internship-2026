@@ -4,28 +4,53 @@
 
 ---
 
-## Session 10 — May 30, 2026 *(today)*
+## Session 11 — June 6, 2026 *(upcoming)*
 
-**Attendees:**
+**Agenda:**
+
+**Part 1 — Weekly sync & check-ins**
+
+1. Week check-in — what did you work on? Blockers? Wins?
+2. Neha — Direct Lake mode + Power BI Fabric Capacity pricing model PPT *(carried over Sessions 9 & 10)*
+3. Suhash — Slide deck: MV vs streaming table vs Delta table (pros/cons, use cases) + DLT use case design with SCD 1 & 2
+4. Deepika — Multi-bundle DABs isolation validation (deploy-only timestamp test) + clean Terraform + DABs code merged to repo
+
+**Part 2 — Technical deep-dives**
+
+5. Asindu — Metadata-driven ingestion demo: onboard new source via config entry, zero code changes
+6. Filip — Enhanced Faker generator (12+ columns + 1 nested struct/array column) + dbt scaled to large dataset
+7. Nikolaos — Databricks widget parametrization on notebooks (runtime control like Asindu's backfill/stream toggle)
+8. Deepika — MLOps path kickoff: MLflow foundations + first experiment tracking setup
+
+**Standing items**
+
+9. Software licenses update — Power BI / Tableau / dbt Cloud budget decision (Sanjeev + Raj)
+
+---
+
+## Session 10 — May 30, 2026
+
+**Attendees:** Sanjeev Kumar (mentor), Kousalya, Neha Doda, Suhash Raja, Filip Cedermark, Deepika Elangovan, Asindu Gayangana, Nikolaos Biniaris, Rajkumar Rajagopal *(Raj — joined for check-ins and closing)*
+**Absent:** Elliot Eriksson
 
 **Agenda:**
 
 **Part 1 — Weekly sync & admin**
 
 1. Week check-in — what did you work on? Blockers? Wins?
-2. Admin — Approve/confirm Neha's PR (Power BI presentation → `action/` folder) *(raised May 27 midweek)*
-3. Sanjeev — Deepika's MLOps path *(carried over Sessions 7, 8, 9 — overdue)*
-4. Neha — Direct Lake mode + Power BI Fabric Capacity pricing model research share-out *(assigned Session 9)*
-5. Deepika — Live Terraform + DABs E2E demo: Databricks workspace on Azure *(deferred from Sessions 8 & 9)*
-6. Asindu — End-to-end pipeline demo with DQX plugged into silver layer *(carried over Sessions 8 & 9)*
-7. Nikolaos — Tableau connection to gold layer (manual CSV export path) *(assigned Session 9)*
+2. Admin — Neha's PR merged ✅ *(Sanjeev merged before session)*
+3. Sanjeev — Deepika's MLOps path *(shared and discussed)*
+4. ~~Neha — Direct Lake mode + Power BI Fabric Capacity pricing model share-out~~ → *(research done, PPT not ready — carried over)*
+5. Deepika — Live Terraform + DABs E2E demo: Databricks workspace on Azure ✅
+6. Asindu — End-to-end pipeline demo with DQX plugged into silver layer ✅
+7. Nikolaos — Databricks AI/BI dashboards *(pivoted from Tableau — see notes)*
 
 **Part 2 — Technical deep-dives**
 
-8. Suhash — Multi-job DABs mono-repo experiment: `databricks.yml` per-folder isolation *(assigned Session 9)*
-9. Suhash — DLT deep-dive: streaming table vs materialized view vs Delta table (pros/cons, use cases) + SCD type 1 & 2 in declarative pipelines *(assigned Sessions 8 & 9)*
-10. Nikolaos — Metadata-driven DQ framework live walkthrough *(carried over Sessions 8 & 9)*
-11. Filip — dbt progress + data scaling: larger dataset / API source for realistic modeling *(dbt carried over Sessions 7–9; scaling raised May 27 midweek)*
+8. Suhash — DLT: materialized view vs streaming table vs Delta table *(conceptual; slide deck assigned for next session)*
+9. Nikolaos — Metadata-driven DQ framework live walkthrough ✅
+10. Filip — dbt progress + data scaling discussion ✅
+11. ~~Suhash — Multi-job DABs mono-repo experiment~~ → *(partially covered via Deepika's demo)*
 
 **Pre-session — Deliverables Submitted to Repo (as of May 30)**
 
@@ -35,16 +60,175 @@
 | **Deepika Elangovan** | Full CI/CD demo app — FastAPI Gothenburg Weather app with Dockerfile, Kubernetes manifests, GitHub Actions CI + CD workflows | `action/de-devops/gothenburg_weather/` |
 | **Filip Cedermark** | Faker-based synthetic data generator notebook (customer/order/CDC records) | `action/de-devops/filip/Sample Data Generator.ipynb` |
 | **Nikolaos Biniaris** | Full medallion pipeline — bronze (CSV + Public Holidays API, overwrite & CDC), silver CDC (CRM + ERP + API), gold (fact_sales, dims, 5 aggregations), orchestration, metadata-driven DQ framework | `action/de-devops/nikolas/` |
-| **Neha Doda** | Power BI storage modes presentation | *PR raised — pending merge* |
+| **Neha Doda** | Power BI storage modes presentation | *Merged this session* ✅ |
 | **Suhash Raja** | DABs CI/CD workflow | *Pushed to separate branch — not merged to main* |
 | **Asindu Gayangana** | *(nothing committed yet — pipeline in Databricks only)* | — |
 | **Elliot Eriksson** | *(nothing committed yet)* | — |
 
-> **To discuss:** Asindu and Elliot have no repo artifacts yet. Suhash and Neha have pending PRs/branches to merge. Goal — every intern should have something in `action/` by next session.
-
 **Notes:**
 
-*(To be filled after session)*
+---
+
+### 1. Week Check-in
+
+- **Neha Doda** — Researched Direct Lake mode and Fabric Capacity pricing model (no PPT yet — carrying over). First GitHub experience: cloned repo, raised PR (merged). Built a small end-to-end project: pulled data from multiple sources, cleaned, transformed (tried dbt), created CSV files for Power BI. Has a data model ready. Cannot access Microsoft Fabric (no org ID, trial expired) — using DuckDB as intermediate store instead. Wants KPIs/business questions from Sanjeev to build a proper analytics engineering use case.
+  → **Sanjeev**: Good investment in Git. Will define use case KPIs based on Neha's data model (ask Neha to commit data model to repo). Final goal: end-to-end AE demo (transform layer + Power BI visualization presented as if to a business user). DuckDB fine for now; alternative: dump data as Parquet to ADLS and import into Power BI.
+
+- **Suhash Raja** — Researched materialized views vs streaming tables: MV used in aggregation/gold layer, automatically refreshed by Databricks on source changes; streaming tables for incremental load from streaming sources, used in silver, manually controlled. Went through Databricks Learning tutorial on SCD Type 1 & 2 in declarative pipelines — understood end-to-end flow. Q: should we partition in silver layer?
+  → **Sanjeev**: Partitioning is not layer-specific — it's use-case driven. Purpose: improve read performance. Pitfalls: over-partitioning (too many small files), under-partitioning (no benefit), wrong partition key choice. No middle ground — either very good or very bad. Also read **liquid clustering** (Databricks' modern replacement for partitioning — more powerful, avoids partition pitfalls). For job clusters: DE specifies config in DABs/job definition; Databricks automatically provisions the cluster — no Docker image management needed. Next task: prepare a proper slide deck on MV vs streaming table vs Delta table + design a mid-complexity DLT use case with SCD 1&2.
+
+- **Deepika Elangovan** — MLOps path shared by Sanjeev (see section 2). Multi-bundle DABs experiment: added a second bundle, both ran on every push. Added a condition to partially fix it. Still running both on deploy+run.
+  → **Sanjeev**: The real test is `bundle deploy` only (not deploy+run) — check timestamps in the environment per project to verify only the changed bundle was updated. deploy+run is for UAT/dev integration testing, not production validation. Deepika to push clean code to repo after cleanup.
+
+- **Asindu Gayangana** — Full pipeline demo (screen share): AutoLoader → bronze (partitioned by load\_date) → silver (backfill or incremental read stream, DQX validation, valid → silver, invalid → silver\_invalid, partitioned by order\_date, deduplicated by row\_id) → gold (partition replace). Workflow job with 3 tasks; bronze has retry logic (3x, 10-min delay) and timeout threshold. Parameter widgets control backfill vs stream mode — no hardcoding. DQX installed and functioning.
+  → **Sanjeev**: Research `inferSchema` in production (important interview topic). Key feedback: think metadata-driven ingestion — instead of creating a new pipeline per source (e.g. campaign data), parameterize so a new source is onboarded by adding a config entry only, zero code changes. Sanjeev showed his own YAML-based metadata config (source path, target table, schema hints, DQ rules, derived columns) + for-loop in pipeline code that auto-creates DAG flows per config entry. CICD exists but needs more work — sync with Suhash and Deepika. Scale up: target 20–30 GB using Filip's Faker library.
+
+- **Nikolaos Biniaris** — Decided against Tableau manual CSV export (wanted fully connected pipeline). Built Databricks AI/BI dashboards instead on gold business metrics. Dashboards cover: holiday vs non-holiday revenue, CLV by cohort, churn risk + RFM segmentation, product performance, time-based revenue trends (MoM, day-of-week patterns). All powered by pre-built gold metric tables — SQL queries are simple. Used AI assistant (Genie) to generate dashboard ideas and metric suggestions. Walked through metadata-driven DQ framework (see section 4).
+  → **Sanjeev**: Great work. AI usage is expected — showcasing it in interviews is a positive signal. Always show you are managing the AI (reviewing output, not on autopilot). Tableau community ↔ Databricks free don't support direct connection — Raj offered to potentially purchase Tableau/Power BI licenses for a couple of months. Neha to check Power BI on Mac route for Nikolaos. Next step: add Databricks widget parameters to notebooks for full parametrization (like Asindu did).
+
+- **Filip Cedermark** — Progress on dbt-core. Ready to scale. Dilemma: use own Faker generator (simple, 1 table, few columns, but infinitely scalable) vs Databricks sample dataset (1.5 GB, 10 tables, more complexity, but fixed size).
+  → **Sanjeev**: Do both — enhance Faker generator: add ~10–12 columns + 1 complex nested column (struct/array) using Claude. Push updates so others can use it. Then scale to large volumes. Scale is non-negotiable before internship ends — Spark problems (shuffle, spill, skew) only surface at scale. 30% of production data has arrays/nested structures requiring explode/parse — good to cover. dbt-core is used in production; dbt Cloud adds packaging conveniences but not required for internship purposes.
+
+---
+
+### 2. Deepika's MLOps Path
+
+Sanjeev shared a structured MLOps course plan covering:
+
+1. **Foundations** — ML basics recap, MLOps vs DevOps distinctions
+2. **Experiment tracking** — MLflow (open source, Databricks managed) and SageMaker (AWS). Other frameworks to explore: Vertex AI (Google), Snowflake Cortex
+3. **Data & feature engineering** — Feature pipelines, feature stores, working with data scientists' outputs
+4. **Model packaging & serving** — Model registry, deployment endpoints
+5. **CI/CD for ML** — Applying CICD to model lifecycle (train → validate → register → serve)
+6. **Orchestration of ML pipelines** — Scheduling, dependencies
+7. **Model monitoring & observability** — Drift detection, performance tracking in production
+8. **Capstone project** — Tying all stages end-to-end
+
+Note: concept stays the same across frameworks; specific API names differ. Deepika to choose a framework (MLflow recommended as starting point given Databricks context).
+
+---
+
+### 3. Metadata-Driven Ingestion — Deep Dive (Sanjeev screen share)
+
+Triggered by Asindu's pipeline demo and Suhash's follow-up question:
+
+**Core principle:** A production-grade pipeline can onboard a new source without any code changes. Everything variable is externalized to a metadata config.
+
+**Config structure (YAML/JSON file or config table):**
+- Source path / type / format
+- Target catalog, schema, table name
+- Schema hints for key columns
+- DQ expectations (e.g. `claim_id: not_null`)
+- Derived/transformation column definitions
+
+**Pipeline code:**
+- Reads config at startup → loads all source definitions into memory
+- Uses placeholders (variables) — no hardcoded table names, paths, or rules
+- A for-loop iterates over config entries, creates a task/flow for each source automatically
+
+**Config lifecycle (best practice):**
+1. Developer writes new source config as YAML/JSON
+2. CI/CD runs test cases against it (e.g. ping source, validate schema)
+3. On pass → config upserted into config table in the warehouse
+4. Pipeline reads config table at runtime
+
+**Boundary:** Gold layer modeling is intentionally excluded — it requires business-specific logic that can't be fully genericized. Metadata-driven applies primarily to bronze → silver ingestion.
+
+**Sanjeev's message:** *"A pipeline is only production-grade when it can onboard a new source without writing code."*
+
+---
+
+### 4. Nikolaos — Metadata-Driven DQ Framework Walkthrough
+
+- DQ rules stored as column-level comments in Unity Catalog (e.g. `ALTER TABLE gold_fact_sales CHANGE COLUMN amount COMMENT 'DQ: non-negative'`)
+- `spark.catalog.listColumns()` scans all column comments at runtime
+- Utility function parses any comment containing `DQ:` → translates to enforcement rule (not_null, non-negative, date type, etc.)
+- Output: `is_invalid` flag column per row → invalid rows → quarantine table with error description; clean rows pass through
+- Adding DQ to a new table = add a comment. Zero code changes.
+
+Connects back to metadata-driven theme: same principle as Sanjeev's ingestion config — rules live outside code.
+
+**Sanjeev**: This is the right pattern. Start simple (bronze/silver parameterization for DE; DQ comment-driven checks for analytics engineering). Next step: add Databricks widget parameters for runtime control.
+
+---
+
+### 5. Unit Testing vs Integration Testing (CICD best practices)
+
+Raised by Suhash during the metadata-driven discussion:
+
+- **Unit tests**: each developer tests their own logic locally before pushing. Examples: ping config server, validate input/output with sample data, schema assertions.
+- **Integration tests**: full pipeline tested in UAT/staging environment post-deployment. Tests how all components (bronze + silver + gold, from multiple developers) work together end-to-end.
+- **deploy+run** in CI pipeline = integration test trigger in UAT/dev. Not used in production.
+- **Production**: deploy only; jobs are scheduled via Databricks scheduler.
+
+---
+
+### 6. Deepika — Terraform + DABs E2E Live Demo
+
+Two-repo architecture:
+- **Platform repo** (Terraform): provisions all Azure infrastructure → exports workspace name, catalog name, secrets to Azure Key Vault
+- **Data pipelines repo** (DABs): reads secrets from Key Vault → sets up Databricks workspace, schemas, jobs, bundles. Zero hardcoded values.
+
+**Platform pipeline flow (GitHub Actions):** lint + security scan → Terraform init → Terraform plan → Terraform apply → export outputs to Key Vault
+
+**Resources created by Terraform (5 modules):**
+- Networking: VNet, subnets, NSG
+- Workspace: Databricks workspace (SKU, network binding)
+- Unity Catalog: metastore, bronze/silver/gold schemas
+- Security: Key Vault, service principal (scoped: owner/contributor/reader)
+- Compute: cluster (right VM SKU found for Sweden Central after many trials)
+
+**DABs pipeline (data pipelines repo):** Two bundles — Customer ETL and Finance ETL. Condition added to prevent both running on every push. Challenge: deploy+run fires both; Sanjeev clarified real test is deploy-only with timestamp checks per project folder.
+
+**Sanjeev's Q on `output.tf`:** outputs (e.g. bronze schema name) printed at end of Terraform apply run — comes from `outputs.tf` file in Terraform folder structure.
+
+Deepika to push cleaned code to repo so others can reference it as a CI/CD + IaC template.
+
+---
+
+### 7. DLT vs Plain Spark — Context for All Interns
+
+Sanjeev's framing when Suhash discussed DLT:
+- **DLT (Declarative Pipelines)**: managed by Databricks — logging, observability, retries handled automatically. Developer focuses on logic only.
+- **Plain Spark** (PySpark / Spark SQL / Scala): full control, more boilerplate, more flexibility.
+- **Every platform has an equivalent**: Snowflake → Dynamic Tables; Azure Fabric → FDF (Fabric Data Factory); AWS → Glue ETL.
+- Customers who want simplicity → declarative; those needing fine-grained control → plain Spark.
+- Neither is universally better — choosing the right one is part of the engineer's job.
+
+---
+
+### 8. Closing — Raj's Remarks
+
+- Progress and engagement across the group was strong despite fully remote setup.
+- Recommendation: use midweek syncs more actively — resolve blockers between yourselves before bringing to Sanjeev; use the call to come to a consensus on what questions to escalate.
+- Raj offered to explore purchasing Tableau / Power BI licenses for a couple of months.
+- Sanjeev: all interns to drop desired software list in internship Slack channel (Power BI, Tableau, dbt Cloud if needed) — will evaluate budget with Raj.
+
+---
+
+### Action Items
+
+| Task | Owner | Due |
+|------|-------|-----|
+| Prepare Direct Lake mode + Fabric Capacity pricing model PPT | Neha | Next session |
+| Commit data model + dataset to repo for Sanjeev to derive KPIs | Neha | This week |
+| Define analytics engineering use case KPIs for Neha | Sanjeev | This week |
+| Explore Power BI on Mac option for Nikolaos | Neha | This week |
+| Prepare slide deck: MV vs streaming table vs Delta table (pros/cons, use cases) | Suhash | Next session |
+| Design mid-complexity DLT use case with SCD type 1 & 2 + justification for DLT over plain Spark | Suhash | Next session |
+| Research liquid clustering in Databricks | Suhash | Next session |
+| Validate multi-bundle DABs isolation: deploy-only test (check timestamps per project) | Deepika | Next session |
+| Push clean Terraform + DABs code to repo (platform + data pipeline repos) | Deepika | Next session |
+| Begin MLOps path (MLflow foundations + experiment tracking) | Deepika | Next session |
+| Focus on metadata-driven ingestion: onboard new source via config only, no code changes | Asindu | Next session |
+| Research `inferSchema` in production (pros/cons, when to use) | Asindu | Next session |
+| Scale pipeline to 20–30 GB using Filip's Faker library | Asindu | Next session |
+| Sync with Suhash + Deepika on CI/CD; push CI/CD code to repo | Asindu | Next session |
+| Enhance Faker generator: expand to ~12 columns + add 1 complex nested struct/array column | Filip | Next session |
+| Scale dbt pipeline to large dataset using enhanced Faker data | Filip | Next session |
+| Add Databricks widget parameters to notebooks for full runtime parametrization | Nikolaos | Next session |
+| Drop desired software licenses list in internship Slack channel | All interns | ASAP |
+| Discuss Tableau / Power BI license purchase with Raj | Sanjeev | This week |
 
 ---
 
