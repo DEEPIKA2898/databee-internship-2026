@@ -1,0 +1,17 @@
+customer_id,first_name,last_name,email,country,signup_date,total_orders,total_spend
+C001,Emma,Johansson,emma.j@email.com,Sweden,2024-01-15,5,1250.00
+C002,Lars,Andersson,lars.a@email.com,Sweden,2024-02-20,3,780.50
+C003,Sofia,Nilsson,sofia.n@email.com,Norway,2024-01-08,8,2100.75
+C004,Erik,Eriksson,erik.e@email.com,Denmark,2024-03-12,2,430.00
+C005,Anna,Karlsson,anna.k@email.com,Sweden,2024-02-28,6,1580.25
+C006,Magnus,Lindqvist,magnus.l@email.com,Finland,2024-01-22,4,920.00
+C007,Ingrid,Berg,ingrid.b@email.com,Norway,2024-03-05,1,210.50
+C008,Bjorn,Holm,bjorn.h@email.com,Sweden,2024-02-10,7,1890.00
+C009,Astrid,Dahl,astrid.d@email.com,Denmark,2024-01-30,3,650.75
+C010,Olaf,Strand,olaf.s@email.com,Norway,2024-03-18,2,340.00
+C011,Maja,Lund,maja.l@email.com,Sweden,2024-02-14,9,2450.50
+C012,Nils,Borg,nils.b@email.com,Finland,2024-01-05,4,870.25
+C013,Freya,Moe,freya.m@email.com,Norway,2024-03-22,5,1120.00
+C014,Gustav,Palm,gustav.p@email.com,Sweden,2024-02-01,2,490.75
+C015,Sigrid,Voss,sigrid.v@email.com,Denmark,2024-01-18,6,1340.00
+C016,Deepika,Elangovan,deepi.e@email.com,Sweden,2024-01-18,8,240.00

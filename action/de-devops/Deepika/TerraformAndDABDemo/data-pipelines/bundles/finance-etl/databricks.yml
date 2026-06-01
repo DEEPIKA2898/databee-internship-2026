@@ -1,0 +1,112 @@
+# ============================================================
+# bundles/finance-etl/databricks.yml
+# Databricks Asset Bundle — Finance ETL Pipeline
+# Processes transaction data through bronze → silver → gold
+# ============================================================
+
+bundle:
+  name: finance-etl
+
+variables:
+  catalog:
+    description: "Unity Catalog name"
+    default: "dev"
+  file_path:
+    description: "Path to source transactions CSV"
+    default: "/Volumes/dev/default/landing/transactions.csv"
+
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      catalog: "dev"
+
+  # staging:
+  #   mode: staging
+  #   variables:
+  #     catalog: "staging"
+
+  # prod:
+  #   mode: production
+  #   variables:
+  #     catalog: "prod"
+
+resources:
+  jobs:
+    # ── Job 1 — Full ETL pipeline ──────────────────────────
+    finance_etl_pipeline:
+      name: "Finance ETL Pipeline [${bundle.target}]"
+      description: "Ingests transactions CSV → bronze → silver → gold"
+
+      job_clusters:
+        - job_cluster_key: finance_cluster
+          new_cluster:
+            spark_version: "14.3.x-scala2.12"
+            node_type_id: "Standard_D4s_v3"
+            num_workers: 1
+            data_security_mode: SINGLE_USER
+            azure_attributes:
+              availability: SPOT_WITH_FALLBACK_AZURE
+              first_on_demand: 1
+              spot_bid_max_price: 100
+
+      tasks:
+        - task_key: ingest_transactions
+          description: "Read CSV → write to bronze"
+          job_cluster_key: finance_cluster
+          max_retries: 2
+          min_retry_interval_millis: 30000
+          notebook_task:
+            notebook_path: ./notebooks/01_ingest_transactions.py
+            base_parameters:
+              catalog: "${var.catalog}"
+              file_path: "${var.file_path}"
+
+        - task_key: clean_transactions
+          description: "Clean + validate bronze → silver"
+          job_cluster_key: finance_cluster
+          max_retries: 2
+          min_retry_interval_millis: 30000
+          depends_on:
+            - task_key: ingest_transactions
+          notebook_task:
+            notebook_path: ./notebooks/02_clean_transactions.py
+            base_parameters:
+              catalog: "${var.catalog}"
+
+        - task_key: revenue_summary
+          description: "Revenue aggregation → gold"
+          job_cluster_key: finance_cluster
+          max_retries: 1
+          min_retry_interval_millis: 30000
+          depends_on:
+            - task_key: clean_transactions
+          notebook_task:
+            notebook_path: ./notebooks/03_revenue_summary.py
+            base_parameters:
+              catalog: "${var.catalog}"
+
+        - task_key: payment_analysis
+          description: "Payment method analysis → gold"
+          job_cluster_key: finance_cluster
+          max_retries: 1
+          min_retry_interval_millis: 30000
+          depends_on:
+            - task_key: clean_transactions
+          notebook_task:
+            notebook_path: ./notebooks/04_payment_analysis.py
+            base_parameters:
+              catalog: "${var.catalog}"
+
+      email_notifications:
+        on_failure:
+          - ${workspace.current_user.userName}
+
+      tags:
+        environment: "${bundle.target}"
+        team: "finance-engineering"
+        managed_by: "databricks-asset-bundles"
+        pipeline: "finance-etl"
+
+

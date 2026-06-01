@@ -1,0 +1,166 @@
+# ============================================================
+# .github/workflows/deploy.yml
+# Single pipeline — runs customer-etl, finance-etl, or both
+# ============================================================
+
+name: DABs Application Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bundles/**'
+      - '.github/workflows/deploy.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bundles/**'
+  workflow_dispatch:
+    inputs:
+      bundle:
+        description: 'Which bundle to deploy?'
+        required: true
+        type: choice
+        options:
+          - all
+          - customer-etl
+          - finance-etl
+        default: all
+      run_job:
+        description: 'Run the job after deploying?'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  # ── Detect which bundles changed ──────────────────────────
+  changes:
+    name: Detect changes
+    runs-on: ubuntu-latest
+    outputs:
+      customer: ${{ steps.filter.outputs.customer }}
+      finance:  ${{ steps.filter.outputs.finance }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check changed files
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            customer:
+              - 'bundles/customer-etl/**'
+            finance:
+              - 'bundles/finance-etl/**'
+
+  # ── Validate ───────────────────────────────────────────────
+  validate:
+    name: Validate / ${{ matrix.bundle }}
+    needs: changes
+    runs-on: ubuntu-latest
+    environment: dev
+    strategy:
+      matrix:
+        bundle: [customer-etl, finance-etl]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Databricks CLI
+        run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+      - name: Validate bundle
+        env:
+          DATABRICKS_HOST:  ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/${{ matrix.bundle }}
+          databricks bundle validate --target dev
+
+  # ── Deploy customer-etl ────────────────────────────────────
+  deploy_customer_etl:
+    name: Deploy / customer-etl
+    runs-on: ubuntu-latest
+    needs: [validate, changes]
+    environment: dev
+    if: |
+      github.ref == 'refs/heads/main' && (
+        needs.changes.outputs.customer == 'true' ||
+        github.event.inputs.bundle == 'all' ||
+        github.event.inputs.bundle == 'customer-etl'
+      )
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Databricks CLI
+        run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+      - name: Fetch outputs from Key Vault
+        run: |
+          az login \
+            --service-principal \
+            -u ${{ secrets.ARM_CLIENT_ID }} \
+            -p ${{ secrets.ARM_CLIENT_SECRET }} \
+            --tenant ${{ secrets.ARM_TENANT_ID }}
+          TF_OUTPUTS=$(az keyvault secret show \
+            --vault-name "${{ vars.KV_NAME_DEV }}" \
+            --name "tf-outputs" --query "value" -o tsv)
+          echo "CATALOG_NAME=$(echo $TF_OUTPUTS | jq -r '.catalog_name.value')" >> $GITHUB_ENV
+          echo "WORKSPACE_URL=$(echo $TF_OUTPUTS | jq -r '.workspace_url.value')" >> $GITHUB_ENV
+      - name: Deploy customer-etl
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/customer-etl
+          databricks bundle deploy --target dev \
+            --var="catalog=${{ env.CATALOG_NAME }}"
+      - name: Run customer-etl job
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/customer-etl
+          databricks bundle run --target dev customer_etl_pipeline
+
+  # ── Deploy finance-etl ─────────────────────────────────────
+  deploy_finance_etl:
+    name: Deploy / finance-etl
+    runs-on: ubuntu-latest
+    needs: [validate, changes]
+    environment: dev
+    if: |
+      github.ref == 'refs/heads/main' && (
+        needs.changes.outputs.finance == 'true' ||
+        github.event.inputs.bundle == 'all' ||
+        github.event.inputs.bundle == 'finance-etl'
+      )
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Databricks CLI
+        run: curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+      - name: Fetch outputs from Key Vault
+        run: |
+          az login \
+            --service-principal \
+            -u ${{ secrets.ARM_CLIENT_ID }} \
+            -p ${{ secrets.ARM_CLIENT_SECRET }} \
+            --tenant ${{ secrets.ARM_TENANT_ID }}
+          TF_OUTPUTS=$(az keyvault secret show \
+            --vault-name "${{ vars.KV_NAME_DEV }}" \
+            --name "tf-outputs" --query "value" -o tsv)
+          echo "CATALOG_NAME=$(echo $TF_OUTPUTS | jq -r '.catalog_name.value')" >> $GITHUB_ENV
+          echo "WORKSPACE_URL=$(echo $TF_OUTPUTS | jq -r '.workspace_url.value')" >> $GITHUB_ENV
+      - name: Deploy finance-etl
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/finance-etl
+          databricks bundle deploy --target dev \
+            --var="catalog=${{ env.CATALOG_NAME }}"
+      - name: Run finance-etl job
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/finance-etl
+          databricks bundle run --target dev finance_etl_pipeline

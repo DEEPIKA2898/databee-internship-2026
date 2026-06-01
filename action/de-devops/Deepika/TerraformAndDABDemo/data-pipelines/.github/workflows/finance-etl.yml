@@ -1,0 +1,103 @@
+# ============================================================
+# .github/workflows/finance-etl.yml
+# Pipeline for finance-etl bundle ONLY
+# Triggers only when finance-etl files change
+# ============================================================
+
+name: Finance ETL Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bundles/finance-etl/**'     # ← only this bundle
+      - '.github/workflows/finance-etl.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bundles/finance-etl/**'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        type: choice
+        options: [dev, staging, prod]
+        default: dev
+
+jobs:
+  # ── 1. Validate ─────────────────────────────────────────────
+  validate:
+    name: Validate / finance-etl
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+
+      - name: Validate bundle
+        env:
+          DATABRICKS_HOST:  ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/finance-etl
+          databricks bundle validate --target dev
+          echo "✅ finance-etl is valid"
+
+  # ── 2. Deploy to Dev ────────────────────────────────────────
+  deploy_dev:
+    name: Deploy / finance-etl / dev
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.ref == 'refs/heads/main'
+    environment: dev
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+
+      - name: Fetch infrastructure outputs from Key Vault
+        run: |
+          az login \
+            --service-principal \
+            -u ${{ secrets.ARM_CLIENT_ID }} \
+            -p ${{ secrets.ARM_CLIENT_SECRET }} \
+            --tenant ${{ secrets.ARM_TENANT_ID }}
+
+          TF_OUTPUTS=$(az keyvault secret show \
+            --vault-name "${{ vars.KV_NAME_DEV }}" \
+            --name "tf-outputs" \
+            --query "value" -o tsv)
+
+          echo "CATALOG_NAME=$(echo $TF_OUTPUTS  | jq -r '.catalog_name.value')"  >> $GITHUB_ENV
+          echo "WORKSPACE_URL=$(echo $TF_OUTPUTS | jq -r '.workspace_url.value')" >> $GITHUB_ENV
+          echo "✅ Infrastructure outputs loaded"
+          echo "Workspace : $(echo $TF_OUTPUTS | jq -r '.workspace_url.value')"
+          echo "Catalog   : $(echo $TF_OUTPUTS | jq -r '.catalog_name.value')"
+
+      - name: Deploy bundle
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/finance-etl
+          databricks bundle deploy --target dev \
+            --var="catalog=${{ env.CATALOG_NAME }}"
+          echo "✅ finance-etl deployed to dev"
+
+      - name: Run ETL job
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/finance-etl
+          databricks bundle run --target dev finance_etl_pipeline
+          echo "✅ finance-etl job triggered"
+
