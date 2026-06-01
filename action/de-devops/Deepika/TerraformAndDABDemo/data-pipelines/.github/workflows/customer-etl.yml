@@ -1,0 +1,104 @@
+# ============================================================
+# .github/workflows/customer-etl.yml
+# Pipeline for customer-etl bundle ONLY
+# Triggers only when customer-etl files change
+# ============================================================
+
+name: Customer ETL Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bundles/customer-etl/**'    # ← only this bundle
+      - '.github/workflows/customer-etl.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'bundles/customer-etl/**'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        type: choice
+        options: [dev, staging, prod]
+        default: dev
+
+jobs:
+  # ── 1. Validate ─────────────────────────────────────────────
+  validate:
+    name: Validate / customer-etl
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+
+      - name: Validate bundle
+        env:
+          DATABRICKS_HOST:  ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/customer-etl
+          databricks bundle validate --target dev
+          echo "✅ customer-etl is valid"
+
+  # ── 2. Deploy to Dev ────────────────────────────────────────
+  deploy_dev:
+    name: Deploy / customer-etl / dev
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.ref == 'refs/heads/main'
+    environment: dev
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+
+      - name: Fetch infrastructure outputs from Key Vault
+        run: |
+          az login \
+            --service-principal \
+            -u ${{ secrets.ARM_CLIENT_ID }} \
+            -p ${{ secrets.ARM_CLIENT_SECRET }} \
+            --tenant ${{ secrets.ARM_TENANT_ID }}
+
+          TF_OUTPUTS=$(az keyvault secret show \
+            --vault-name "${{ vars.KV_NAME_DEV }}" \
+            --name "tf-outputs" \
+            --query "value" -o tsv)
+
+          echo "CATALOG_NAME=$(echo $TF_OUTPUTS  | jq -r '.catalog_name.value')"  >> $GITHUB_ENV
+          echo "WORKSPACE_URL=$(echo $TF_OUTPUTS | jq -r '.workspace_url.value')" >> $GITHUB_ENV
+          echo "✅ Infrastructure outputs loaded"
+          echo "Workspace : $(echo $TF_OUTPUTS | jq -r '.workspace_url.value')"
+          echo "Catalog   : $(echo $TF_OUTPUTS | jq -r '.catalog_name.value')"
+
+      - name: Deploy bundle
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/customer-etl
+          databricks bundle deploy --target dev \
+            --var="catalog=${{ env.CATALOG_NAME }}"
+          echo "✅ customer-etl deployed to dev"
+
+      - name: Run ETL job
+        env:
+          DATABRICKS_HOST:  ${{ env.WORKSPACE_URL }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          cd bundles/customer-etl
+          databricks bundle run --target dev customer_etl_pipeline
+          echo "✅ customer-etl job triggered"
+
+

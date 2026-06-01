@@ -1,0 +1,105 @@
+# ============================================================
+# bundles/customer-etl/databricks.yml
+# Databricks Asset Bundle — Customer ETL Pipeline
+# ============================================================
+
+bundle:
+  name: customer-etl
+
+# Variables — values come from GitHub Actions (read from Key Vault)
+variables:
+  catalog:
+    description: "Unity Catalog name"
+    default: "dev"
+  cluster_id:
+    description: "Shared cluster ID from platform-infra outputs"
+    default: ""
+  file_path:
+    description: "Path to source CSV file"
+    default: "/Volumes/dev/default/landing/customers.csv"
+
+# Target environments
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      catalog: "dev"
+
+  # staging:
+  #   mode: staging
+  #   workspace:
+  #     host: ${workspace.host}
+  #   variables:
+  #     catalog: "staging"
+
+  # prod:
+  #   mode: production
+  #   workspace:
+  #     host: ${workspace.host}
+  #   variables:
+  #     catalog: "prod"
+
+# Resources — jobs defined here
+resources:
+  jobs:
+    customer_etl_pipeline:
+      name: "Customer ETL Pipeline [${bundle.target}]"
+      description: "Ingests CSV → bronze → silver → gold"
+
+      # Use existing cluster from platform-infra
+      job_clusters:
+        - job_cluster_key: etl_cluster
+          new_cluster:
+            spark_version: "14.3.x-scala2.12"
+            node_type_id: "Standard_D4s_v3"
+            num_workers: 1
+            data_security_mode: SINGLE_USER
+            azure_attributes:
+              availability: SPOT_WITH_FALLBACK_AZURE
+              first_on_demand: 1
+              spot_bid_max_price: 100
+
+      tasks:
+        # Task 1 — Ingest raw CSV to bronze
+        - task_key: ingest_bronze
+          description: "Read CSV and write to bronze layer"
+          job_cluster_key: etl_cluster
+          notebook_task:
+            notebook_path: ./notebooks/01_ingest_bronze.py
+            base_parameters:
+              catalog: "${var.catalog}"
+              file_path: "${var.file_path}"
+
+        # Task 2 — Transform bronze to silver
+        - task_key: transform_silver
+          description: "Clean and conform data to silver layer"
+          job_cluster_key: etl_cluster
+          depends_on:
+            - task_key: ingest_bronze
+          notebook_task:
+            notebook_path: ./notebooks/02_transform_silver.py
+            base_parameters:
+              catalog: "${var.catalog}"
+
+        # Task 3 — Aggregate silver to gold
+        - task_key: aggregate_gold
+          description: "Aggregate metrics to gold layer"
+          job_cluster_key: etl_cluster
+          depends_on:
+            - task_key: transform_silver
+          notebook_task:
+            notebook_path: ./notebooks/03_aggregate_gold.py
+            base_parameters:
+              catalog: "${var.catalog}"
+
+      # Email notification on failure
+      email_notifications:
+        on_failure:
+          - ${workspace.current_user.userName}
+
+      # Tags
+      tags:
+        environment: "${bundle.target}"
+        team: "data-engineering"
+        managed_by: "databricks-asset-bundles"
