@@ -4,27 +4,163 @@
 
 ---
 
-## Session 11 — June 6, 2026 *(upcoming)*
+## Session 12 — June 13, 2026 *(today)*
 
 **Agenda:**
 
 **Part 1 — Weekly sync & check-ins**
 
 1. Week check-in — what did you work on? Blockers? Wins?
-2. Neha — Direct Lake mode + Power BI Fabric Capacity pricing model PPT *(carried over Sessions 9 & 10)*
-3. Suhash — Slide deck: MV vs streaming table vs Delta table (pros/cons, use cases) + DLT use case design with SCD 1 & 2
-4. Deepika — Multi-bundle DABs isolation validation (deploy-only timestamp test) + clean Terraform + DABs code merged to repo
+2. Suhash — Slide deck: MV vs streaming table vs Delta table + DLT use case design with SCD 1 & 2 *(carried over Sessions 9, 10 & 11)*
+3. Deepika — Multi-bundle DABs isolation validation + Terraform/DABs code to repo + MLOps progress *(carried over Sessions 10 & 11)*
+4. Nikolaos — Databricks widget parametrization on notebooks *(carried over Sessions 10 & 11)*
 
 **Part 2 — Technical deep-dives**
 
-5. Asindu — Metadata-driven ingestion demo: onboard new source via config entry, zero code changes
-6. Filip — Enhanced Faker generator (12+ columns + 1 nested struct/array column) + dbt scaled to large dataset
-7. Nikolaos — Databricks widget parametrization on notebooks (runtime control like Asindu's backfill/stream toggle)
-8. Deepika — MLOps path kickoff: MLflow foundations + first experiment tracking setup
+5. Neha — 20-min storytelling session: present existing dashboard to group as business stakeholders
+6. Asindu — DABs multi-account deployment demo (profiles + tokens) + large-scale pipeline run
+7. Filip — Enhanced Faker: complex dataset template + higher-volume data generation
 
 **Standing items**
 
-9. Software licenses update — Power BI / Tableau / dbt Cloud budget decision (Sanjeev + Raj)
+8. Sanjeev — Share Spark UI/DAG screenshots + logs → interns identify bottlenecks *(action from Session 11)*
+
+---
+
+## Session 11 — June 6, 2026
+
+**Attendees:** Sanjeev Kumar (mentor), Kousalya, Neha Doda, Suhash Raja, Filip Cedermark, Asindu Gayangana
+**Absent:** Deepika Elangovan, Nikolaos Biniaris, Elliot Eriksson
+
+**Agenda:**
+
+**Part 1 — Weekly sync & check-ins**
+
+1. Week check-in — what did you work on? Blockers? Wins?
+2. Neha — Direct Lake mode + Power BI Fabric Capacity pricing model PPT *(carried over Sessions 9 & 10)* ✅
+3. ~~Suhash — Slide deck: MV vs streaming table vs Delta table + DLT use case design with SCD 1 & 2~~ → *(not prepared, carry over to Session 12)*
+4. ~~Deepika — Multi-bundle DABs isolation validation + Terraform + DABs code to repo~~ → *(absent, carry over)*
+
+**Part 2 — Technical deep-dives**
+
+5. Asindu — DABs bundle creation + inferSchema research ✅ *(pivoted from metadata-driven demo)*
+6. ~~Filip — Enhanced Faker generator + dbt scaled to large dataset~~ → *(busy week, carry over)*
+7. ~~Nikolaos — Databricks widget parametrization~~ → *(absent, carry over)*
+8. ~~Deepika — MLOps path kickoff~~ → *(absent, carry over)*
+9. ~~Software licenses update~~ → *(not discussed)*
+
+**Notes:**
+
+---
+
+### 1. Week Check-in
+
+- **Filip Cedermark** — Very busy week (cousin's graduation, away Wed–Fri). Only worked Mon/Tue. Plan: found a larger, more complex multi-table open dataset → will write a generator using it as a structural template to boost volume while preserving schema complexity. Starting next week.
+  → **Sanjeev**: No problem. Take your time.
+
+- **Suhash Raja** — Continued unit/integration testing research (no slide deck yet). Learned: unit test = arrange sample data → run through transformation logic → assert outcome. Was using pandas for DataFrame assertions — queried whether that's the right approach. Also explored Spark logging and Spark UI concepts, unclear which interface is Spark UI in free Databricks (serverless). Also briefly explored Python virtual environments (UV, Poetry) and basic Python.
+  → **Sanjeev**: Spark has its own testing framework — use that, not pandas. DQX is for *data quality in production*, not integration testing (corrected earlier confusion). Spark UI deep-dive in section 2. Also: research Databricks Permissions API for RLS/column masking in DABs.
+
+- **Asindu Gayangana** — Created a DABs bundle on free edition: exported existing pipelines into bundle folder structure, assets auto-land in the correct folders. Researched `inferSchema` / info schema — found **not recommended for production**: scans source system at runtime, slows ingestion. Exploring cross-account DABs deployment using profiles + access tokens (two free edition accounts simulating dev → prod).
+  → **Sanjeev**: Spot on about inferSchema. **Bronze principle:** land everything as strings — no schema concerns, full flexibility to reprocess later. Fix schema in silver. Good direction on DABs cross-account deployment. Scale pipeline to large data is the next priority.
+
+- **Neha Doda** — Presented Direct Lake mode (verbal + screen share) and Microsoft Fabric Capacity pricing model (PPT). Has multiple finished Power BI dashboards (logistics, Spotify business performance) and wants to shift focus from building to **storytelling / stakeholder presentation**.
+  → **Sanjeev**: Storytelling is a career-level skill. Will schedule a 20-min slot: Neha presents existing dashboard to the group as business stakeholders, group asks questions, Sanjeev grills and gives feedback. Neha to share dashboards + KPI pointers beforehand via Slack.
+
+---
+
+### 2. Spark UI & Debugging Deep-dive (Sanjeev screen share)
+
+Triggered by Suhash's questions about Spark logging and which UI surface to use for debugging:
+
+**Classic compute — full Spark UI:**
+- Access: cluster page → **Spark UI** tab (not available on serverless).
+- **Jobs tab:** run time, number of stages, total task count per job.
+- **Stages tab:** shuffle read/write, input/output per stage.
+- **Stage detail:** per-executor stats — spill to disk, shuffle bytes, partition balance. Reveals data skew (some executors doing far more work than others).
+- **SQL/DataFrame tab — DAG:** the gold mine. Shows the full execution plan Spark built before running (lazy evaluation). Reveals: filter pushdown (or lack of it), join strategy (broadcast vs sort-merge), unnecessary shuffles, scans of millions of rows.
+- **Structured Streaming tab:** input rate, processing rate, batch duration per streaming job.
+
+**Serverless — Query Profile (simplified view):**
+- Spark UI not exposed. Use **Query History → Query Profile** instead.
+- Shows: total time, bytes/rows/files read, file pruning, disk spill.
+- ~70% of debugging achievable from query profile alone.
+- Databricks intentionally simplified this for SQL-first/DA users — query profile mimics the DB world familiar interface.
+
+**Key read:** *Spark: The Definitive Guide* (shared in earlier sessions) — covers jobs/stages/tasks model, DAG, lazy evaluation. Essential for understanding what you're debugging.
+
+**Upcoming exercise:** Sanjeev will share Spark UI screenshots + DAG logs. Interns to analyse and identify bottlenecks (slowness, shuffle overhead, spill, skew).
+
+---
+
+### 3. Neha — Direct Lake Mode
+
+- Microsoft Fabric-only storage mode — not visible in standalone Power BI Desktop.
+- Combines **Import** (fast, in-memory) and **Direct Query** (real-time, no scheduled refresh) benefits.
+- Data must reside in OneLake (Microsoft Fabric); engine reads Delta files directly without a separate memory load step.
+- Neha confirmed: Power BI Desktop only shows Import and Direct Query — Direct Lake requires a Fabric org license/trial.
+
+---
+
+### 4. Neha — Microsoft Fabric Capacity Pricing Model
+
+**Old model problems:** 4 separate services (Synapse, ADLS, ADF, Power BI) = 4 bills, 4 admin portals, 4 security models, data movement costs between services, unpredictable total spend, per-user Power BI licensing on top.
+
+**New Fabric F SKU model:**
+- Unified platform: data engineering, data warehouse (SQL), real-time intelligence, data factory, Power BI all in one capacity.
+- **F SKU range:** F2 → F2048.
+- **F64 inflection point:** at F64+, all Power BI viewers included. Below F64 = $10/user/month surcharge for report viewers.
+- F64+ unlocks all premium Power BI features.
+- Pricing: pay-as-you-go (per SKU) or annual reservation (~41% discount).
+- **Fabric Capacity Estimator** tool: input workload specs → recommends SKU with utilization estimate.
+- Key finding from estimator: F128 scenario showed **43% unused capacity** — inherent weakness of capacity-based pricing.
+
+**Sanjeev — pricing model comparison (important for customer conversations):**
+- **Capacity-based (Fabric):** reserve upfront for a year, pay regardless of actual usage.
+- **Compute-based (Databricks, Snowflake):** pay only for what you run; idle = $0. No reserved machines. Clusters scale 1→N, auto-shutdown when idle.
+- The 43% unused Fabric capacity is a real commercial attack angle when talking to customers with variable workloads.
+- Azure Databricks (first-party): pricing handled by Microsoft, slightly different model.
+
+**Competitive landscape:**
+- **Hyperscaler-native (cloud-locked):** Fabric (Azure), Redshift/Glue/SageMaker (AWS), BigQuery/Dataproc/Looker (GCP).
+- **Cloud-agnostic:** Databricks, Snowflake, dbt — same code/jobs run on any cloud, no re-tooling on migration.
+- Fabric is Microsoft's strategic response to Databricks/Snowflake: built on Delta + Spark notebooks, tight Power BI coupling to pull BI users into engineering. Microsoft moving P-tier (license-based) → F-tier (capacity-based).
+
+---
+
+### 5. Suhash — RLS & Column-Level Masking in Production
+
+Suhash explored Row-Level Security (RLS) and Column-Level Masking (CLM) in the Databricks UI and asked: in production, do you define these in UI or via code/CI/CD?
+
+→ **Sanjeev**: UI is for exploration only. In production: use **DABs + Unity Catalog Permissions API**. UC functions (used for CLM/RLS) should be definable in DABs — assign which service principal/user gets what access via the permissions API, not manual UI clicks. **Action:** research the Databricks Permissions API for programmatic RLS/CLM definition via CI/CD.
+
+---
+
+### 6. ARM Templates vs Terraform (Asindu's Q)
+
+Asindu asked: for Azure Databricks, is ARM template sufficient for CI/CD infrastructure provisioning?
+
+→ **Suhash**: ARM is Azure-only. Terraform is vendor-agnostic (AWS, Azure, GCP), more widely adopted across organisations. Learning Terraform transfers across clouds and companies — better investment.
+
+---
+
+### Action Items
+
+| Task | Owner | Due |
+|------|-------|-----|
+| Share Spark UI/DAG screenshots + logs for bottleneck analysis exercise | Sanjeev | Before Session 12 |
+| Share Databricks pricing calculator links | Sanjeev | ASAP |
+| Schedule 20-min storytelling session for Neha | Sanjeev | Session 12 |
+| Research Spark testing framework for unit testing Spark pipelines (not pandas) | Suhash | Next session |
+| Research Databricks Permissions API for RLS/CLM setup via DABs/CI/CD | Suhash | Next session |
+| Prepare slide deck: MV vs streaming table vs Delta table *(3rd carry-over)* | Suhash | Next session |
+| Share existing Power BI reports via Slack + prepare KPI pointers before session | Neha | Before Session 12 |
+| Continue DABs multi-account deployment (profiles + tokens, dev → prod simulation) | Asindu | Next session |
+| Scale pipeline to large dataset (20–30 GB); practice Spark debugging | Asindu | Next session |
+| Start enhanced Faker: complex multi-table dataset as template, boost volume | Filip | Next session |
+| Validate multi-bundle DABs isolation (deploy-only timestamp test) + push Terraform/DABs code *(carry-over)* | Deepika | Next session |
+| Begin MLOps path: MLflow foundations + experiment tracking *(carry-over)* | Deepika | Next session |
+| Add Databricks widget parametrization to notebooks *(carry-over)* | Nikolaos | Next session |
 
 ---
 

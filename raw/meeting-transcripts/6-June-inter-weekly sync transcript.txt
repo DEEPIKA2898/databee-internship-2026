@@ -1,0 +1,435 @@
+Impromptu Google Meet Meeting - June 06
+VIEW RECORDING - 65 mins (No highlights): https://fathom.video/share/iHTukJ_bYN8LgEGyGHyhmixsrzio_f3n
+
+---
+
+0:00 - Kousalya (nanduri1120@gmail.com)
+  Hi, hi, Neha. Good morning.
+
+0:05 - Neha Doda
+  Hi, Kousalya. Good morning. How are you? I'm fine. Thank you.
+
+0:09 - Kousalya (nanduri1120@gmail.com)
+  How are you? I'm also good.
+
+0:12 - Neha Doda
+  Hello, Sohash. Good morning.
+
+0:29 - Suhash
+  Hello, hello, Sanjeev.
+
+0:32 - Neha Doda
+  Good morning. Hello, Philip.
+
+0:38 - Kousalya (nanduri1120@gmail.com)
+  Good morning. Good morning, Kousalya.
+
+0:41 - Filip Cedermark
+  Good morning, everyone.
+
+0:42 - Neha Doda
+  Good morning.
+
+0:50 - sanjeev kumar
+  How was a week? It's been super busy.
+
+0:56 - Filip Cedermark
+  My cousin graduated.
+
+1:00 - Kousalya (nanduri1120@gmail.com)
+  From high school this Thursday.
+
+1:04 - Filip Cedermark
+  So I've been away like pretty much from Wednesday to like prepare and set everything up and we were celebrating all Thursday and then yesterday we were packing everything and cleaning everything up.  So I haven't been able to get much done at all.
+
+1:19 - Kousalya (nanduri1120@gmail.com)
+  Not a problem. Yeah, completely fine.
+
+1:21 - sanjeev kumar
+  And also it is supposed to be national holiday today. I thought of raising it, but I thought, okay, I'll anyway join and you guys are free to drop if you want.  I was going to mention that for me at least because we have some plans pretty soon.
+
+1:37 - Filip Cedermark
+  So I, if it's fine, like I can go first. I don't have much to mention anyway, and then I kind of have to go early.  Sure.
+
+1:46 - sanjeev kumar
+  Please feel free to drop. Yes. Okay. Anybody else? How was the week? It's good, Sanjay.
+
+1:58 - Suhash
+  Great. Nice. Okay.
+
+2:03 - sanjeev kumar
+  Let me share my screen. Let's see if more people join. Okay. So again, we'll have the same agenda. Like last time, we will have a weekly check-in, what did we work on, any blockers, anything that you would like to share, and some points based on the previous discussions, and we'll try to see if we can go over.  And while you are giving your check-ins, you can also talk about them, like Neha, Suhash, Deepika. Right. So, let's start with the, I have Suhash on my screen, on the top.
+
+2:50 - Suhash
+  Yeah, so, I haven't prepared the slide deck yet, but I continued our last discussion on test cases. So I learned, uh, what is unit test and integration tests and, uh, what are the things, uh, needed in unit test, uh, like you need to arrange the data and then you need to, uh, pass it down to your transformation logic and check the outcome.  And, um, uh, I was, um, I was using ChalGBT for learning it and, uh, was viewing some videos, uh, in regards to that, like, uh, in, in the videos, they.  They say, like, they use pandas, uh, for asserting the data frame equality, uh, like, okay, so is it, is it, uh, is it necessarily it needs to be pandas, uh, so, uh, see, since primarily you will be working with spark, right?
+
+3:50 - sanjeev kumar
+  Spark has its own testing framework. If you just search, look at it, look it up, you will find it, right?  Okay. How do you do spark pipelines, like spark? Classic Spark. And so that is generic to everything, right? Every company in some form uses Spark as their processing engine.  Then comes to Databricks, specifically Spark technology pipeline. There are ways to test that too using expectations, actually. And the DQX that Asindu or somebody was working on, right?  Yeah. That is a bit, a bit Databricks specific, but that's a good starting point for you. Because your tech focus is Databricks at the moment, I would say, just take a look at it, how exactly that is working.  And it's a Databricks labs project, open source, you can download the code and that should not be a problem, right?  Yeah, you, if you take a look at that DQX project, how exactly it is doing, what exactly it is doing, that is more than enough to give you a full idea, well-rounded idea.  How testing works. And same principles are applicable in any other platform. Yeah.
+
+5:08 - Suhash
+  Sanjeev, like one question, ain't DQX and expectations are for being utilized in the actual production data? Yes. Okay.
+
+5:18 - sanjeev kumar
+  Okay.
+
+5:18 - Suhash
+  So, okay. Okay. And for integration tests, Sanjeev, like, in actual production environment, will it be run on the staging?  Deployment or like how it is, like, I can understand that unit tests will there be in the CICD pipeline and it will be there before this thing.  And for integration tests, like, as per my understanding, it is, it should be in staging and it should be from end to end pipeline on some sample data.  Is it, is my understanding is right? Yes, absolutely. You are correct.
+
+5:52 - sanjeev kumar
+  So, unit testing is supposed to be like a small units of your code needs to be tested. test we're, going following can do  That can be independently testing, like for example, any authentication mechanism that you're testing to some say you are connected to a SQL server, right?  That can be tested standalone. So that can happen on your local, right? Or while doing a CACD deployment on your Jenkins server or GitHub Action server, right?  Integration testing is like all those components, how do they come together? Your bronze, silver, and gold, how will they look together, right?  That's what is integration testing and that happens on staging. UAT or whatever you call it, testing. Okay. Okay. Okay.
+
+6:34 - Suhash
+  Um, yeah. So like, uh, these are the things I had and then I moved on to, uh, logging, like one after another, it got binded.  So, uh, like, uh, sorry, sorry, sorry.
+
+6:48 - sanjeev kumar
+  I think I gave you wrong information. DQX is only for data quality testing. Oh, sorry. I, my mistake. Yeah.  Yeah. Yeah. Yeah. Yeah. Yeah. Yeah.
+
+7:00 - Suhash
+  So it is for the production data in production, right?
+
+7:03 - sanjeev kumar
+  It's for the data. It's for the quality test. It's not for the integration test. Yeah.
+
+7:08 - Suhash
+  Yeah. Yeah. And then like, um, I, I got into the logging part, like, um, like just on a gradual, uh, YouTube shots, like, uh, they, they ask it like, what is spark UI logs?  Like where do you see spark UI logs or cluster logs or, uh, different, uh, different kinds of logs. Like, uh, I'm still not sure which is, which is called a spark UI logs within Databricks.
+
+7:32 - sanjeev kumar
+  Uh, so I, I think that's a, that's a very important point and we have to finally take a look at it.  You remember I shared a, uh, a PDF with you guys. In there, there are certain chapters that you need to read on.  How do you go about debugging spark? Okay. Okay. Maybe I can take this opportunity to, to actually show you a couple of things there, right?  Uh, let me first stop, uh, presenting and let me figure something. Oh, if I have. So, give me a second.  I'm just checking if I have. Yeah, I have something that I can show you. Great. So, okay, so for example, in Databricks, in any platform, you will have a place where you can go and check Spark UI for debugging.  And it is common, like Spark UI remains the same in open source, in Databricks, or wherever you use it, right?  So for example, in Databricks, can just come to, whenever you run a job, there will be a link, check the logs or Spark UI, right?  Or you can also come to, for example, I have this particular cluster, say I am running using this cluster, this one.  Yeah, let's take this cluster that I have, right? Here, if you go on the top, because all these logs are stored on the compute that you are running, on the top, you will find something.  Spark UI, right? If you click on that one, this is how Spark UI looks like. Jobs, Stages, Storage, Environment, SQL DataFrame, Structure Streaming, Connect, and whatnot.  And this UI for Spark remains the same everywhere, right? Here, there are a couple of things. I'm going to deep dive now, but just want to quickly show you how exactly you check things.  So, Spark is divided into, please read that book. That is very important. The basic things in that book, right, is fundamental to Spark, like how exactly these systems work, right?  So, Spark Job is divided into jobs, stages, and tasks, right? So, every job that it does, you will find an information here, a good information.  How much time did it take? How many stages were there? And how many tasks did it use to run it, right?  For example, here, if you see, for this particular thing, it took 64 tasks to run, right? If you go and click on them,  Then it takes you to the stages, right? Completed stages. A job can be comprised of different stages, right? Here, it will give you information about how much shuffle write, how much shuffle read, input output was done, right?  When you click again into this, it will give you a bit more detail about what exactly happened in this stage, right?  This information can give you information about SKU. Was there a data SKU or not? Here you have information, was there a shuffle or not?  You see, there was shuffle in the data. Here also, and here you can find information about, because you see, these are all machines that were used to run different jobs, right?  All of them have an IP. Now, here you will find, was there a spill on the disk? How much you were shuffling?  How much you were writing? How much, how well your partitioning working? Because this is system's part. Partition the data.  Right. It's like it could become like very technical. I'm just keeping it high level. So this page gives you a lot more good insights.  What exactly your job was doing, where it was slow. Right. Then if you, for example, just coming back to the previous page.  Oh, yeah. Yeah. Here also you can see something called DAG. This is directed acyclic graph that because if you read that book, it gives you a good explanation.  on what is whenever you execute a Spark job, it is lazily evaluated. It means it's not going to run anything until you call an action.  Right. And before it does that, it's going to create a full plan. How exactly I'm going to do it?  Are there joints? Can I optimize them? Seems like this where filter was can be moved earlier so that I can reduce the scan.  Right. It does a lot of planning before executing. Right. And that is called DAG. This is just one stage.  But I'll show you. There is a full-fledged DAG by combining everything. And this is what it is. See, it is doing a broadcast, hash join.  This DAG is like gold mine of information. What exactly your job is doing, where you can go and optimize.  Like, for example, you are doing a local table scan. There are two sorts on top of it. Just by looking at it, you can find it.  Okay, it seems like it is scanning millions of rows. It is not pushing down the filters. So a lot of things can be found out.  Maybe we'll have to have another sessions deep dive for DE folks alone to actually really go and take a look what exactly it is doing.  Right? But yeah, this is where you put everything. SQL data frame is where you get this DAG and this DAG is like really important.  Right? So a lot of information comes from here. Very low level details too. Right? See? Okay. And then if you are running things, uh...  Streaming jobs, then here it can give you information about what was the average input, what was the average output, if you go and click on, okay, this one is already running, let's click on this one, see, it gives you input rate, processing rate, batch duration, so it's a goldmine of information if you want to debug your jobs, right?  Yeah, I'll stop here. Any questions or anything?
+
+14:27 - Suhash
+  Yeah, will it, will these locks will not be there for serverless compute, Sanjeev, or it will be there for you?
+
+14:35 - sanjeev kumar
+  That's a good point, so, as you can feel, right, understand, these are like very technical deep dive information, not, probably not built for everyone, right?  You can understand, I can understand it, but probably it's not for data analyst or ML ingenious, they don't want to get into these things, right?  So, for that answer were less is supposed to abstract, away the complexity of management. So they are, at least on the Databricks, they don't expose this, this detailed information, but it poses something called query profile that as the DA, if you run any queries, right?  Like for example, let me go through these, you know, sorry, query history. So whenever you run on serverless, Databricks will, will let me, let me do this.  Databricks will expose something like this, a query profile that gives this, this kind of DAG, let me show. This is a very simple query, but this kind of a DAG, what exactly it was doing, exactly what Spark shows, but not more simplified and in one single place.  Here also, if you see, okay, how, how much was the total time, how many bytes were read, rows read, files read, was there file pruning done, was there spill on the disk, right?  So all this information. is also available here but not in that much great detail. And I would say 70% of the debugging can be just done using this query profile.  In database specifically, Databricks are focusing on simplifying the debugging part by just putting all the information as a query profile because people who are comfortable with SQL warehouses, the database world, they are used to this kind of interface.  They just click on that, query profile comes and they go and debug it. Databricks uses Spark in the backend, showing that detailed information of the Spark desk could be overwhelming for non-data engineers, right?  So that's why they have to do this. And your point is right, in serverless, Databricks does not expose this Spark UI.  Okay. Okay.
+
+16:54 - Suhash
+  Because like in free edition, we didn't see the page, which was showing you earlier, like, when they, I have a free edition.
+
+17:02 - sanjeev kumar
+  Could you share your screen? If you don't use, if you use a classic compute, then that Spark UI will be available.
+
+17:13 - Suhash
+  Okay, but we can't use classic compute in free edition, right, Sanjay? Because there is only one serverless server.
+  ACTION ITEM: Share Spark UI/DAG screenshots + logs w/ Suhash, Asindu, Neha; request bottleneck analysis - WATCH: https://fathom.video/share/iHTukJ_bYN8LgEGyGHyhmixsrzio_f3n?timestamp=1041.9999
+
+17:20 - sanjeev kumar
+  Yes. I have an enterprise version, so I have all the accesses, but yeah. Yeah. Okay.
+
+17:29 - Suhash
+  Okay. Okay. What I can do, maybe it's a task on me.
+
+17:32 - sanjeev kumar
+  I can, I can create some good queries. I can download some DAGs and some Spark logs, UI logs and share it with you guys.  And I would like you to analyze and give me what are the problems with this Spark job. I think that will be a very, that will be a great exercise where I would be able to see whether you are able to identify the bottlenecks, right?  Or the performance at this Spark.
+
+17:56 - Suhash
+  Like even if you could provide some screenshot of. Yes, the Spark UI, so that like, as a main reference, we could use it later.  I'm going to do that. That's a good exercise.
+
+18:07 - sanjeev kumar
+  Yeah. Yeah. Thank you, Sanjeev. Yeah.
+
+18:09 - Suhash
+  And, yeah, these two are the things that I did, Sanjeev, and then like I, yeah, and then like I just checked like how Python virtual environments and like UV poetry and thing.  Yeah. then like just doing some basics on Python, like programming as a basic.
+
+18:35 - sanjeev kumar
+  Yeah. Yeah. Okay. Thanks a lot, Suhash. Then you can go ahead, Asindu. You're next from my screen. Wait one second, Asindu.
+
+18:45 - Asindu Gayangana
+  So Filip, you need to leave, right? Shall we start with you? Probably next.
+
+18:50 - sanjeev kumar
+  And if you don't have anything, it's fine. Yeah, exactly. That would be nice.
+
+18:54 - Filip Cedermark
+  Because I'm going to be like at maximum, I can stay maybe like 10 minutes more than I have.
+
+19:00 - sanjeev kumar
+  Feel free to drop whenever you want, right? Yes.
+
+19:03 - Filip Cedermark
+  And I mentioned this a bit earlier, but my week has been so busy, so I don't have much to say.  I only really got to fully work on Monday, Tuesday. And you saw, now I saw that you answered, I wrote to you a few days ago.
+  ACTION ITEM: Generate larger dataset from complex template for scale testing - WATCH: https://fathom.video/share/iHTukJ_bYN8LgEGyGHyhmixsrzio_f3n?timestamp=1161.9999
+
+19:23 - sanjeev kumar
+  And thanks for raising that. I have responded to it. Please feel free, right?
+
+19:29 - Filip Cedermark
+  Yes, so it's all good. But I'm still kind of want to, I'm still taking some of the feedback that you gave.  So I think I will be trying to write, because I have found a bigger data set, like I mentioned, that's more complex in size, or at least with the amount of columns and tables.  So I'm thinking of writing something that can kind of use that data as sort of like a template, maybe, and then kind of just.  Boost the amount of data that's in it. So you have a higher volume, but using the same kind of structure or model that this data set is using and trying to work from there.  But like I said, I haven't gotten to work much on that, so we'll be starting from next week. Not at all, yeah.  Take your time.
+
+20:20 - sanjeev kumar
+  Okay, then I think we can go to Asindu.
+
+20:23 - Asindu Gayangana
+  Asindu, so this week I didn't do too much things in this week, but I created a bundle, asset bundle, using my free edition.  So it takes some time because I'm not familiar with those things. So I create a bundle and I try to export those already created pipeline into the data asset bundles.  So it's, it automates. So landed those files into the necessary folders when I export those pipelines. So these are the things I worked on in this week, but I couldn't focus too much on these two weeks.  And also I do some research regarding the schema, info schema. So I got to know that it is not a better way to do the production environment.  When we design in production, it is not a proper way to use info schema because it may slow down our ingestion time, ingestion time, because it do the scanning in the source system.  It takes some time. So it is the one of the main reason not to use info schema. And also it can, it is the, yeah, it is the main.  Yeah, exactly. And good point.
+
+22:04 - sanjeev kumar
+  So this is what I wanted you guys to evaluate. Infor schema seems like a blessing, right? But it's probably not in production.  There are a lot of issues that customers will face. And this perspective that you have built, this information that you have now, it's very good.  Because customers will ask or maybe they will even miss. You should go forward and say no. Infor schema probably is not a good idea, right?  So really good. Yeah.
+
+22:31 - Asindu Gayangana
+  So, Sanjeev, so if we had a situation like we have to land the data, I mean, if the new columns existing source, we need to land those things into the bronze layer.  So how can we overcome this problem? So do we need to land all the data in a string as a string?  So in this situation, how can we, Yes.
+
+23:02 - sanjeev kumar
+  So, yes, this is also a very common scenario where, because if you have infer schema, or any kind of schema defined in bronze, there's a chance that your job might complain if something changed, right?  And in bronze, the principle or idea of bronze is like, I don't have to worry about ingesting the data, it should just land in my lake house or a data lake, without any problems.  Later on, I'll fix everything. Because once I have the bronze built, then I can go and reprocess things whenever I want, like I have the full control, right?  So this is a very common technique where bronze is just strings, land everything as is. Later on, I'll fix things.  I will create jobs to, if it fails, then I can go and go back to bronze to change the schema, replay it, blah, blah, and whatnot, right?  So what you mentioned is a perfectly
+
+24:05 - Asindu Gayangana
+  So actually, I didn't use the trial version because it expires in 14 days. So right now I'm learning about the asset bundles.  So I tried to deploy into the another free edition. So I checked the possibility. How can we do this?  It means I deploy asset bundle to the environment. It is in separate free edition, separate free edition account. And I need to deploy the same thing into the like production environment as assuming to the different free edition.  So I just checking how it is possible using profiles. So maintaining the token access tokens. Then I will go into the trial version and use the the  So those kinds of things. Great. Good.
+
+25:03 - sanjeev kumar
+  I think you're on the right path. And one more thing. So why did you say that it's a database free version, right?  There is no expiry or is there an expiry date?
+
+25:15 - Asindu Gayangana
+  No, I mean, Sanjeev, we can use a trial for 14 days. So it can create, if you use in trial, we can create multiple workspaces like dev prod likewise.  But in free edition, we can't create multiple workspaces. Got it, got it.
+
+25:33 - sanjeev kumar
+  So this free edition is more restricted? Yes. Than the trial version? It's on the cloud environment, Sanjeev.
+
+25:43 - Suhash
+  Sorry? It's on the cloud environment, like real production environment, the free edition, like 14 days trial.
+
+25:49 - Asindu Gayangana
+  Okay, okay. Yeah, yeah, yeah. Then I need to focus on Sanjeev, how to handle large data through my pipeline.  Okay. So... Yeah, and that will be the most important part of this data engineering phase, right?
+
+26:07 - sanjeev kumar
+  Because that's what you will face. You are being hired to handle the large amount of data, right? Great. And exactly the direction that Suhash is going on, right?  Trying to now scale up and run your pipeline the same pipeline on a large amount of data and check what exactly Spark is doing.  Because I know for sure in interviews, you are expected to know those things, right? As a data engineer, right?  So Spark, where you have to go and debug? There will be a question. Okay, I am facing this slowness on this particular job.  It runs on Spark. Can you tell me how will you go about debugging it? How will you find out?  Where will you go and look around, right? So this question will come. I know that. Okay, great. Anything else?
+
+26:51 - Asindu Gayangana
+  Okay, I have another question. please, So if we use Azure Databricks using Azure, then we create Azure. can't to it.  So can we only use the ARM template to do the CI-CD pipelines? So still we need the Terraform.
+
+27:15 - sanjeev kumar
+  Just in Databricks, right? Yes, just in Azure Databricks.
+
+27:20 - Asindu Gayangana
+  I mean, the Azure environment, we create a Databricks cluster inside that. So in this kind of situation, can we use only the ARM templates or rather we still need to use the Terraform or kind of thing?
+
+27:35 - sanjeev kumar
+  No, I think, see, ARM template I'm not very aware of. Maybe, I don't know, Suhash, if you have information or maybe Deepika can help you out there.  But yeah, go ahead, Suhash.
+
+27:46 - Suhash
+  Yeah, like, like Terraform is most widely used tool, Asindu. Like it's being, it's like, we can say it as like open source.  Like if, so it's not a vendor, it's vendor. It's You can like, ARM template is only used in Azure and not every organization uses ARM template, but if you go with Terraform, you could use it on different cloud environments, also in Azure and only on the infrastructure part.  So, uh, it's about like, both are like similar kind of ones, but one, you can only use it in Azure, whereas the other one has like a wider scope.  Uh, yeah, so it is better to use Terraform so that you learn something that is needed from, from this, many, yeah, yeah, yeah, many places.
+
+28:38 - Asindu Gayangana
+  Yeah.
+
+28:38 - Suhash
+  Okay. Okay. Yeah.
+
+28:44 - Asindu Gayangana
+  Okay. Those are the main things. Um, yeah, that's it, Sanjeev. Okay. Great. Yeah.
+
+28:51 - sanjeev kumar
+  Thanks, Sanjeev. Uh, Neha.
+
+28:58 - Neha Doda
+  Yeah. Hi, Sanjeev. Um. Oh, I haven't done much today, but yeah, I can talk about because I have prepared for Microsoft, this direct link mode and then pricing model.  Yeah. Yeah. Yeah. So first I will talk about the direct link mode. In the last like presentation, I talked about import mode and the direct query mode and of course the composite mode.  So these are the two modes that were available in Power BI Desktop. And I searched about this Microsoft direct link mode, I'm sorry, fabric direct link mode and the advantage, I mean, in direct link mode, it has the capabilities of import mode as well as the direct query mode.  But the only limitation of this fabric direct link mode is that it can only be used with Microsoft fabric.  We got. I it through like Power BI desktop because I will just like share my screen because I don't have anything to share for this.  Not a problem.
+
+30:11 - sanjeev kumar
+  So don't always feel pressure to present something. If you have knowledge, just use this as a knowledge sharing thing.  I tell you to present because that feels more formal, but you don't have to do that.
+
+30:23 - Neha Doda
+  Yeah, no, I just wanted to because I have prepared the presentation for pricing model, but not for this one, because there's nothing to share in that.  Okay, I can show you because can you see my screen? Not yet.
+
+30:48 - sanjeev kumar
+  Yeah, now we can see.
+
+30:50 - Neha Doda
+  Yeah, if you can see because when I click here on get data, I already did because it takes a lot of time to process.  So here we can see that I can only. So two modes, data connectivity mode, import and direct query. I cannot see the direct lake mode because we can only see direct lake mode only when we have Microsoft Fabric and we can access it through that only.  But yeah, it has the advantages of import as well as direct query because the data sits inside Microsoft Fabric.  So it's fast as well because the data is residing inside the Fabric and then you can also work on the real data because you don't need to schedule refreshes every time or daily that is being done in the import mode.  So that's all I searched about direct lake mode. Okay, makes sense.
+
+31:54 - sanjeev kumar
+  Yeah. Yeah.
+
+31:56 - Neha Doda
+  And then I will talk about just a second. Cancel this. Yeah. Yeah. So this is the fabric pricing model.  Just a second. Yeah. So like, I will talk about this, the Microsoft fabric before I talk about like the  So earlier, like in the old models, I don't know it's old or like, I think most of the companies, more of the companies, I would say like they are using it now as well, because we are using different like platforms for like reporting solutions, then Azure Synapse, like for example, for warehousing, Azure Data Lake for storing the data and then for cleaning data transformations, we are using Azure Data Factory.  So basically, this is just an example, like if the per month cost for these different platform is separately, and the old models can like have four separate bills, four admin portals, and then four security models.  So it's quite challenging to manage four different platforms. So that is the, I would say like the beauty of Microsoft Fabric because it has everything in one place.  So That's, again, the problems, unpredictable cost, because you never know that what cost can come up with the old model.  It's complex to manage because, of course, there are four different portals, four different configurations, then monitoring dashboards. So it's always complex when you have different platforms to manage.  Then again, with the security, because each service comes with its own security. So integration and everything becomes tough when it comes to this.  And data movement cost, because you need to migrate data from one platform to another, then it involves additional cost.  So that's also one of the problem. For user licensing, it is talking about Power BI that you need to pay additional cost for the reporting solutions than data silos.  And is, uh, that's... So this is the new fabric model and it has F SKUs, it has capacity units, and it has everything integrated into its one capacity, such as like Microsoft Power BI, which it already has, then the data engineering platform also.  Then it also has data warehousing, you can use SQL to query the warehouse, then it also helps in real-time intelligence.  basically, along with data factory for data cleaning and transformation, the fabric has like all the components for data engineering, for data analysts, for machine learning, and everything.  And all the data engineering or data analysts, they can collaborate in one environment and work on the single source.  So. So. So. so So this is the explanation of the fabric skews like it starts with F2 and up to F26 and F64 is basically they have said that this is like the flipping point because from this like this fabric capacity everything change because it has all the features unlocked.  Like if you want to have like a full Microsoft fabric premium capacity, so it's free with F64 or like more versions, the after versions of this F128, F256.  And they have like two models like pay as you go for different this Fsqs and they have annual reservation means that they give 20%.  this something that% of it's of theafsqs . guess able the country, they If you reserve it for like an year for 12 months, and every company have their own preferences based on like their workloads, number of people they have in their organization, number of like people who want to only view Power BI reports, and then a number of people who want to take the developer license.  So the total costs depends upon the different factors, and this is the F64, this is just a comparison slide that if you have like the below versions like the capacities before F64, then you won't get the Power BI Pro license, you will have to pay $10 per month for per users on the top of like if you buy F2, or F8, or F32, if it is like above.  F64, then all the viewers are included in the license and then the Blur versions, they don't offer any like premium capacity features, but above F64, they have all the full premium features of Power BI and then, yeah, it's mainly good for small teams.  If you have like viewers less than 50, then the companies can prefer like below F64, but if it is above, it's more than 50 report viewers or more number of people in the organization.  So they can opt for F64 or above. One more thing I explored is, if some like a company or if anyone wants to like check, like this is basically their, this is also like new to me.  This is fabric capacity estimator. their, estimator. And then I tried to fill some information like what do I need it for?  For example, I want to use it for data factory or like for data warehousing. And then I can also mention like how much total size of data I want to use, how many like number of batch cycles I want to run, how many tables, then I can fill in all the information.  And I tried like filling these information and it gives me an estimation of like what capacity you can buy using fabric.  Yes, I think you have landed at the right place.
+
+39:41 - sanjeev kumar
+  We also use this page for any fabric capacity estimation, right? Like just fill in how many hours, how many pipelines and other stuff, and then it will give you a good estimate which SKU you should use and how much will be used capacity, how much will be.  Unused. So yeah, you landed at the right page. I actually was exploring about it.
+
+40:09 - Neha Doda
+  So I got to know it through one of the YouTube videos. This is very new to me. I just got to know about this this week only.  Okay, great.
+
+40:20 - sanjeev kumar
+  No, but thanks a lot, Neha. This was a great presentation and it made a lot of things clearer to me.  I did not know that if you go below F64 SKU, you have that $10 extra per user charge. did not know that.  Yeah.
+
+40:36 - Neha Doda
+  Yeah. If you have 50 viewers or like maybe any number, then multiply it by 10, then it will add additional cost.  Yeah. Yeah. Okay. Makes sense. Okay.
+
+40:47 - sanjeev kumar
+  Good. Because in, yeah. Go ahead, Suhash.
+
+40:50 - Suhash
+  One question, Sanjeev, do you use that estimator for Databricks Sanjeev or like, no, no, that is only for Fabric.
+
+40:57 - sanjeev kumar
+  Okay. Okay. Okay. For Databricks, there's a different estimate. So if I can, let me share my screen. So for every platform, so even for DPD, there should be an estimator, like even for Snowflake, there would be an estimator online, right?  So that gives you a rough idea about what exactly you will pay, like exactly what Neha showed for Fabric.  Like for example, you can say, if you are using Databricks on AWS, then you can just type like Databricks price pricing on AWS, I think we'll see pricing calculator page here also something similar.  So here you can say, what kind of computer are you going to use?
+
+41:45 - Neha Doda
+  There are a number of things that you can do.
+
+41:48 - sanjeev kumar
+  Like for example, let's keep it simple. Like, okay, I want to use serverless Lakeflow jobs. Right? Which is the region you are in?  I don't know, maybe say Europe, France. And yeah, so this is the price that you will pay per month, right?  If you want to select cloud, then you can select cloud and accordingly things will, yeah, you have to go to another page.  If you go to Google, then you can have fill again the same things here. Like for example, here if I go for jobs classic photon, which type of instance you would use using GCP, how many instances, say four, how many hours you will use, say five hours I will run the jobs in total, and 30 days a month.  Right. Then it will give you a good estimate. How much you will be paying.
+
+42:34 - Suhash
+  Okay.
+
+42:36 - sanjeev kumar
+  Most like whenever we go into the field and talk to customers, they will ask about, okay, how much data does it cost me?  Right. And this is what, so this is what we give them. So this gives you a very rough estimate.  It's not like, so this is the maximum they will pay. This price. and after that there is, there are discounts, blah, blah, a lot, a lot of things comes into the picture.  Right.
+
+43:00 - Suhash
+  Okay, and similarly for Azure, Azure Databricks is a first party tool, right?
+
+43:06 - sanjeev kumar
+  So there, the pricing is a bit different because that is controlled directly by Microsoft, not by Databricks, right? It has a different way of estimating things.
+  ACTION ITEM: Share Databricks pricing calculator links w/ Suhash, Asindu, Neha - WATCH: https://fathom.video/share/iHTukJ_bYN8LgEGyGHyhmixsrzio_f3n?timestamp=2618.9999  If you, let's see if this loads and then I can show you. So some problem. Okay, some problem with the UI, but yeah, you get the point, right?  Yeah, yeah, yeah. If you want, I can just share this page with you guys and then you can explore.  Yeah, sure.
+
+43:56 - Suhash
+  I have a question Sanjeev.
+
+44:00 - Neha Doda
+  Like, because I don't know about other platforms very much because I haven't used like Databricks or Google Cloud or Snowflake, whatever like is there.  So like, what is the difference between, because I only see that they have, what is the difference of these platforms with fabric?  Because when I see the comparison, it only says because it has Power BI integrated with it. So that's the only, like they are providing the reporting along with the other things.  So, yeah, that's a, that's a good question to think about Neha.
+
+44:37 - sanjeev kumar
+  Now, see, I work for Databricks, so I have my biases, right? I am a little bit biased towards, but it's not like I'm promoting Databricks.  That's why I'm telling you use Snowflake, use DBT, use Fabric, right? All these tools are great in some sense, right?  There is a reason why customers are using them, right? But, but see, for the to themam. It's Thank Okay, let's talk about, there are two distinctions you have to remember.  One is hyperscaler-based services or platform like AWS, Azure, GCP. Any customer that you work with, if they're in cloud, they will either be using one of these three, right?  Now, that is their consumption. Now, what these hyperscalers do, they want their customers to work with them more closely.  tomorrow, because tomorrow they can say, okay, I don't want to use Azure anymore. I have to move to another cloud.  They can do that, right? But what these platforms do, and to give a good experience to the customers, because customers need to run data engineering, data analysis, blah, blah, AI, ML.  So what they do, they build their own platform native tools to support such workloads, right? So you will anyway use my virtual machines in the cloud, but what  What if I give customer an ETL tool like Fabric or a visualization tool like Power BI, right? Similarly, AWS also has the same thing.  I, Google also has the same. I think Google has similar things, but they have like Looker as visualization tool, Dataproc as their processing tool, blah, blah.  BigQuery as their warehouse, right? Similarly, AWS has Redshift as their warehouse, Glue ETL as their engine for processing. And they also have something, and for AI ML, have SageMaker, Fabric has AI Foundry, Google has, I don't know, Cortex or something like that, right?  So, you understand this part, right? Now comes, but these are like cloud specific. If you use one cloud, use that tool, then you are logged into that, right?  But then comes in the market, there are like cloud agnostic tools, platforms like Databricks, like Snowflake. Like DBT, right?  These are Not bound to a cloud. Tomorrow, if you, if a customer says, okay, I want to move to Azure, or maybe I want to move to GCP.  You don't have to change any code, any job. You don't have to change tools. Databricks will work or Snowflake will work exactly in the platforms the way it was in AWS, right?  That's the advantage of this agnostic tools. Now, now let's talk about like, so fabric. So what fabric team did, or Microsoft team did, they have, they have certain tools, which are like very well liked in the market, like Power BI, one of the biggest tools, visualization tools, everybody loves it, right?  And it is in the market from very long time. It's a great tool to work with, right? Now what they did, and they had like a lot of other things, like they had Synapse sometimes, then they had, I don't know, Azure analytics services, blah, blah, lot of things they brought in.  But companies like Databricks, Gave more compact, like unified vision, snowflake compact in my platform, just do everything. And there's one utility catalog for governance, like very streamlined experience to the customers.  And Azure lacked that. People were like, now Synapse, they stopped updating it, right? A lot of their services will come up and then they'll go.  So customer didn't have, didn't have that much of like good story to say. So what they were doing, they were using Microsoft as their cloud, but they started using Databricks as their, or Snowflake as their compute engine for doing everything else, right?  Databricks also provides you AIBI now, not earlier. Earlier, it was only an engine plane. Power BI, they will still use with Microsoft, but for processing and engine and blah, blah, and whatnot, they will start using it.  Now these are like, if instead of using Databricks, if they would have run in Azure, this was an extra source of revenue for Azure, because everything works around revenue, right?  So what they did, they come up with this firebreak. It's kind of an exact, not exactly, but yeah, directionally replica of what Databricks is doing.  They are also on Delta. They are, they are also, they also have this notebook based spark engine, right? So exactly the model that Databricks built in past 11 years, this is what they're trying to do, right?  So right now in the market, if you go and search our Reddit threads like data engineering or our fabric, there is a, there is a feel that Microsoft is trying to build upon their Power BI user base and want to bring everyone to fabric.  And that's what they have very tightly coupled everything with, with Power BI.
+
+49:58 - Neha Doda
+  If you have Power BI.
+
+50:04 - sanjeev kumar
+  So that's why in the market, is like, okay, Fabric is mostly Power BI, right, but it can do a lot of engineering there.  They want to push everyone towards doing engineering also there. Right? Yeah.
+
+50:17 - Neha Doda
+  That's where these platforms like Databricks and Snowflake win.
+
+50:20 - sanjeev kumar
+  Now, the pricing calculator that you showed, since I work for Databricks, I know how we, because we are competitors also, right?  We play together also, we have competitors also. So the pricing calculator that you showed, there is one very interesting thing.  So you showed F128, right? There was a gray part. It says, it said 43% unused, right? So Fabric has a capacity model.  You purchase a capacity for a year, you use it, or you don't, doesn't matter to us, you will pay for that.  But companies like Snowflake, Databricks don't have. They capacity pricing model. They have compute based pricing model. It's like, could you share that screen again?  Yeah.
+
+51:09 - Neha Doda
+  Yeah, that's what I was checking because yeah, I ignored that part. Yeah, exactly.
+
+51:16 - sanjeev kumar
+  So few people don't like that. And those customers will talk about these things. And that's what you see on platforms.  They say, okay, they are just trying to build on Power BI user base and then giving us this costly product, blah, blah, blah, and whatnot.  That's why you are seeing that. Here, you see, there's this gray line that says you filled all your things, right?  It's that this is the batch cycle, these many data sources, blah, blah, whatnot. And you will use data factory, data warehouse, blah, blah, everything.  It gave you that you should use F128, but 43% will be unused. Just imagine why would I buy that?  And companies like Databricks will attack exactly this. are only. They will say in Databricks, doesn't matter how many workloads you bring, you don't have to reserve anything with me, you might have like hundreds of use cases, this year you are using them, you are using like hundreds of machines, you pay for them, next year you shut down half of them, you don't need them, or maybe first six months you use them, now use case is done, next six months you don't do anything, you pay nothing for that, right?  You pay for what you use, the compute, yeah, please, Sanjeev, Sanjeev, it means don't we require a dedicated compute in Databricks?
+
+52:40 - Asindu Gayangana
+  Is it based on serverless or?
+
+52:43 - sanjeev kumar
+  So see, dedicated compute, there is still a scalability, you choose how many machines you want to use, one, two, ten, now based on your workload, it will automatically see whether one machine is enough, two machine is or ten machines I need to acquire.  And it will do that. Right. And as soon as the job is done, everything is shut down. Right. You don't pay for them.  Now, if we go, if you want to go a little bit more in technical details, then database also has something called all purpose clusters that you can keep on 24 seven, but it's on customer's control.  They can say, okay, I will have this all purpose customer, which will be always on. But if it is unused for two hours, then automatically go and shut it down.  So in, in the night, when it is not used to automatically go and shut it down and you will pay $0 to database for that, right?  They also do the same, simple. Okay.
+
+53:45 - Suhash
+  So, in addition, like when you say like dedicated, uh, service, right? Like if I am the customer and I'm buying from Databricks and I calculated my compute, but, uh, I might need some 10 machines.  Uh, So based on my estimation of my workload, I required 10 missions. So I paid it, but my workload has used two or three missions higher than what I purchased for.  So in this case, for these two missions, will I be priced in the same way as the other?
+
+54:24 - sanjeev kumar
+  Purchase for what? Can you please repeat?
+
+54:26 - Suhash
+  Like compute clusters, like in Databricks, like have purchased, like some 10 missions is what my request is, for example.
+
+54:37 - sanjeev kumar
+  I'll stop you there. In Databricks, you don't purchase machines. Okay. Okay. You don't. You might have some deal with Azure saying like, I want to reserve 300 machines for me.  That's on with Azure or AWS. In Databricks, you just purchase, you just sign a deal saying like, okay, I am planning to use $1 million in three years.  And then you don't reserve machines. You just set clusters with scalability, 1 to 10, 1 to 30, 1 to 5, 1 to 1 to 2, right?  That's it. You use it, you use it, you don't use it, you don't pay for it. Okay. It's just that you don't reserve anything in database.  Okay, okay, okay, okay. Even for serverless, you just, if you submit your job, if it takes thousands of machines, you will pay for thousands of them.  If, if it stops, you pay nothing for them. Okay, okay, okay.
+
+55:35 - Suhash
+  So this is, this is, this is, you, you should know, this is compute based pricing model.
+
+55:41 - sanjeev kumar
+  And then there is capacity based, which fabric has shown earlier, there was license based pricing model, which fabric, sorry, Power BI was on right now.  You will pay for licenses like yearly and maybe monthly or maybe based on users. So there are multiple ways, license based model that is still in the.  It's to gerekiyor. But people are evolving and going towards, say, capacity-based or compute-based model. Okay, okay, okay.
+
+56:08 - Neha Doda
+  I think Microsoft has stopped with their P-tier. They are talking more about this F-tier only. Yeah, exactly, exactly.
+
+56:16 - sanjeev kumar
+  So they used to have this P-1, P-2 kind of.
+
+56:19 - Neha Doda
+  Yeah.
+
+56:22 - sanjeev kumar
+  So yeah, they are moving away from that model now. Yeah. Okay.
+
+56:28 - Neha Doda
+  One more thing, Sanjeev, I uploaded my project, like whatever I have done until now. So, like, because I wanted, like, as I already discussed, like, I need some business objective because I have, like, a lot of reports to show what I have already done.  So I want to move from what I already know in terms of, like, reporting and building dashboards. And the other thing I feel like is I need to work more on storage.  What are are Which I feel like I am lacking when I explain the things. So for me, it's not focusing on building the reports.  But yeah, you can judge better. will share maybe anytime I can share my report. Now as well, I have my Power BI reports and I can share it to you if you want.  Through email or like Slack, I can share and you can see and then I want to work from my current level to the next.
+
+57:38 - sanjeev kumar
+  Absolutely. There's a very good clarity on what exactly you want to do, right? When you say story building, could you explain further?
+
+57:45 - Neha Doda
+  Storytelling is basically like, like I have my dashboard ready and I want to explain that dashboard to someone because it's not only about building.  You need to explain everything. to the users, maybe to the stakeholders, so I think I can work more on that rather than, because...
+
+58:10 - sanjeev kumar
+  Neha, so that's a very good point you raised and really happy that you did that. Because even for us as a data engineer, I started as a data engineer, but now I'm a solution architect, right?  So I have to go and speak to customers about their problem and try to sell a platform and try to bring the best practices.  So if you do, if you are a good storyteller, if you build your pitch before you actually pitch for something, right?  It really has an impact. That's why I always focus on like you keeping on your camera on, you keeping on your...  You write slides, you build things, you talk about it, right? Because in my mind, ultimately you will go to that level.  Now you're starting with DA or DE, but you will move up in your career ladder, right? And these skills are like very important.  So rightly mentioned. . I think not only you, everyone should work on story building, whatever you work. If you're not able to present and talk about it, there is no point doing this.  There was a hard word, but yeah, you have to start doing that. So you just, so what do you expect from me?  So what I can do, I can, I can just use AI to give me some, okay, what kind of KPIs I should give to Neha.  Right. But instead, but I can do that. Not a problem. Do you want that or so that you have a direction or do you have something just build a KPI, build a dashboard, and then in beforehand, or just treat us all of us as a stakeholder, and then give a story for and present thing.  Right. And then I, as a, as a customer will give you a feedback, what I liked, what I did not like about it.  Do you want to do that?
+
+59:54 - Neha Doda
+  Yeah, actually I can do that. I don't have a problem, but then I can work on my already created report.  Because it takes a lot of time to do formatting and then I have practiced a lot on Power BI.  Okay, then let's not focus on that, Neha, right?
+
+1:00:10 - sanjeev kumar
+  So this internship is all about building on what you already have, not trying to just recreate everything, right? So just bring your KPS, maybe give us a pointer in the beginning, like before the meeting, like this is what I have built, these are the things I wanted to do.  And then you try to explain it to us as a business user, and then we can give you feedback, right?
+
+1:00:32 - Neha Doda
+  Yeah, yeah. I can give one presentation, like before presenting the dashboard, I can like, one day I can explain like what I'm going to present because before explaining the dashboard, you must know what data I have and what I'm going to present with that data.  Yes, exactly.
+
+1:00:51 - sanjeev kumar
+  And then I will act as a stakeholder and I will ask you, I will try to grill you down, right?  you. I would like to see how you are handling it. So even in a tough spot, you should be able to somehow smoothly get around it.  So we will try to do that. Let's practice on that.
+
+1:01:12 - Suhash
+  I have one question from here. What is the data set that you are currently working on to do your data set?
+
+1:01:22 - Neha Doda
+  Actually, that's the only challenge I feel because when I check on Kaggle or like any like open data, I have mainly worked with sales data, e-commerce data.  whatever I'm getting, but it's usually a small data set.
+
+1:01:39 - Suhash
+  Yeah.
+
+1:01:41 - Neha Doda
+  Like recently I built a report and it was on the logistics data. Yeah. So it was actually a part of my interview.  I was interviewed by OKQ8. So I have my like. Like the last report with them, and then I also built another report on this Spotify business performance dashboard.  So I have that as well. Great.
+
+1:02:12 - sanjeev kumar
+  I think these are good things.
+
+1:02:13 - Neha Doda
+  I have built a lot of dashboards I have in my computer, so that's why I don't want to utilize my time building on those features again and again.  Absolutely. takes a lot of time to format your report, to show your report that it looks good. So I don't want to utilize that time in changing colors and then formatting.  Exactly. That's a good feedback, right Neha?
+
+1:02:38 - sanjeev kumar
+  So that's not the purpose, right? If you, we have to build up on what you already have.
+  ACTION ITEM: Schedule 20-min storytelling session w/ Neha; request pre-read + KPI pointers - WATCH: https://fathom.video/share/iHTukJ_bYN8LgEGyGHyhmixsrzio_f3n?timestamp=3760.9999
+
+1:02:42 - Neha Doda
+  Great.
+
+1:02:44 - sanjeev kumar
+  And you know what here, so you already have that.
+
+1:02:46 - Neha Doda
+  Okay.
+
+1:02:47 - sanjeev kumar
+  Let's, let's not focus on that then. Okay. Point taken Neha. Let's try to do that. We will, what we will do whenever you are ready, right?  We can allocate 20 minutes time to you, and then you can just present it to all of your up on Okay.  Then we will ask you questions and and let's see like if we're able to do the proper story building or not.  Yeah.
+
+1:03:07 - Neha Doda
+  Okay, great.
+
+1:03:08 - sanjeev kumar
+  Then thanks for the call today and yeah, sorry because you have a question.
+
+1:03:13 - Suhash
+  Like I forgot to ask one more thing since you like I also gone through the row level security and column security in Databricks like I could see that I can select the table and in the UI like I can add the functions for doing the constraints.  So how does it look like in production environment since you like when you're doing the row level security or like the like the access control.
+
+1:03:41 - sanjeev kumar
+  Yeah, yeah, yeah.
+
+1:03:42 - Suhash
+  So column level masking. So like how do you store it as in your code and then like audit it is only developed in UI and then attach it to them.
+  ACTION ITEM: Research Databricks Permissions API for RLS/CLM via CI/CD - WATCH: https://fathom.video/share/iHTukJ_bYN8LgEGyGHyhmixsrzio_f3n?timestamp=3829.9999  No, no, no, no, no, no, no, So usually if you have like proper CI.
+
+1:04:00 - sanjeev kumar
+  I see the development, then in dabs, you will set that up, you should be able to define UC objects and UC functions.  Okay, okay, okay. So UI is only for like, probably learning and very small team so that you can click around and do things.  But I, the way I remember it, I set the permissions directly on the, in the dabs. So in dabs, when you do the development, right, there will be like permission API.  You have to use that, which service principle or which user and what kind of security they want. And I think there should be a way to also define this CLM and RLS, role-level security call-level masking.  The function that you create, right, in UI should be possible in dabs too. Please take a look. Okay, okay, okay.
+
+1:04:47 - Suhash
+  Yeah, thank you, Sanjeev. So ideal way is through CICD.
+
+1:04:51 - sanjeev kumar
+  Okay, okay, okay.
+
+1:04:53 - Suhash
+  Yeah, thank you, Sanjeev. Okay, great.
+
+1:04:57 - sanjeev kumar
+  Then have a great week. And we can see, we can meet next week then. Thank you. Thank you everyone, bye.
+
+1:05:07 - Asindu Gayangana
+  Bye everyone.
