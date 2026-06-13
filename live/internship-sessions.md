@@ -10,20 +10,21 @@
 
 **Part 1 — Weekly sync & check-ins**
 
-1. Week check-in — what did you work on? Blockers? Wins?
-2. Suhash — Slide deck: MV vs streaming table vs Delta table + DLT use case design with SCD 1 & 2 *(carried over Sessions 9, 10 & 11)*
-3. Deepika — Multi-bundle DABs isolation validation + Terraform/DABs code to repo + MLOps progress *(carried over Sessions 10 & 11)*
-4. Nikolaos — Databricks widget parametrization on notebooks *(carried over Sessions 10 & 11)*
+1. Admin — Next week is Midsommar (June 20) — **no session**. Next session June 27.
+2. Week check-in — what did you work on? Blockers? Wins?
+3. Suhash — Slide deck: MV vs streaming table vs Delta table + DLT use case design with SCD 1 & 2 *(carried over Sessions 9, 10 & 11)*
+4. Deepika — Multi-bundle DABs isolation validation + Terraform/DABs code to repo + MLOps progress *(carried over Sessions 10 & 11)*
+5. Nikolaos — Databricks widget parametrization on notebooks *(carried over Sessions 10 & 11)*
 
 **Part 2 — Technical deep-dives**
 
-5. Neha — 20-min storytelling session: present existing dashboard to group as business stakeholders
-6. Asindu — DABs multi-account deployment demo (profiles + tokens) + large-scale pipeline run
-7. Filip — Enhanced Faker: complex dataset template + higher-volume data generation
+6. Neha — 20-min storytelling session: present existing dashboard to group as business stakeholders
+7. Asindu — DABs multi-account deployment demo (profiles + tokens) + large-scale pipeline run
+8. Filip — Enhanced Faker: complex dataset template + higher-volume data generation
 
 **Standing items**
 
-8. Sanjeev — Share Spark UI/DAG screenshots + logs → interns identify bottlenecks *(action from Session 11)*
+9. Sanjeev — Share Spark UI/DAG screenshots + logs → interns identify bottlenecks *(action from Session 11)*
 
 ---
 
