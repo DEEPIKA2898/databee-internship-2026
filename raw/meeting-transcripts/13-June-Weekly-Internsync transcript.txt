@@ -1,0 +1,481 @@
+Weekly Intern Sync - 9:00am CET - June 13
+VIEW RECORDING - 82 mins (No highlights): https://fathom.video/share/CScfHLUdmNHMBgxmuxAnFpgkppczQRak
+
+---
+
+0:27 - sanjeev kumar
+  Hello. Hello Sanjeev, good morning.
+
+0:32 - Kousalya (nanduri1120@gmail.com)
+  Good morning.
+
+0:36 - sanjeev kumar
+  How are you guys doing? Yeah, Sanjeev, good.
+
+0:39 - Kousalya (nanduri1120@gmail.com)
+  How are you doing? Yeah, doing well.
+
+0:42 - sanjeev kumar
+  Are you guys attending next week dinner for the interns?
+
+0:51 - Kousalya (nanduri1120@gmail.com)
+  Yeah. Hi, good morning everyone. Hello, honey.
+
+1:00 - sanjeev kumar
+  Yeah. Next week, Raj has organized this dinner for all the interns. I am trying to see if I can join.  I have some business travel that is arranged. So let me see if I can join. But yeah, I hope everybody can, else at least can join.
+
+1:22 - Suhash Raja
+  Hey, Sanjeev. Hello.
+
+1:50 - sanjeev kumar
+  Let's wait for a couple of more minutes. Hello. Hi, Deepika. Hello, Deepika.
+
+2:05 - Kousalya (nanduri1120@gmail.com)
+  Hi, all. Hello, Sanjeev. Hi. Good morning.
+
+2:09 - DEEPIKA ELANGOVAN
+  Good morning.
+
+2:32 - sanjeev kumar
+  Yes. So let's wait for one more minute, but there is one item on the agenda that I wanted to discuss.  So next week is midsummer and I think we should take a day off on that day, right? Yeah, we did not take a break on the national day, 6th of June, but I think next midsummer we should take Uh, I'm  Do you guys agree or what do think about that?
+  ACTION ITEM: Inform Raj and Slack interns: no internship call on Jun 20 (Midsummer) - WATCH: https://fathom.video/share/CScfHLUdmNHMBgxmuxAnFpgkppczQRak?timestamp=181.9999
+
+3:07 - Neha Doda
+  Yes, we agree.
+
+3:12 - sanjeev kumar
+  Can you please communicate this to Raj that next 20th of June there be no internship call?
+
+3:24 - Kousalya (nanduri1120@gmail.com)
+  Yeah, sure. Yes. Great. Thank you very much, Kousalya. Thank you, Sanjeev.
+
+3:29 - sanjeev kumar
+  Yeah. Okay. So it's 9-3. Let's get started. So let me share my screen. Yeah. So as usual, so the very first topic was this Midsummer thing.  I think we should take an off on this and Kousalya will inform Raj. Second thing was on the dinner that Raj is organizing.  I hope... Most of us can join. So please, please, if possible, please see if you can find time for that.  Okay, then, then we will do the usual web check-ins and see how, what kind of progress we have done and what kind of support is needed, right?  Okay, so I have, let's start. I have Suhas on, first off, on my screen.
+
+4:24 - Suhash Raja
+  Yeah, the first. Yeah, yes, so in this week, I went on implementing the config-driven development, like I created the folder structures, and then I created the logging and config load and adding metadata as utils, and then I added test cases for these three things.  So I was able to do the test for Logging and config underscore load, but when it came to add metadata for a data frame, like I got an error stating that this enrollment is confused for Databricks Connect only, so you can't have your local Spark session.  Yeah, exactly.
+
+5:22 - sanjeev kumar
+  So I would like to see how you have set up those tests, because just for information, so in local, when we do the test, right, we need to instantiate this Spark session, right?  Because you do run a Spark dot Spark session, then you dot create, you create a Spark session. Inside that session, then whatever code you write, it gets passed to your workers through that session.  Now in Databricks, you don't need to instantiate that. It automatically creates a Spark session for you. for the C It's-1.  And-1. So, Right? That's why if you do this and deploy it, then it will complain that why are you creating this Spark session.  So as far as I understand, you have to write an if some kind of unconditional statement that says, if environment is Databricks or Dev or whatnot, right?  Then this instantiation of Spark session step. Okay. Shall I share my screen, Sanjeev?
+
+6:26 - Suhash Raja
+  Yeah, please, please.
+
+6:35 - sanjeev kumar
+  Is my screen visible? Yes, it is visible. Yeah. Yeah. Yeah.
+
+6:42 - Suhash Raja
+  So, like, I have written test cases for these two. These two are working. And in test and square method, sorry.  Yeah, so, but for the metadata one, it was not working. was throwing error, which is error, which I stated.  Can me how you were writing, reading the metadata? Like, I was just trying to add an ingestion timestamp, source system and pipeline underscore name by I'm passing the config from the config file.  Like I've stored for the sales.yaml, where I have the simple config file, which I'm trying to pass it to this function.  So in this add metadata, I'm just creating a data frame and then I'm loading the config variable. We with the config values from the sales YAML file.  Could you show me where is your config, where is your sales config?
+
+8:09 - sanjeev kumar
+  Okay, sales.YAML, I can say.
+
+8:11 - Suhash Raja
+  Yeah, yeah. Okay, great. Not a problem. Yeah, absolutely. Yeah, yeah. So, yeah, then I'm passing the data frame under config dictionary and the pipeline name to this utility function.  So, yeah, so this utility function which I have under utils. So, is this test failing or what is the issue here?  The test is failing, like before even executing the test. It is throwing error that you can't have a local Spark session, then what I did was like, I checked with chat GPT and then like I moved on to like, first I had this one, like for creating a Spark session for the entire session, then it told that since you are using Databricks Connect, like you can't have it.  So you need to utilize the PySpark from Databricks, then I moved on to this code, this piece of code here, which I have commented out.  Yeah. Okay. Yeah. Yeah. So, but this one also failed, but here it required the Databricks URL and password. Like it was asking that.  Do you have Databricks CLI set up in your local? Yeah. You need to set up a profile for your workspace.
+
+10:05 - sanjeev kumar
+  But, but before, before we go there, could you show me like, what is the code that you are trying to test?  Can you scroll up to your tests? I just want to take a look again. Yeah. So, so these are, so with create data frame, local config, add full metadata.  What is this function? So this is one of the functions that you have written that you want to learn?
+
+10:34 - Suhash Raja
+  Yeah. Yeah. So this is the function. like, it just receives the data frame and config, and then it adds to the data frame the following columns, like condition timestamp, run ID and source system and pipeline name.  Yeah. And could you show me like, how are you doing this test?
+
+10:55 - sanjeev kumar
+  How, what's the command you are using to run it? Yeah. It's a bitest space.
+
+10:59 - Suhash Raja
+  Yeah.
+
+11:06 - sanjeev kumar
+  And this is a simple PIE SPARCH, this is not a SDP pipeline, correct? No, no, no, it's not an SDP, essentially, it's like...  And the sample data, you were already mocking it, right? Yeah, yeah, in the test underscore metadata titles.
+
+11:25 - Suhash Raja
+  In that case, why it is trying to deploy it to Databricks?
+
+11:29 - sanjeev kumar
+  So there are two ways to do tests. So Databricks Connect helps you submit your task, or jobs, or runs, or tests, whatever, right?  From your local machine directly to Databricks clusters, remotely. But since it is a PIE SPAR test, you don't need to do that.  do you have like PIE SPAR installed in your local?
+
+11:50 - Suhash Raja
+  Yeah, yeah, I have included it in my package since it's required. No, No, uh...
+
+12:00 - sanjeev kumar
+  Should it be in this package? Because, could you just do a PySpark dash dash version, just check if it is in your local?  Yeah, so you have Python 3.0, this much, and then, no, PySpark error, unrecognized. Okay, let's do one thing. So, could you run that test command here?  I want to see, like, what error it is giving.
+
+12:33 - Suhash Raja
+  Yeah, like, currently I have commented out once.
+
+13:10 - sanjeev kumar
+  Assert. Ingestion in magic, this much is DFI. It says assertion error. It means it is doing the test, and the test has failed.
+
+13:25 - Suhash Raja
+  Correct? Yeah.
+
+13:27 - sanjeev kumar
+  Assert ingestion type. So, probably it is doing the test. Could you check if you have ingestion timestamp in your sample data set?
+
+13:38 - Suhash Raja
+  No, like, ingestion timestamp is being added by this test data. And like, one more thing is that, like, currently I'm using the mocks.  This one also suggested by HATGBT. I'm not sure, like, which one to use and how you go through. So, would, let's see.
+
+14:00 - sanjeev kumar
+  Don't use ChatGPT for everything because ChatGPT doesn't have the full context of how Databricks things are being done. Do you have this, what do you call it, you have the free edition, right?
+
+14:13 - Suhash Raja
+  Yeah, yeah, I'm having the free edition.
+
+14:16 - sanjeev kumar
+  I would recommend you to ask about database specific questions in that Gini code that they have.
+
+14:25 - Suhash Raja
+  Okay, okay. Could you log into your, do you have your, I will show you.
+
+14:30 - sanjeev kumar
+  Because that, that AI has more context about Databricks. Probably you should use that and see like what it is suggesting.  That also sometimes doesn't give a very good answer, but that's better than asking Chat. So I need to check what exactly this is about, unit test mock.  Okay, okay.
+
+14:52 - Suhash Raja
+  But how you, how in production will be done, Sanju, like the unit test, like, will you, will you guys use this one?  Like . Yeah, of. So
+
+15:00 - sanjeev kumar
+  I'm still troubleshooting this one, like, but the way you have written, it looks fine to me, there is, structurally doesn't seem to be a problem, probably there is some setup issue in the local, but here I see there is an assertion failure, it means it was able to run the test, and then it could not assert that this test, this particular timestamp is available in this data frame or not, this is how I am assuming, but the way you have setup looks on the high level right to me.
+
+15:30 - Suhash Raja
+  Okay, I just want to ask, like, production, like, how you guys will do the unit test, when it comes to data frames, like, I'm okay with the normal Python unit test, but since this one involves like a data frame, like, my question is like, how will you assert a data frame, like, is it using Spark, or is it,
+
+16:04 - sanjeev kumar
+  So that DataFrame will be instantiated inside a Spark session, right? Okay. So yes, using Spark DataFrame, you will do that.  Okay. Could you show me where are you creating that sample DataFrame? Let's see what kind of DataFrame it is.  It was just a simple one, this one, Sanjeev.
+
+16:24 - Suhash Raja
+  DataFrame. Yeah, exactly.
+  ACTION ITEM: Fix add_metadata unit tests; verify ingestion_timestamp assertion - WATCH: https://fathom.video/share/CScfHLUdmNHMBgxmuxAnFpgkppczQRak?timestamp=989.9999
+
+16:25 - sanjeev kumar
+  The way you are doing it, right? So Spark.CreateDataFrame, Data. Yeah, exactly. So this seems right to me. Okay.
+
+16:32 - Suhash Raja
+  Okay. And you guys will be using only Spark for assertion also, right? Yes. Okay. Okay. Okay.
+
+16:40 - sanjeev kumar
+  Here, so one problem that I see is, here you see, you do assert ingestion timestamp in enriched.columns. You know what it is, you are comparing a string with a enriched.columns that returns you a row, a row type value.  So this is a data type mismatch between what you expect and what you're comparing with. So this is one problem I see.  Okay. Okay.
+
+17:11 - Suhash Raja
+  Because here I understand.
+
+17:13 - sanjeev kumar
+  So you do this, add full metadata, and then you are fetching the index.def.column. So all the columns that it has, all of these four or five columns, it will return.  And then in, in that you are checking ingestion timestamp, right? Okay. Yeah. So what I would do, I would do like enrich.def.columns, then in, in that square bracket, say ingestion timestamp, because you are expecting that ingestion timestamp inside that list that it returns.  Right. Yeah. That should be compared with ingestion and score timestamp. So I see a problem here, not the way you have set up.  Okay. Okay. Okay. Then check with, check with your AI system on this part, like, are you doing the comparison or assertion correctly or not?  Okay. Okay. Sure, sure.
+
+17:59 - Suhash Raja
+  soon. Sanjeev. And yeah, so I will check on this one, Sanjeev, like after class. And is this structure fine, Sanjeev?  I have under tests, like unit tests and integration tests. And I don't have anything under integration because like I haven't built the entire platform.  So integration would happen on the cluster usually. It doesn't happen on the local, right?
+
+18:25 - sanjeev kumar
+  But the structure, the way you have structured the tests looks completely fine to me. I don't see a problem there.  Okay, okay.
+
+18:32 - Suhash Raja
+  And when it comes to utils and production, like, do you guys have any other thing in addition to these three things?  No, no.
+
+18:43 - sanjeev kumar
+  So see, REST, everything is all software development lifecycle or SDLT best practices. There is nothing specific to Databricks. Okay, okay.  Don't worry about the Databricks has something different or something, some specific utilities to do. That's... The project structure is just any other project.  It's not specific to Databricks. Only thing which becomes specific to Databricks is called Databricks Asset Bundles, right? Okay, yeah.  And if you're developing using Spark declarative pipeline, these two are actually a little bit specific to Databricks. That's it.  Okay. Rest all, you're writing normal PySpark, it's all open source stuff. Okay, okay, okay.
+
+19:33 - Suhash Raja
+  Then I just need to troubleshoot a bit more. A little bit of troubleshooting would be needed. Just simplify your code as much as possible.
+
+19:41 - sanjeev kumar
+  Start from a very small session, and then build it down.
+
+19:45 - Suhash Raja
+  Yeah, yeah, yeah, sure, sure.
+
+19:48 - sanjeev kumar
+  And is your Databricks, is your DAP setup proper? Are you able to deploy the code? Yeah, yeah, yeah.
+
+19:54 - Suhash Raja
+  I could be able to deploy it, Sanjeev. Yeah, I was able to deploy it. Code is that in the...  Nice, nice. Yeah. No, In your...
+
+20:06 - sanjeev kumar
+  So this DAP should be able to deploy it. Oh, yeah, yeah. Okay.
+
+20:09 - Suhash Raja
+  Yeah, yeah, yeah. Right in the workspaces. Yeah, okay. Correctly.
+
+20:12 - sanjeev kumar
+  And if not, if you face any issues, I think, Deepika, you can help him, right? Yeah. But I think, yeah.  Yeah. Sure, Sanjeev. Yeah.
+
+20:22 - Suhash Raja
+  Yeah. Okay, okay. Yeah. That's all from me, Sanjeev. I just tried to... No, great, great. I think this is a good progress.
+
+20:34 - sanjeev kumar
+  Keep doing this one. Yeah. sure.
+
+20:38 - Suhash Raja
+  Okay. Then, next I have Deepika.
+
+20:44 - DEEPIKA ELANGOVAN
+  Hello, Sanjeev. So, like, I have pushed the code to the repository. So, like...
+
+20:51 - sanjeev kumar
+  Sorry, one more thing. Sorry, Deepika. Sorry to stop. Don't mind. I'm sorry. think, hi, Nikolaos and Asindu. I think you guys joined a bit late.  There is a... First topic in the agenda. So next week, we are planning to take a day off for mid-summer, right?  And Kousalya will actually inform everyone in the Slack channel, but yeah, just wanted to let you know. Okay, okay.
+
+21:17 - Asindu Gayangana
+  Okay, great. Ishtimya, please go ahead.
+
+21:20 - DEEPIKA ELANGOVAN
+  So I have pushed the code to the repository, Sanjeev, whatever I was working on previously, to our database internship repo.  Then I started with ML Ops. So I just started with some basics, like ML lifecycle, what are all the tools that used for ML Ops, and then like how it is being, how it is different from DevOps and ML Ops.  Then it was quite hard for me, like I started with great curiosity, but it was quite difficult for me to catch up with.  So like, as usual, started with some hands-on, so I could get a better clarity. So we just tried to build a small envelopes project.  With that, like I was... was able to get some overview of how the project, how the model is being trained and how the results are published and we are validating.  Now, this week I started with MLflow, MLflow and Kubeflow. Kubeflow was quite easy for me as I already have experience with Kubernetes, but MLflow is quite difficult for me, Sanjeev.  So I'm trying with some hands and I'm following on YouTube video. That example is quite advanced. So I'm trying to see if there are any other simple ones I can try before moving forward to that advanced example.  Absolutely.
+
+22:35 - sanjeev kumar
+  And yes, so I just gave you MLflow, TensorFlow, think couple of SageMaker example, because these are the things that I am aware of.  So I'm not like proper ML guy, but I know a couple of things that I have done some kind of hands on.  So that's why I have written MLflow and TensorFlow, that kind of things. Feel free to see what is best in the market at the moment and just go accordingly, right?  Start small and then slowly scale. 치y. Now yen is Just to let you know, MLflow is an open source project and a lot of companies do use it.  SageMaker is very big in AWS world. AA Foundry is very big in Azure world. Try to start with one and then you can explore others.  Sure, sure, Sanjeev.
+
+23:21 - DEEPIKA ELANGOVAN
+  Any, any suggestions from you and Sanjeev like to go through on any particular videos or like any research? Oh, videos.  No, I don't know about videos.
+
+23:30 - sanjeev kumar
+  So you will have N number of like videos. It's fine. you. be smart and like find out of which is actually impactful.  But if you want to ask me to start with something, I would say MLflow. Okay. first of all, I am, I might be biased because that is what I know.  Okay. I find it like very simple feature tables and model logging and whatnot. It is also part of Databricks.  So I have worked with them. Yes. Yes. I find it easy. Okay. If there is something else, then please go ahead with that.  I have no preferences. If you ask me, I would start with MLflow because that's what I know. I'm also planning to push you on MLflow only this week, Sanjeev.
+
+24:11 - DEEPIKA ELANGOVAN
+  So let me see how it goes.
+
+24:14 - sanjeev kumar
+  Thank you so much. Okay, sure. Thanks, Deepika. Then we have Neha next.
+  ACTION ITEM: Prepare and present storytelling session next week - WATCH: https://fathom.video/share/CScfHLUdmNHMBgxmuxAnFpgkppczQRak?timestamp=1458.9999
+
+24:26 - Neha Doda
+  Did you say my name? Yes, you are next on my screen.
+
+24:29 - sanjeev kumar
+  So from the session, last time we had discussed like we would like to have some kind of a storytelling session where you can present one of your existing dashboards and give us something, right?  And then we can give you feedback on how you are presenting.
+
+24:48 - Neha Doda
+  Yeah, but I will do that next week because I haven't worked on that because this week I was like participating in this Microsoft AI skill.  So for two days, I joined that and I was completing their featured playlist just to take the benefit of the voucher and yeah, along with that, I also like, uh, learned about little bit about event houses and even streams in like, uh, fabric and for my project, I actually started, uh, like, because I have my, um, I mean, dashboard prepared, but before like, uh, proceeding with the dashboard, actually, I have something that I want to like, uh, take inputs from you and it's about like, uh, the data cleaning, uh, of my Excel files because, uh, last time I skipped it when I was preparing for the dashboard, but now I feel like, uh, if you could give me some suggestions on their dataset that, uh, what kind of cleaning steps apart from like removing duplicate and null values I can perform using Python.  Or like. DBT, so that I get a better version of it. yes, definitely.
+
+26:06 - sanjeev kumar
+  we can definitely talk about general cleaning, which business needs, you have to do that. So null cleaning, maybe data timestamp formatting, that kind of things you will have to do.  There are also certain hygiene factor you have to take care while you are organizing your data to improve the performance of your dashboards, right?  Like for example, how you organize the data layout part. If you are working on, assume, if you have like small data, 10, 20, 30 MB, 50, 100 MB, it doesn't matter that much.  But if you start going in GBs, 10 GB, 15, 20 GB of data that you are scanning, that's when these things start becoming important, right?  So a certain thing that you should explore a bit on, what is the kind of data you have?
+
+26:53 - Neha Doda
+  Would partitioning make sense?
+
+26:55 - sanjeev kumar
+  What kind of partitioning keys to be used? Is your data complex? Impacted, optimized, because you will work on a little bit of a larger data, that's what I'm expecting, right?  But since you mentioned Excel, now Excel is like usually run on a very small data set. So, yeah, my point is if it's a small data set, probably whatever you have done as a cleaning, that's good enough.  But if you're using DBT and a little bit of data analyst, DA engineering kind of stuff, then you have to think about your data layout optimization.  That's like very, very critical stuff. Make sense, Neha? Yes.
+
+27:41 - Neha Doda
+  Can I share you like this Excel like on my screen so that I can ask you like what doubts I have?  Yes, please do that. Is it visible now? Not yet. Because from my side, I can see it's sharing. Yeah, now I think it is starting up.
+
+28:23 - sanjeev kumar
+  So, yes. Yeah, it is there.
+
+28:29 - Neha Doda
+  Yeah, please go ahead. Yeah, because I only need suggestions because last time, yeah, I was confused. Can you see this Excel file?  Yeah. Yeah, this product and supplier column. I mean, because I don't see any format in this. They all have, like, different names and what kind of cleaning steps, particularly for these two columns, I need suggestion for.  Aha, okay.
+
+28:57 - sanjeev kumar
+  Product and supplier. Okay, so this is like data. Data specific cleaning, like business specific cleaning. So, okay, I went into the analytics engineering part, but then you can ignore that.  So here, see here, if I understand correctly, Neha, So this is all depends on how your business user wants it, right?  So if you're treating me as a data engineer, then to me, it doesn't matter. To me, I will go and ask my business guy, okay, does the way I'm presenting the product names, does it matter?  Does it look good to you? This is how your users will understand the product, right? Because data engineering, right?  Data could come in any fashion. For me, as a data engineer, doesn't matter how it is represented. But the person who is making sense out of the business, for them, it matters, should we remove these special Swedish characters?  Does it make sense?
+
+29:48 - Neha Doda
+  So that kind of thing.
+
+29:50 - sanjeev kumar
+  So if you're asking me as a business user, then I would say, maybe I would like to harmonize the spaces properly here.  Right? Because I really do not like the look and feel of it, like how it is coming. Maybe that's one thing that you can keep it in mind.
+
+30:07 - Neha Doda
+  I would also like to see, maybe if you can pull up what exactly RYD means, maybe an abbreviation column, right?
+
+30:23 - sanjeev kumar
+  That would make sense to me. And can I have, I'm just saying, I'm just making up some rules right, Neha.  Okay.
+
+30:31 - Neha Doda
+  we have like Swedish products.
+
+30:35 - sanjeev kumar
+  Can we, can I have them in a separate column or properly marked in a color or something like that, right?  Or in a proper section. So this is, this is a feedback from a, from a user's point of view.  So these kinds of cleaning, these kinds of cleaning I will, I'll probably do. Okay.
+
+30:55 - Neha Doda
+  Because like, if I see a hair and supplier in some columns, there is like, EDE at the end, I mean, there are no fixed spaces.  So my question was like, as a data analyst, I think I'm not allowed to like remove anything from any columns.  Is that correct? Yeah, exactly.
+
+31:18 - sanjeev kumar
+  So that's what you said, like, you have to talk to your business user who is consuming the data, because they are the stakeholders here, right?
+
+31:26 - Neha Doda
+  You have to ask them, what kind of cleaning do you want?
+
+31:30 - sanjeev kumar
+  If I remove the spaces, does it make your analysis? Maybe they expect such spaces, right? So you are absolutely right.  We don't change it unless we have a proper handshake with the stakeholder, what exactly you want, right? So we usually take some sample data, get an agreement.  This is how I will present the data. Does it make sense? If they do some changes, we add them as a test cases or some kind of data cleaning harmonization logic, and then we start presenting them.
+
+32:11 - Neha Doda
+  I said that last time I did the same because I only performed the necessary cleaning steps. I avoided like removing any like alphabet or any character from this.  I just tried to make it look and feel good. So I only did that because I don't have like any communication or with the stakeholders.  So I did it at my own level. So that's why I thought that I can like take your input for it for that.
+
+32:43 - sanjeev kumar
+  When you say last time, what do you mean by that?
+
+32:46 - Neha Doda
+  Because I, as I already mentioned that I prepared this project for like one of my interview. So yeah, unfortunately I could not make it.  I reached till the last time. So it was like a, I would say a project that I have from a Swedish, like I would say a company.  So that's why I take it.
+
+33:10 - sanjeev kumar
+  And Neha, so yeah, maybe I would like to hear more about how exactly the interview happened so that I can give you feedback why you could not get in, right?  It's completely fine. No problem at all. We will keep on trying. Now see, sometimes if you have confusion, right?  Like when I take interviews, I really like when a candidate, like for example, you have this doubt, right? Like as an analytical engineer, I should not pass the data, right?  It's always good. And you also feel like, okay, the data really doesn't look good, right? And you have this conflict.  It's always good to, I hope you did that already. It's always good to talk about it, to say, my thought process is this, this is how great I present.  I don't want to touch the, I don't have any confirmation from my user to change the way data is being presented.  If they say, I'll go and incorporate a change. So this is the reason reasoning for me to show the data in this way where there are like unnecessary spaces.  Right. So always speak. What, what is the thought process? Why you have done that? Okay.
+
+34:16 - Neha Doda
+  Great. Great. Okay.
+
+34:21 - sanjeev kumar
+  Anything else? Neha?
+
+34:23 - Neha Doda
+  No, I will prepare for this, like for the next week. Yeah, please. Please do so.
+
+34:32 - sanjeev kumar
+  Okay. I have Asindu next. Hi, Sanjeev. So I have a couple of questions to ask from you.
+
+34:39 - Asindu Gayangana
+  So when it comes to the CICD pipeline development, Sanjeev, I want to know how the actual production handled those CICD.  It means there is a development branch and main branch, main for the production. development workspace, so then I think you create a feature branch to start your work on each and every day and pull the code to your local environment, but Sanjeev, even though you pull the code to your local environment, but still those update, I mean, still those updated versions are not shown in the Databricks UI, Sanjeev, still you need to deploy into your like Sanjeev target div kind of branch, so how that procedure works, Sanjeev, I want to know about those.
+  ACTION ITEM: Read GitFlow; apply to CI/CD - WATCH: https://fathom.video/share/CScfHLUdmNHMBgxmuxAnFpgkppczQRak?timestamp=2150.9999
+
+35:53 - sanjeev kumar
+  Yeah, okay, so I will explain you the Git flow, right, sorry, the flow, the way we do development in
+
+36:00 - Asindu Gayangana
+  in these scenarios.
+
+36:01 - sanjeev kumar
+  I would also recommend you guys to go and read about GitFlow. So there are n number of ways how you can do this CI-CD flow, right?  GitFlow is one of the ones that we see customers using, right? How exactly do you organize, what does main branch, develop branch, blah, blah.  If you have already gone through it, it's good. But for those who have not, familiarize yourself at least with this, right?  Like when to make branches and blah, blah, when to make feature branches. What are these versions, tagging, right? Get a general idea of it.  You don't have to like implement all of these, but as a developer, you should be aware of these things, right?  What is the release branch? What is a hotfix branch? You will also have something called hotfix branch, right? So familiarize yourself with this.  Okay, now coming back to Asindu's question. So if I understood you correctly, you would like to know how these developments happen, right?  So Asindu's See, usually there will be a dev branch, a main branch, and there are some release branches. I'm not going there for now.  Let's keep it simple. Main branch is supposed to be what is in your production and dev branch is supposed to be what is in your production plus whatever latest additions are being done.  Right? So your development branch will always lead, most of the time, will lead in commits, number of commits, your main branch.  Does it make sense? Yes, Sanjeev. Yeah. Okay. Now, when I start a development, I will always create a feature branch out of this dev branch or not dev branch actually from the main branch.  Right? Because I want to start with, with whatever is in my production. Correct? I will make a... So branch from there, do all my development in my branch, feature branch, do the deployment, like for example, if you see the Git flow or Git flow or whichever CACD config file may be using Jenkins, there you will write a logic whenever there is a feature branch, whenever it is not a main branch or a dev branch, do this, right?  So all your feature branch check-ins should go to dev workspace, whether it is Databricks or Snowflake, blah, blah, whatnot, right?  So as soon as your check-in, your flow should take you to deploy your code in a dev workspace, right?  In your own user, you will have your own pipeline, right? So that if somebody else is developing and doing the same deployment in same environment, that can be kept separately, correct?  So So you do the development, full tests, basic tests, in your feature branch and in your dev branch, right?  Once you are satisfied, you have done your own unit testing and some level of functionality tests, then you raise the request to merge it into your dev branch.  When that pull request is reviewed and approved, it should go to your test workspace. That's where you will run all your unit tests.  Now, there could be another user also doing some kind of development in a feature branch, right? And maybe both of you are developing independently, but in the end, both your features should go together in production, right?  So this is where your other user also will create a feature. So and merge it into the dev, and both the changes will go into the test environment, and you will do an integration test there.  Does it make sense? Like, was this your question or you wanted to ask something else? No, Sanjeev, more than that.
+
+40:15 - Asindu Gayangana
+  So it means I learned something. I thought we create a feature branch from development branch. It is not correct right now.
+
+40:24 - sanjeev kumar
+  Yeah, so see, it also depends, like, for example, but usually, and please feel free to correct me if somebody else knows better, right?  So usually, I will create a feature branch when I'm starting a very new project from a main branch, because I don't want to be bothered about what my colleague is doing a development, right?  Maybe he's halfway through, why shall I use, or he has done a development check-in, but that is not pushed to production yet.  Why shall I work on that, right? Correct? Because I need what is in production. A feature request from my architect has been given to me based on what is running in production, right?  Not what is running in dev. There will be n number of developers who might be committing to dev, right?  I cannot take that as my starting code, right? So this is one way of thinking it. Now, just imagine.  So this is one way. But let's take about the next, another situation where two developers, you are already working on a feature, right?  You are doing a development and you are pushing it to dev branch only, by dev in Git branch, only development Git branch.  Now, suddenly we realized, okay, seems like this needs a supporting feature, right? Whatever I am developing, whatever you are developing already, Asindu, you are already midway, you gave a feedback.  In the review, Lakuk, seems like we need an integration with SQL Server also. And... Then you assign a new developer, say me, to work on that.  Now my work becomes directly dependent on what you have checked in in dev branch, not what is in production branch.  So now in this scenario, I will take, I will make a feature branch from development, or maybe from your feature branch, I'll create another feature branch.
+
+42:26 - Asindu Gayangana
+  Okay. Right.
+
+42:27 - sanjeev kumar
+  So, so it's, so answer is, it depends on the situation, but generally, I make a, if I don't understand, if there is a complexity, then I just go and fork it from, from the main branch, usually.
+
+42:46 - Asindu Gayangana
+  It means essentially those feature branch branches are not going to delete it once you commit, no? It should be.  It should be. So I'll tell you. Not commit.
+
+42:57 - sanjeev kumar
+  So once you commit, completely find. And once you actually merge it into dev, dev branch, right, you can keep it then also, but once, so usually when you go, right, when you create a pull request and you merge the request, it gives you an option to delete the branch.  Okay. Right. You can, you can actually try to follow that. Or maybe usually I have seen like sometimes developers don't delete their, their feature branches until the code is product merge in main.  Okay. Once that is done, they say, okay, now my work is completely done. Let me delete the, delete my branch.  Okay, Sanjeev.
+
+43:36 - Asindu Gayangana
+  Understand. Another one question. It is, in production environment or production projects, Sanjeev, do you use Databricks UI to development or only the local environment?  Okay. That's a good question.
+
+43:56 - sanjeev kumar
+  I would say, see. Okay. Okay. Okay. Okay. Okay. It all depends. Again, there is no straightforward answer for these things, right?  So as a hardcore engineer, there are a lot of people who like doing development in local, in IDE. But just imagine you are an ML engineer, or not engineer, you are a data science guy, or you are an analyst, right?  You want to develop and iterate like very quickly. You don't want to get bogged down by, okay, let me have a VS code, then this branch, then Git branch, right?  It's a bit of a, like, lot of developers heavy thing, right? In those cases, a lot, I would say in Databricks, 70% of the users like UI development, just telling you statistically, right?  So there is no wrong pattern. Databricks UI also, you can do Git-based development. Full CI-CD flow is available. So if they have repos, you can connect directly with Git.  So whatever you are doing. In the local, I would say 90% of the thing is available from your UI2, right?  You click, you do a check-in, you create a pull request that gets deployed into my another workspace, which is test.  So all those flows are available directly from the UI2. So no wrong answers. It all depends on what team is comfortable with.  Do they like, because a lot of people like their UI view because they can do prototype, run a code in a notebook just to sell and see the output.  They can very quickly iterate, but if you do it in local, that quick iteration kind of becomes a bit slowed down because they have like now deployed it to Databricks and see what is happening.  Okay, now there is a change. Now again, go to my local, right? So a lot of screen switching is there, right?  So usually I have seen like, okay, the core data engineers, like who are like really developer developer kind of  People, they like that IDE base, but 70% of the population which is using Databricks, they just do fast iterations on UI.  Okay, Sanjeev.
+
+46:16 - Asindu Gayangana
+  Yeah, those are the questions. So my one question is, Sanjeev, when you pull from the main, it means when you create a feature branch from the production, then it's come to your local environment.  But when we go to the Databricks UI, those changes are not in the UI, Sanjeev. You might need to deploy into the feature branch kind of thing.  Sorry, sorry. I maybe missed you.
+
+46:48 - sanjeev kumar
+  Could you come again? Okay, Sanjeev.
+
+46:51 - Asindu Gayangana
+  So my question is, you create a feature branch, then pull into your local environment. Then you can see all the codes in your local environment.  can the codes in your local environment. You The So, but right now you need to view the Databricks UI.  So, it is enough to see the Databricks UI. It means all the updates are, can we see all the updates in Databricks UI rather than deploying into the feature branch?  See, I'll tell you in Databricks, you see my screen, right?
+
+47:23 - sanjeev kumar
+  Yes, I do. So see, I have created a Sanjeev projects, which is Git linked. Right. So let me click on this one here.  I have a project called Sanjeev underscore projects. I have all, I already have this main branch. Okay. You see, main branch, then I can go and create a, create a feature branch, right?  A feature slash blah, blah, blah, right? Okay. I can do these things. So whatever you check in in your, just imagine like somebody else is working on the workspace and they're using UI or maybe you are, you are using your local.  We did some check-in, so very first thing, the person who is using, who likes using UI will do, okay, every day, first thing in the morning, doesn't matter, you are doing a local development or the UI development, you should go and pull your request, sorry, pull your Git report, right?  So very first thing that I will do, I will always go click on this one and do a pull.  That's it, 108 commits are there that I can actually pull here, right? You see, else has done some, is working my project, right?  So you click on this one, all your changes that somebody else has done will be available here. All the feature branches will also list here, here only main is being listed because there is one branch, but if there are n number of feature branch, even those will be listed, right?
+
+48:46 - Asindu Gayangana
+  So you see this, right?
+
+48:48 - sanjeev kumar
+  So this is a full Git-based or CICD-based development that you can directly in the UI tool. It's just that whichever project you are working on, just link.  Link it to git, whichever git project you are working on, let me show you how we do, for example, if I go here, if I go click here, you can create a simple folder, then it's all local, there is no git check-in, but you can create a git folder, now here you see, this is what you exactly do in your local website, you do a git checkout, correct, and as soon as you do a git checkout, it creates a folder in your local, right, and exactly, this is exactly you do here also, right, you provide this one, git folder name, blah, blah, whatnot, and then just do a git folder, now it is like fully synced with your, with your git, and exactly the same experience that you have in local, you can have here, okay, okay, make sense, yeah, yeah, yeah, and just to let you know, most modern platforms should have, I have not worked with like all of them, but I know, like, even Azure,  has like Azure DevOps. And Deepika, please feel free to correct me if that is wrong, right? Because the way I showed you in Databricks, I think they also must have something.  All the modern platforms try to have this kind of interface. So since Databricks has it, I assume other platforms should also have something similar.  So UI or local, it's all on the flavor that your team wants. Okay. Any other questions, Asindu? No, Sanjeev.
+
+50:38 - Asindu Gayangana
+  I tried with 27 or 28 GB data for processing, but I joined with three kind of tables, but it joined too quickly.
+  ACTION ITEM: Simulate large-data joins (100–200 GB); test filter-before vs filter-after; test skewed data - WATCH: https://fathom.video/share/CScfHLUdmNHMBgxmuxAnFpgkppczQRak?timestamp=3043.9999  So within just two seconds. data world, 27 GB is nothing.
+
+50:54 - sanjeev kumar
+  Try to scale it to probably 100 GB, right? Have 100 GB, 200. And then probably let's, let's see what happens then and try to write joins, which are like, I don't know, left join, try to do Cartesian join, then we will see the data probably will be, then you would see slowness and we will then work on the optimization part.
+  ACTION ITEM: Prepare queries/dataset for Spark UI + logs demo; share w/ interns - WATCH: https://fathom.video/share/CScfHLUdmNHMBgxmuxAnFpgkppczQRak?timestamp=3071.9999  Yes, that is also one of the, sorry, if you can share my screen. So there is one task on me also, if you see, I need to share with you a proper Spark UI plus logs and blah, blah.  So I, it is on me that I need to create some queries with some large amount of data, which has some bottleneck that I, then I can show you how do you go and debug them in Spark UI, right?  So that's a task on me.
+
+51:42 - Asindu Gayangana
+  I view the deck and identify how, how can we optimize those things. So I, I copy that details into the chat GPT, but it says everything will, it is fine.  So yeah, even the 27 GB.
+
+52:00 - sanjeev kumar
+  Write up to 58 GB into the partitions, then this is the thing sanjeev, so what I would do, so okay, interesting, so if since I'm working on this one, do one thing, if you want to like simulate a problem, write two queries, join queries where, just imagine you need to filter down some data, right, okay, where customers belong in Sweden region only, right, something like that, write two queries, one with that, Sweden filtering, that you do, while you are reading, so you have to read the data from one table, and read the data from another table, right, in the, in the first query, you filter the, you add the Sweden filter, right before you are, sorry, right after, while you are reading the data, right, building the data frame, right, and the second filter you add, after you do the join, and let's see like what happens, this is one scenario, you can also like create,  Skewed data, maybe for Sweden region, add, I don't know, out of 27 GB, add 26 GB of data, that is only for Sweden, right?  And then 1 GB of data for other things. And then just do a normal processing partitioned by Sweden, and then you see the slowness, right?  So these kind of things you can actually simulate, Asindu. Okay. Last question, Sanjeev.
+
+53:25 - Asindu Gayangana
+  I create a temporary view from data frame. Then I display that data from the temporary view. It still reads from the data frame.  I mean, it go through the transformations logics. Do I develop, do I create a data frame? It means, uh, even though I create a temporary view, uh, when I, uh, try to display data, uh, it doesn't store data within the, uh, that view.  So it create. Step-by-step, and I need to wait around five minutes to display that data rather than storing data into the target table.  So, yeah, this is the last point, Sanjay. Okay, so sorry, I did not answer the question here, sorry, Sanjay.
+
+54:18 - sanjeev kumar
+  Okay, Sanjay, I create a transformation.
+
+54:21 - Asindu Gayangana
+  So initially, I read the data from the table, then join with three tables. Then I do some transformation for the entire data frame, then I, so, I save that last data frame as a temporary view.  So when I read the data from the temporary view, it, it again, start from that transformation process. So it is, so that's what I learned from that time.  Could, could, could, someone explain why that is happening?
+
+54:59 - sanjeev kumar
+  So if I understand. So you join the data, you put them in a view, right? And then you query the view, it does some processing, then you again query the view, it again redoes everything, right?  Can somebody explain me like what is happening, if you understand? Yes, Niklas, please go.
+
+55:20 - Nikolaos Biniaris
+  Yeah, so we use the temporary views, if we always want to our data to be like exactly on point of when we see, when we check the view.  Actually, and if we want our data to instantly run, and always be ready, we use the tables, so that if we want like, instant access, so it doesn't get queried when we, the table just exists in the memory.  So the views are really great. If we do not want all the time to manually update the data, because the view will always be the most recent, how the data are exactly right now on the source.  But this is like the disadvantage of it gets like queried each time we want to access the view. So the transformation, and it grabs the data from the source, each time we want to see the temporary view, and it does all the transformations, every time.  Any other feedbacks on what Nikola said?
+
+56:47 - Asindu Gayangana
+  I have one question, so why do we need a temporary view if we face this problem? Yeah, I will tell you.
+
+56:55 - sanjeev kumar
+  So, but Nikolaos, what you mentioned is absolutely right.
+
+56:58 - Asindu Gayangana
+  So this is the reason, right? So, So, So,
+
+57:00 - sanjeev kumar
+  So, and Asindu, your question, why do we need this? Exactly what Nikolaos explained. And Nikolaos, I'm going to explain that again.  And if you feel there is something that I'm not covering, please feel free to jump in, right? See, views are always recomputed.  Views is like a window to the table, right? So, whenever you look outside window, you see a view. You are not in the garden, right?  You just see a piece of it, right? Every time your eyes processes it, like reprocessing every time happens. And a table is actually the garden, right?  You can go and touch and feel the grass, right? So, you actually have access to the data. Now, views are always recomputed.  So, whenever there is data on that particular table and there is some logic that I want to compute, it will always give me that recomputed view.  So, I don't have to worry about anything. These are... are the five computation that I want? Like this is how I want my moving average to be calculated.  This is how my sales order should be computed, right? And you put that in a view. Whenever you fire that, that's going to make sure that it will use that fresh data, whatever is available in your table, do that recomputation again and give you the data that you want, right?  So this is why views are used where people don't want to like wait for creating. Now, okay, so this is how views are used.  Now, another alternative is, but there is a problem with this one. Whenever you query the whole computation that you create, like select from this table, I need this moving average on this one and an average on this particular column, number of sales that I have done.  Give me the answer that is going to get computed every time somebody accesses the view, right? So that's a drawback there.  But the advantage is I don't have to do anything extra. My data engineer created that table. So fire the query, I get the results.  Now there is another way where now we understand that query will be slow because that is every time recomputed.  Now what you can also do as an alternative, this whole logic that I have created from averages, calculating my order, number of order that I have sold, grouped by every region and blah, blah.  I can create a table for that, the same logic, right? So you have your base table where your raw data, just like that column, number of sales, blah, blah, without any logic, right?  Just raw data is available. And then instead of view, the whole view logic, I can write it into a table, right?  Where I create those grouped by things moving, average, blah, right? So I am actually creating a aggregated table here.  Now, user will, whenever that user queries this table, they will have a very fast response because the query... I have already run a query to create this table for you and keep it physically.  So I have materialized that table. Now, whenever, so now there is no view needed, right? I can directly query this intermediate table.  So your first table still is still there. You created a new table here for aggregated data and then you query it, right?  Now there are differences. Now, whoever queries it, it will be very fast, right? They don't have to run that query because it is pre-computed, pre-computed.  kept it in the table, but now there are problems here, right? You have one extra table that you need to manage and maintain, right?  You have to make sure that there is a job that is written that populates and keep this intermediate table always updated, right?  So a little bit of more overhead, right? Now, so that's why. So. So. Again, there is no right answer here.  It all depends on what your team needs, right? If you have like very small data and when you fire the query, it maybe takes three seconds extra.  Who cares? Let me do everything in views. But if your data set is going to grow to like, I don't know, hundreds of GBs or maybe terabyte of data, that view is going to take hours to compute.  That's wastage of resource, wastage of compute. You are paying extra, user will have a bad experience. In that cases, go and have this intermediate materialized table.  Then the user will have good experience, blah, blah. Everything will be done. You pay less because that recompute is not happening.  hundreds of users are firing the query, hundreds of times it will decompute in the view case. But here, no, it has already be recomputed once, once a day, right?  Maybe every day your source table, raw data gets data once a day or two times a day. You, as soon as you get the data, populate and build this into.  So you pay for compute only two times, and it is a huge amount of data, so that runs, and then your user will have a very good experience, correct?  yeah. So what you observed, Asindu, was right. If there is a view, a re-competition will happen. But depending on the use case, both answers are right.  You can go with view, or you can materialize the view. Okay, Sanjeev, anything is clear.
+
+1:02:36 - Asindu Gayangana
+  Okay, great, great.
+
+1:02:37 - sanjeev kumar
+  Nikolaos, we missed you. So let's cover your part.
+
+1:02:43 - Nikolaos Biniaris
+  Yeah. So what I worked on, because I just saw that here in the, like in our GitHub, it says that I would demonstrate the widget.  It's that I worked on a different problem, we had discussed that I should use either RBI or Tableau for my dashboard instead of a default Databricks application.  So that's what I worked on. I, I created some Tableau dashboards on my goals data and also on my metrics that are on the processes that I did.  After having my gold tables, I had created some business metrics, if you remember some like holiday performance, customer metrics.  So for segmentation analysis mostly or like operations metrics. So for now I have ready. we are able going a type picture so we're about times.  I I have two dashboards, one for the holiday performance and one for a customer segmentation and analytics, so I can maybe we can have like a just a check epic for my dashboard screen.  Okay, you are on mute, Sanjeev.
+
+1:04:29 - sanjeev kumar
+  Sorry, I was on mute. Yeah, one thing, so Nicholas, were you there when Neha was asking her question about the data part, how it should be presented?  Yeah. Okay, do you have opinion on that? Like, what do you think? What's your opinion? How would you answer Neha's question?  The data part? Yeah, you remember she was asking like, okay, the way the data is being represented, how shall I go about it?  There were white spaces, it was not looking very properly. She had a question whether I should go ahead and do the cleaning myself without talking to my stakeholder or what should I do?  Oh no, I think that you should always ask the business people how they would want the data.
+
+1:05:12 - Nikolaos Biniaris
+  And maybe, yeah, your example questions were right, I think. Like they would probably ask to categorize all the products on country because I saw that this was not visible.  I saw many products from Sweden, other from Finland, other from Norway. So maybe they would need this kind of categorization and grouping.  And yes, of course, I think they would answer positively in like trimming all the spaces and having one space for its value.
+
+1:05:46 - sanjeev kumar
+  But the main point is you should always get it approved from your stakeholders, not just go and do what you think is right.  Correct. OK. Oh, yeah, of course. And then I think that if there was an analytics engineer or.
+
+1:06:00 - Nikolaos Biniaris
+  Data Engineer, it would be better for him to already trim them in the silver layer, not in Excel, definitely not in Excel.  Yeah, absolutely. Yeah, so my gold dimension is the fact sales, and I have connected them with the holidays API I'm using when I'm pulling data for holidays.  And I have my dimensions as customers and products, but also as other sources. I have all of these like the metrics I have created when I was like acting like an analytics engineer and creating metrics in my Databricks notebooks.  So I also have those separately as sources, and I can use them. But I can actually create all of them again in Tableau, just from these three, like my dimensions and fact sales.  But yeah, I have also imported the metrics. Because it's easier. I have already created them and using Databricks Spark.  So analytics part you have already done in Databricks, right?
+
+1:07:11 - sanjeev kumar
+  Yes, yes, yes.
+
+1:07:13 - Nikolaos Biniaris
+  I have already sent all the feature brands from last week. So for example, I can show some examples of charts, but the most important thing is the whole dashboard here.
+
+1:07:36 - sanjeev kumar
+  You can click on hide there, yeah. So for example, this is my holiday versus non, like the holiday performance dashboard.
+
+1:07:46 - Nikolaos Biniaris
+  And I have put also actions in that so I can select. This data is coming from the API when I connect my data with the API of holidays.  And then I have found a way to join. So I can just say I want those days, I can just filter everything and see more specific things about it, then I have the holiday versus non-holiday in terms of average revenue per day, and then I have created like a combination chart, so the bars are the total revenue for each holiday, and the order count is also visible here, so you can have a comparison of count of orders against the revenue that they have provided to the sales, and then also I have the customer analysis dashboard, so I have created also a performance matrix, I have my promising customers, loyal customers, all this is coming from the segmentation I have performed in my silver layer,  I have done some segmentations there. So I can just, for example, like the top two charts are the RFM analysis, recency, monetary, and frequency analysis.  And based on that, I've created the customers that are loyal, the answer we have lost, customers that are at risk.  And I can just, like, I can just have the details for, like, the top ones, or like, this is the total CLV value and the segment orders they have done.  So based on that, they're getting also their places here, according to their orders and the value. Then I have also another type of segmentation, it's time-based segmentation mostly, so I have the average CLV based on all the, yeah it's time-based analysis as you can see here, and also I have the, how much their repeat purchase rate, you can see it is going, this is a percentage, it is going from 0 to 40%, this is something that that we don't want, especially in like, in the supply chain industry, it's considered like a low rate, 0 to 40% of repeat purchase of customers, but yeah, you can see that, for example, in 2011 to 2013, it was really higher, then it started dropping, and also I have the retention, customer retention heat map.  to as individual. tell I will tell something more, How much? And we succeed in retaining the same customers, which is of course connected to their purchase rate.  And all of these, yeah, they have some filters to dive deeper and analyze why this would happen.
+
+1:11:19 - sanjeev kumar
+  So yeah, that's my two dashboards so far, but I will create more of them as well. At least see, I don't really don't have like very good skills on the dashboarding part.  To me, it looks like great. Like when you click and then you select and then automatically fires the filters and queries and then it gives you more detailed analysis on top of that.  So it really looks good to me. One question I might have for you. So these are, and this question is coming from a guy who's not like, like hardcore analyst, right?  So I might be asking something stupid. So this is fine for my point queries. new feature list. Thanks. Correct?  I know what I want to see every day and I have given you the task. have done a great job in doing it, right?  What if there are ad hoc queries? What shall I do? What if there are ad hoc queries? Like for example, holiday, non-holiday, maybe I want to just talk about Black Friday season.  What will be the development process? Like as a user, I come and say, okay, holiday, non-holiday is fine. Revenue, but I want to see, like, if I understand correctly, this is on somebody selling some stuff and then in holiday season, how much they are selling and non-holiday is how much they are selling.  I want to see, now for the Black Friday season alone, I want to see the metrics. This is my request to you and just walk me through the process, like how will you develop and showcase?  Yeah. So, is this like a data problem or a dashboard problem?
+
+1:12:59 - Nikolaos Biniaris
+  I mean, here about view stuff I Thank Do you mean that the data already exists about Black Friday, or it is completely non-existent, and I should start all the way to...
+
+1:13:10 - sanjeev kumar
+  As a non-technical user, I think it should be. I am the CFO, and I want to see the financial data, right?  Yeah, yeah, yeah. As an analyst, I will say, okay, I think I want a specific focus on the Black Friday season, Black Friday weeks, and can you get me that?
+
+1:13:27 - Nikolaos Biniaris
+  Yeah, if the data is already here, like in my gold layer inside Databricks, it is actually really easy in Tableau because you add a filter, you make it interactive, and you let the user choose which holidays they want to focus on.  And you can also have some specific task force that they dive deeply, they dive deeper in what the user is choosing.  So if the data is already here... Here, it's actually very easy for just one day sprint. You can just have the filters ready, and you can let the user decide on which holiday types he wants to focus on.  If I have a question to you.
+
+1:14:20 - sanjeev kumar
+  Now, can you tell me how you integrate AI here? How it can help?
+
+1:14:28 - Nikolaos Biniaris
+  So, what I would suggest, instead of using AI in Tableau, which is just a dashboarding application and service, I would say the best thing right now we could do to add some AI assistance would be to go back to Databricks and use exactly the same data as in here.  So, this data is also the gold layer, and then we could use... The DataBreeks Genie for some ad hoc analysis questions, and we could also maybe feed the DataBreeks Genie with the dashboards that we can see here in Tableau for some extra information.
+
+1:15:18 - sanjeev kumar
+  But then could you tell me like how confident I can be in that data? is still AI, right? The dashboard that you have created, I know it is 100% correct.  But I can ask ad hoc queries, how will you give me confidence on the quality of the data or the accuracy of the data?
+
+1:15:40 - Nikolaos Biniaris
+  So if we come over here to DataBreeks, to Genie, and you can see here, for example, that is a very similar data I have used in the past.  You can actually train the agent. You can monitor and see the benchmarks on how... What is like the percentage of the answers it is giving or if it is actually hallucinating.  Okay, it hasn't started here yet. But there are a lot of ways to see the accuracy of responses because you can actually train.
+
+1:16:19 - sanjeev kumar
+  I've got your point. So, yeah, it's here. Okay. So as my analyst, you will make sure that even for ad hoc queries, if AI is being integrated, doesn't matter Gini or whichever platform, you will make sure that you have the benchmarks and monitors so that the accuracy is being monitored.  should be around 95%, 85%, that kind of things, right?
+
+1:16:44 - Nikolaos Biniaris
+  Yeah, what I know is that here, if you really work on that, you can teach the Gini to like, what are the joints that you're using for your data in the gold layer, you can describe here everything about the data.  Data that it needs to know. You can give it some examples of like successful SQL queries that you would like to, like as examples for it to take, and like some, I mean, yeah, you can see like the examples here, but I guess that you can give it also really more complex queries like window functions that you would like to use, and then you can teach it a lot of things.  You can tag your data, you can edit them, you can put some descriptions to everything, and in the about section, you can give a description to your tables as well, and you can add all the information here.  Awesome.
+
+1:17:47 - sanjeev kumar
+  I'll just talk about this, but let me give you a feedback. This is great. I'll tell you why. Dashboarding has, skill set has been for long, but when I asked you about it, because I'm telling you, take Thank  Talking with customers, everybody is talking about AI based dashboarding, right. So exactly. And I'm so happy that you covered everything in Gini.  So not any platform that you have, like how AI is assisting that. Because as a user, I just don't want a person who can only develop this, but also give me advice and guidance on how I can integrate with AI.  Or my ad hoc analysis, dashboarding, blah, blah, and whatnot. And how can I trust that? Right now you do that using analytics, engineering, data quality, blah, blah.  But something similar is required with AI also. Exactly the monitoring, benchmarking, what kind of context you give, what kind of comments you give, what exactly data you are attaching to your Gini spaces or say Snowflakes, Cortex core space.  All the platforms are doing something similar. Some platforms could be a little bit ahead or not. Something similar should be available in Fabric too, right.  But if you know. One platform, and you interview, go and say, this is how I will do it in Databricks, I'll give the proper data context, I will keep the number of data sets assigned to a workspace, limited so that accuracy is high, and I will monitor that through these things, right?  That's it. That's a great answer that you can give to any interview, right? I'm really happy that you explored this part and you were able to answer it, right?  To the detail which I wanted, right? So kudos to you. Yeah, yeah. Thank you, Sanjeev. Great. So yeah, one more thing.  Wherever you go, right? We are developing our core skills, but always keep in mind that there will be AI related questions to you, right?  You should be ready to answer in your work, how will you use it? How it will simplify your work?  How it will help you scale 10x? Here people are not to reject people, but here, now the market is changing.  Like, if you are joining us, we expect you to use AI effectively and give Give me 10x returns out of you, right?  So we don't fight AI, we incorporate it so that we become more scalable, right? And we do tasks that maybe three or four people needed to do that, right?  So now the same companies will be able to get more projects, more output, more revenue. So once this AI thing settles down, right, I probably, I'm a bit of optimistic guy, I don't see jobs going down.  I see the stagnating at the moment. But with this AI, I can do 2x, I can give 2x the output, right?  Now my company is earning more, so they will add more people, now they're getting more projects. So they need to keep hiring those people, so that they can keep on doing more and more work, right?  Yeah, so always incorporate AI in your answer, to keep it as a companion and yeah, keep it easy. okay yeah yeah thank you great uh i think uh thanks a lot everyone uh so again a reminder next week uh we will take off for midsummer and let's meet after that thank you thank you very much okay bye bye yeah bye bye thank you thank you you bye bye

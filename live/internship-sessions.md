@@ -4,27 +4,175 @@
 
 ---
 
-## Session 12 — June 13, 2026 *(today)*
+## Session 13 — June 27, 2026 *(upcoming)*
 
 **Agenda:**
 
 **Part 1 — Weekly sync & check-ins**
 
-1. Admin — Next week is Midsommar (June 20) — **no session**. Next session June 27.
-2. Week check-in — what did you work on? Blockers? Wins?
-3. Suhash — Slide deck: MV vs streaming table vs Delta table + DLT use case design with SCD 1 & 2 *(carried over Sessions 9, 10 & 11)*
-4. Deepika — Multi-bundle DABs isolation validation + Terraform/DABs code to repo + MLOps progress *(carried over Sessions 10 & 11)*
-5. Nikolaos — Databricks widget parametrization on notebooks *(carried over Sessions 10 & 11)*
+1. Week check-in — what did you work on? Blockers? Wins? *(2-week gap — Midsommar break)*
+2. ~~Suhash — Slide deck: MV vs streaming table vs Delta table + DLT use case design with SCD 1 & 2~~ *(carried over Sessions 9–12)* → Session 13 target
+3. Neha — 20-min storytelling session: present existing dashboard to group as business stakeholders *(carried over from Session 12)*
+4. Deepika — MLflow progress + MLOps hands-on share-out
 
 **Part 2 — Technical deep-dives**
 
-6. Neha — 20-min storytelling session: present existing dashboard to group as business stakeholders
-7. Asindu — DABs multi-account deployment demo (profiles + tokens) + large-scale pipeline run
-8. Filip — Enhanced Faker: complex dataset template + higher-volume data generation
+5. Asindu — Large-scale Spark job: scale to 100–200 GB, simulate skewed joins, identify bottlenecks
+6. Filip — Enhanced Faker generator + dbt pipeline at scale
+7. Nikolaos — Expand Tableau dashboards + Databricks Genie AI integration for ad hoc analysis
 
 **Standing items**
 
-9. Sanjeev — Share Spark UI/DAG screenshots + logs → interns identify bottlenecks *(action from Session 11)*
+8. Sanjeev — Share Spark UI/DAG screenshots + logs for bottleneck analysis exercise *(carried over from Session 11)*
+
+---
+
+## Session 12 — June 13, 2026
+
+**Attendees:** Sanjeev Kumar (mentor), Kousalya, Neha Doda, Suhash Raja, Deepika Elangovan, Asindu Gayangana, Nikolaos Biniaris
+**Absent:** Filip Cedermark, Elliot Eriksson
+
+**Agenda:**
+
+**Part 1 — Weekly sync & check-ins**
+
+1. Admin — Next week is Midsommar (June 20) — **no session**. Next session June 27. ✅ *(Kousalya to inform Raj + Slack)*
+2. Week check-in — what did you work on? Blockers? Wins?
+3. ~~Suhash — Slide deck: MV vs streaming table vs Delta table + DLT use case design with SCD 1 & 2~~ → *(not prepared; unit testing work instead — carry over)*
+4. Deepika — MLOps progress ✅ *(pushed code to repo; started MLflow)*
+5. ~~Nikolaos — Databricks widget parametrization~~ → *(pivoted to Tableau dashboards — see section 4)*
+
+**Part 2 — Technical deep-dives**
+
+6. ~~Neha — 20-min storytelling session~~ → *(deferred; was in Microsoft AI Skills event — carry over to Session 13)*
+7. Asindu — 27–28 GB pipeline run + GitFlow / CI-CD branching discussion ✅
+8. ~~Filip — Enhanced Faker~~ → *(absent)*
+
+**Standing items**
+
+9. ~~Sanjeev — Share Spark UI/DAG screenshots + logs~~ → *(carry over — action item confirmed)*
+
+**Notes:**
+
+---
+
+### 1. Admin
+
+- Raj organising an intern dinner next week (June 20 — Midsommar week). Sanjeev to try to join if travel permits.
+- No session June 20. Kousalya to inform Raj + Slack channel.
+
+---
+
+### 2. Suhash — Config-Driven Development + Unit Testing
+
+Built a config-driven pipeline scaffold: folder structure, logging utility, config loader, `add_metadata` utility. Wrote unit tests for logging and `config_load` (both passing). `add_metadata` test failing — error: "cannot create local Spark session" when running via pytest with Databricks Connect installed.
+
+**Sanjeev debug session (screen share):**
+- Root cause of the Spark session error: when Databricks Connect is installed, local `SparkSession.builder.getOrCreate()` is intercepted. Fix: add an environment check — if running locally (not on Databricks), instantiate a standalone local Spark session; if on Databricks, let the platform inject it automatically.
+- Actual test failure spotted: `assert "ingestion_timestamp" in enriched.columns` — **data type mismatch**: `enriched.columns` returns a list of strings; the `in` check works, but the assertion message shows it's not found. Likely the column name differs or the DataFrame isn't being built correctly. Fix: use `assert "ingestion_timestamp" in enriched.columns` and verify the column is actually being added by the function before asserting.
+- Test folder structure (unit/integration split) is correct. Integration tests intentionally empty — they run on cluster, not locally. Fine.
+- DABs deployment is working — code deployed to Databricks workspace successfully.
+- **Recommendation:** use Databricks Genie (built-in AI) for Databricks-specific troubleshooting rather than ChatGPT alone — it has more Databricks context.
+- General principle: only Databricks Asset Bundles and declarative pipelines are Databricks-specific. Everything else (project structure, logging, config, testing) is standard software engineering.
+
+---
+
+### 3. Deepika — MLOps Progress
+
+Pushed all existing code to internship repo. Started MLOps path:
+- Covered ML lifecycle, tools landscape, MLOps vs DevOps distinction.
+- Built a small end-to-end MLOps project for hands-on understanding.
+- This week: exploring MLflow and Kubeflow. Kubeflow felt easier (has Kubernetes background). MLflow harder — YouTube example was too advanced.
+
+→ **Sanjeev**: Start with MLflow — open source, Databricks-integrated, widely used in production. SageMaker is dominant in AWS world; Azure AI Foundry for Azure. Concept stays the same across frameworks; don't get blocked by framework choice. Find a simpler MLflow example first; build up from there.
+
+---
+
+### 4. Neha — Data Cleaning + Stakeholder Alignment (screen share)
+
+Neha shared an Excel dataset (Swedish product/supplier data from a previous interview project — OKQ8 logistics). Questions about data cleaning: irregular spaces in product/supplier names, Swedish characters, abbreviations.
+
+**Sanjeev's feedback:**
+- As a DA/analytics engineer, **never clean or transform data without stakeholder sign-off**. The data belongs to the business, not the analyst.
+- Correct process: take a sample → present to stakeholders → agree on what changes are acceptable → codify those changes as rules/test cases → apply.
+- Thought process matters in interviews: if you left irregular spaces *intentionally* because you didn't have business confirmation, say that. Explain your reasoning. Interviewers value this more than "I cleaned everything I didn't like."
+- If data is small (Excel-level), cleaning details don't affect performance. If data grows to GBs, think about layout optimization (partitioning keys, file format).
+
+Storytelling session deferred to Session 13 (Neha was in Microsoft AI Skills event this week, no time to prepare). Neha also explored Fabric Eventhouse and Event Streams this week.
+
+---
+
+### 5. Asindu — GitFlow, CI-CD Branching, UI vs Local Dev, Views vs Tables
+
+**GitFlow & feature branching (Sanjeev explanation):**
+- General rule: create feature branch from **main** (production state) — you build on what is live, not on in-progress work from colleagues.
+- Exception: if your feature directly depends on another in-progress feature, branch from **dev** or from that feature branch.
+- Feature branches: delete after merging to main. Pull request → merge → delete branch is the clean pattern.
+- Dev branch = production + latest additions. Main = production. Feature branches feed into dev via PRs; dev feeds into main after integration testing passes.
+- **Recommended read for all interns: GitFlow workflow** — learn when to use main/dev/feature/release/hotfix branches.
+
+**Databricks UI vs local IDE:**
+- Both are valid. ~70% of Databricks users prefer UI development for fast iteration (prototype, run notebook, see output immediately).
+- Hardcore data engineers often prefer local IDE for more control.
+- Databricks UI supports full Git-based workflow: link folder to Git repo, pull, create branches, raise PRs — same as local.
+- Key: pull at the start of every session regardless of where you work.
+
+**Temporary views vs materialized tables (Asindu observed view re-running transformations each time):**
+
+*Nikolaos explained first (correct):* views are always recomputed from source — always fresh, but slow for complex logic; tables are materialized — fast queries, but require a scheduled job to stay updated.
+
+*Sanjeev expanded with the full framing:*
+- **View** = window to the garden (recomputed every query, always fresh, no extra table to manage, slow on large data)
+- **Materialized table** = the garden itself (pre-computed, stored, fast, extra maintenance overhead)
+- Choice depends on data volume + query frequency: small data or infrequent queries → views fine. Large data or many users querying simultaneously → materialize. Paying for compute 100x vs paying for it once.
+
+**Scale challenge:** Asindu ran 27–28 GB joins across 3 tables — completed in 2 seconds. → **Sanjeev**: 27 GB is too small for Spark to struggle. Targets to simulate real-world problems:
+- Scale to **100–200 GB**.
+- Write two join queries: one filtering *before* the join, one filtering *after* — compare performance.
+- Simulate **data skew**: 26 GB for Sweden region, 1 GB for everything else. Partition by region. Observe slowness and uneven executor loads in Spark UI.
+
+---
+
+### 6. Nikolaos — Tableau Dashboards + Databricks Genie for Ad Hoc Analysis
+
+Pivoted from widget parametrization. Built two Tableau dashboards on gold layer data:
+
+**Dashboard 1 — Holiday Performance:**
+- Holiday vs non-holiday average revenue per day
+- Total revenue by holiday (bar) + order count (line) — combination chart
+- Interactive action filters (click to drill down)
+- Data powered by gold metric tables + Holidays API join
+
+**Dashboard 2 — Customer Segmentation & Analytics:**
+- RFM (Recency, Frequency, Monetary) analysis → customer segments: loyal, at-risk, lost, promising
+- CLV (Customer Lifetime Value) by cohort + time-based segmentation
+- Repeat purchase rate trend (0–40% — low for supply chain industry)
+- Customer retention heat map
+- Interactive filters throughout
+
+**Sanjeev challenge: ad hoc queries (e.g. "show me Black Friday season metrics"):**
+→ Nikolaos: if data exists in gold layer, add interactive Tableau filter → 1-day sprint for user. For AI-driven ad hoc → use **Databricks Genie**: train it with gold layer context, SQL query examples, window function templates, table descriptions. Monitor accuracy via Genie benchmarks (hallucination rate, response accuracy %).
+
+**Sanjeev feedback:** Exactly the right answer. Customers are asking about AI-integrated dashboarding everywhere. Being able to say *"here's how I'd add Genie, here's how I'd train it, here's how I'd monitor accuracy"* is a differentiating answer in any interview. Always pair AI usage with quality monitoring — same principle as DQ frameworks, just applied to AI responses.
+
+→ Broader message to all interns: AI should be positioned as a companion that makes you 10x productive, not a threat. Companies hiring now expect engineers to use AI effectively and show amplified output.
+
+---
+
+### Action Items
+
+| Task | Owner | Due |
+|------|-------|-----|
+| Inform Raj + Slack: no session June 20 (Midsommar) | Kousalya | ASAP |
+| Fix `add_metadata` unit test — resolve SparkSession instantiation + column assertion bug | Suhash | Next session |
+| Prepare slide deck: MV vs streaming table vs Delta table *(4th carry-over)* | Suhash | Next session |
+| Continue MLflow hands-on; find simpler example; build up from there | Deepika | Next session |
+| Push MLflow experiment code to repo | Deepika | Next session |
+| Prepare storytelling session: present existing dashboard to group as business stakeholders *(deferred)* | Neha | Next session |
+| Scale pipeline to 100–200 GB; simulate skewed joins (Sweden skew scenario); observe Spark behaviour | Asindu | Next session |
+| Expand Tableau dashboards + explore Databricks Genie integration for ad hoc analysis | Nikolaos | Next session |
+| Start enhanced Faker generator using complex dataset as template *(carry-over)* | Filip | Next session |
+| Share Spark UI/DAG screenshots + logs for bottleneck analysis exercise *(carry-over)* | Sanjeev | Before Session 13 |
 
 ---
 
